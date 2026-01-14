@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>inference – R4DataScience</title>
+<title>20&nbsp; Statistical Inference – R4DataScience</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b680963197a85bbb632cc40c4e408ceb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-45d75064858668abf569a5893fbecd9d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/18-inference.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">18-inference.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/18-inference.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Statistical Inference</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -227,13 +227,25 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/18-inference.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">18-inference.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Statistical Inference</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/19-regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">19-regression.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Regression Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/20-timeseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/21-classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">21-classification.html</span></span></a>
   </div>
 </li>
     </ul>
@@ -241,17 +253,242 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">20.1</span> Introduction</a></li>
+  <li><a href="#population-sample-and-parameters" id="toc-population-sample-and-parameters" class="nav-link" data-scroll-target="#population-sample-and-parameters"><span class="header-section-number">20.2</span> Population, Sample, and Parameters</a></li>
+  <li><a href="#sampling-distributions" id="toc-sampling-distributions" class="nav-link" data-scroll-target="#sampling-distributions"><span class="header-section-number">20.3</span> Sampling Distributions</a></li>
+  <li><a href="#the-central-limit-theorem" id="toc-the-central-limit-theorem" class="nav-link" data-scroll-target="#the-central-limit-theorem"><span class="header-section-number">20.4</span> The Central Limit Theorem</a></li>
+  <li><a href="#point-estimation" id="toc-point-estimation" class="nav-link" data-scroll-target="#point-estimation"><span class="header-section-number">20.5</span> Point Estimation</a></li>
+  <li><a href="#interval-estimation-and-confidence-intervals" id="toc-interval-estimation-and-confidence-intervals" class="nav-link" data-scroll-target="#interval-estimation-and-confidence-intervals"><span class="header-section-number">20.6</span> Interval Estimation and Confidence Intervals</a></li>
+  <li><a href="#hypothesis-testing-framework" id="toc-hypothesis-testing-framework" class="nav-link" data-scroll-target="#hypothesis-testing-framework"><span class="header-section-number">20.7</span> Hypothesis Testing Framework</a></li>
+  <li><a href="#test-statistics" id="toc-test-statistics" class="nav-link" data-scroll-target="#test-statistics"><span class="header-section-number">20.8</span> Test Statistics</a></li>
+  <li><a href="#p-values" id="toc-p-values" class="nav-link" data-scroll-target="#p-values"><span class="header-section-number">20.9</span> p-values</a></li>
+  <li><a href="#significance-level" id="toc-significance-level" class="nav-link" data-scroll-target="#significance-level"><span class="header-section-number">20.10</span> Significance Level</a></li>
+  <li><a href="#types-of-errors" id="toc-types-of-errors" class="nav-link" data-scroll-target="#types-of-errors"><span class="header-section-number">20.11</span> Types of Errors</a></li>
+  <li><a href="#power-of-a-test" id="toc-power-of-a-test" class="nav-link" data-scroll-target="#power-of-a-test"><span class="header-section-number">20.12</span> Power of a Test</a></li>
+  <li><a href="#common-statistical-tests" id="toc-common-statistical-tests" class="nav-link" data-scroll-target="#common-statistical-tests"><span class="header-section-number">20.13</span> Common Statistical Tests</a></li>
+  <li><a href="#assumptions-in-statistical-inference" id="toc-assumptions-in-statistical-inference" class="nav-link" data-scroll-target="#assumptions-in-statistical-inference"><span class="header-section-number">20.14</span> Assumptions in Statistical Inference</a></li>
+  <li><a href="#statistical-inference-using-r" id="toc-statistical-inference-using-r" class="nav-link" data-scroll-target="#statistical-inference-using-r"><span class="header-section-number">20.15</span> Statistical Inference Using R</a></li>
+  <li><a href="#misinterpretations-and-common-pitfalls" id="toc-misinterpretations-and-common-pitfalls" class="nav-link" data-scroll-target="#misinterpretations-and-common-pitfalls"><span class="header-section-number">20.16</span> Misinterpretations and Common Pitfalls</a></li>
+  <li><a href="#inference-in-the-data-analysis-workflow" id="toc-inference-in-the-data-analysis-workflow" class="nav-link" data-scroll-target="#inference-in-the-data-analysis-workflow"><span class="header-section-number">20.17</span> Inference in the Data Analysis Workflow</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">20.18</span> Summary</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Statistical Inference</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="introduction" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">20.1</span> Introduction</h2>
+<p>Statistical inference is the process of <strong>drawing conclusions about a population based on information obtained from a sample</strong>. Because populations are often too large or impractical to study in full, inference provides a principled way to make decisions under uncertainty using probability theory.</p>
+<p>Building on the foundations of statistics and probability introduced in the previous chapters, this chapter presents the <strong>core framework of statistical inference</strong>. The emphasis is on understanding concepts, assumptions, and interpretation, with supporting examples in R. The goal is to develop sound inferential reasoning rather than mechanical application of tests.</p>
+<hr>
+</section>
+<section id="population-sample-and-parameters" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="population-sample-and-parameters"><span class="header-section-number">20.2</span> Population, Sample, and Parameters</h2>
+<ul>
+<li><p>A <strong>population</strong> is the complete set of units of interest</p></li>
+<li><p>A <strong>sample</strong> is a subset selected from the population</p></li>
+<li><p>A <strong>parameter</strong> is a numerical characteristic of the population (e.g., mean, variance)</p></li>
+<li><p>A <strong>statistic</strong> is a numerical summary computed from the sample</p></li>
+</ul>
+<p>Statistical inference uses sample statistics to learn about unknown population parameters.</p>
+<hr>
+</section>
+<section id="sampling-distributions" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="sampling-distributions"><span class="header-section-number">20.3</span> Sampling Distributions</h2>
+<p>A <strong>sampling distribution</strong> describes the distribution of a statistic over repeated samples drawn from the same population.</p>
+<p>For example, if many samples are taken and the sample mean is computed each time, the distribution of these means forms the sampling distribution of the sample mean.</p>
+<p>Sampling distributions are fundamental because they quantify <strong>sampling variability</strong>, which underlies all inferential procedures.</p>
+<hr>
+</section>
+<section id="the-central-limit-theorem" class="level2" data-number="20.4">
+<h2 data-number="20.4" class="anchored" data-anchor-id="the-central-limit-theorem"><span class="header-section-number">20.4</span> The Central Limit Theorem</h2>
+<p>The <strong>Central Limit Theorem (CLT)</strong> states that, for a sufficiently large sample size, the sampling distribution of the sample mean is approximately normal, regardless of the population distribution, provided the variance is finite.</p>
+<p>Key implications:</p>
+<ul>
+<li><p>Normal-based inference is widely applicable</p></li>
+<li><p>Sample size plays a critical role in inference</p></li>
+<li><p>Variability decreases as sample size increases</p></li>
+</ul>
+<hr>
+</section>
+<section id="point-estimation" class="level2" data-number="20.5">
+<h2 data-number="20.5" class="anchored" data-anchor-id="point-estimation"><span class="header-section-number">20.5</span> Point Estimation</h2>
+<p>A <strong>point estimator</strong> provides a single numerical estimate of a population parameter.</p>
+<p>Common examples include:</p>
+<ul>
+<li><p>Sample mean as an estimator of population mean</p></li>
+<li><p>Sample proportion as an estimator of population proportion</p></li>
+</ul>
+<pre><code>x &lt;- c(10, 12, 15, 14, 13)
+mean(x)</code></pre>
+<p>Good estimators are typically unbiased and have low variability.</p>
+<hr>
+</section>
+<section id="interval-estimation-and-confidence-intervals" class="level2" data-number="20.6">
+<h2 data-number="20.6" class="anchored" data-anchor-id="interval-estimation-and-confidence-intervals"><span class="header-section-number">20.6</span> Interval Estimation and Confidence Intervals</h2>
+<p>A <strong>confidence interval</strong> provides a range of plausible values for a population parameter.</p>
+<p>A 95% confidence interval means that, in repeated sampling, approximately 95% of such intervals will contain the true parameter.</p>
+<pre><code>x &lt;- c(10, 12, 15, 14, 13)
+t.test(x)$conf.int</code></pre>
+<p>Confidence intervals convey both estimation and uncertainty.</p>
+<hr>
+</section>
+<section id="hypothesis-testing-framework" class="level2" data-number="20.7">
+<h2 data-number="20.7" class="anchored" data-anchor-id="hypothesis-testing-framework"><span class="header-section-number">20.7</span> Hypothesis Testing Framework</h2>
+<p>Hypothesis testing provides a structured method for evaluating claims about population parameters.</p>
+<p>The framework involves:</p>
+<ul>
+<li><p><strong>Null hypothesis (H₀)</strong>: a statement of no effect or no difference</p></li>
+<li><p><strong>Alternative hypothesis (H₁)</strong>: a statement contradicting H₀</p></li>
+<li><p>A test statistic</p></li>
+<li><p>A decision rule based on probability</p></li>
+</ul>
+<hr>
+</section>
+<section id="test-statistics" class="level2" data-number="20.8">
+<h2 data-number="20.8" class="anchored" data-anchor-id="test-statistics"><span class="header-section-number">20.8</span> Test Statistics</h2>
+<p>A <strong>test statistic</strong> summarizes the evidence in the data against the null hypothesis. Its distribution under the null hypothesis is known or approximated.</p>
+<p>Examples include:</p>
+<ul>
+<li><p>z-statistic</p></li>
+<li><p>t-statistic</p></li>
+<li><p>chi-square statistic</p></li>
+<li><p>F-statistic</p></li>
+</ul>
+<hr>
+</section>
+<section id="p-values" class="level2" data-number="20.9">
+<h2 data-number="20.9" class="anchored" data-anchor-id="p-values"><span class="header-section-number">20.9</span> p-values</h2>
+<p>The <strong>p-value</strong> is the probability, under the null hypothesis, of observing a result at least as extreme as the one obtained.</p>
+<p>Small p-values indicate strong evidence against the null hypothesis.</p>
+<pre><code>t.test(x)$p.value</code></pre>
+<p>Correct interpretation of p-values is essential for valid conclusions.</p>
+<hr>
+</section>
+<section id="significance-level" class="level2" data-number="20.10">
+<h2 data-number="20.10" class="anchored" data-anchor-id="significance-level"><span class="header-section-number">20.10</span> Significance Level</h2>
+<p>The <strong>significance level</strong>, denoted by α, is the probability of rejecting a true null hypothesis.</p>
+<p>Common choices include:</p>
+<ul>
+<li><p>α = 0.05</p></li>
+<li><p>α = 0.01</p></li>
+</ul>
+<p>The significance level should be chosen before examining the data.</p>
+<hr>
+</section>
+<section id="types-of-errors" class="level2" data-number="20.11">
+<h2 data-number="20.11" class="anchored" data-anchor-id="types-of-errors"><span class="header-section-number">20.11</span> Types of Errors</h2>
+<p>Two types of errors may occur in hypothesis testing:</p>
+<ul>
+<li><p><strong>Type I Error</strong>: Rejecting a true null hypothesis</p></li>
+<li><p><strong>Type II Error</strong>: Failing to reject a false null hypothesis</p></li>
+</ul>
+<p>There is a trade-off between these errors, influenced by sample size and test design.</p>
+<hr>
+</section>
+<section id="power-of-a-test" class="level2" data-number="20.12">
+<h2 data-number="20.12" class="anchored" data-anchor-id="power-of-a-test"><span class="header-section-number">20.12</span> Power of a Test</h2>
+<p>The <strong>power</strong> of a statistical test is the probability of correctly rejecting a false null hypothesis.</p>
+<p>Higher power is desirable and can be increased by:</p>
+<ul>
+<li><p>Increasing sample size</p></li>
+<li><p>Reducing variability</p></li>
+<li><p>Choosing an appropriate test</p></li>
+</ul>
+<hr>
+</section>
+<section id="common-statistical-tests" class="level2" data-number="20.13">
+<h2 data-number="20.13" class="anchored" data-anchor-id="common-statistical-tests"><span class="header-section-number">20.13</span> Common Statistical Tests</h2>
+<p>Some widely used inferential procedures include:</p>
+<ul>
+<li><p>One-sample and two-sample t-tests</p></li>
+<li><p>Paired t-test</p></li>
+<li><p>Chi-square tests for independence</p></li>
+<li><p>Analysis of variance (ANOVA)</p></li>
+</ul>
+<p>Detailed treatment of these tests will be provided in subsequent chapters.</p>
+<hr>
+</section>
+<section id="assumptions-in-statistical-inference" class="level2" data-number="20.14">
+<h2 data-number="20.14" class="anchored" data-anchor-id="assumptions-in-statistical-inference"><span class="header-section-number">20.14</span> Assumptions in Statistical Inference</h2>
+<p>Inferential methods rely on assumptions such as:</p>
+<ul>
+<li><p>Random sampling</p></li>
+<li><p>Independence of observations</p></li>
+<li><p>Normality of distributions (in some tests)</p></li>
+<li><p>Homogeneity of variance</p></li>
+</ul>
+<p>Violating assumptions can lead to invalid conclusions.</p>
+<hr>
+</section>
+<section id="statistical-inference-using-r" class="level2" data-number="20.15">
+<h2 data-number="20.15" class="anchored" data-anchor-id="statistical-inference-using-r"><span class="header-section-number">20.15</span> Statistical Inference Using R</h2>
+<p>R provides built-in functions for inference.</p>
+<pre><code>t.test(x)</code></pre>
+<p>While software performs calculations automatically, understanding the underlying assumptions and interpretation remains essential.</p>
+<hr>
+</section>
+<section id="misinterpretations-and-common-pitfalls" class="level2" data-number="20.16">
+<h2 data-number="20.16" class="anchored" data-anchor-id="misinterpretations-and-common-pitfalls"><span class="header-section-number">20.16</span> Misinterpretations and Common Pitfalls</h2>
+<ul>
+<li><p>Confusing statistical significance with practical importance</p></li>
+<li><p>Treating p-values as probabilities of hypotheses</p></li>
+<li><p>Ignoring assumptions</p></li>
+<li><p>Overreliance on automated output</p></li>
+</ul>
+<p>Critical thinking is essential when applying inferential methods.</p>
+<hr>
+</section>
+<section id="inference-in-the-data-analysis-workflow" class="level2" data-number="20.17">
+<h2 data-number="20.17" class="anchored" data-anchor-id="inference-in-the-data-analysis-workflow"><span class="header-section-number">20.17</span> Inference in the Data Analysis Workflow</h2>
+<p>Statistical inference is typically applied after:</p>
+<ol type="1">
+<li><p>Data collection</p></li>
+<li><p>Data cleaning and transformation</p></li>
+<li><p>Exploratory data analysis</p></li>
+</ol>
+<p>Inference should never be performed blindly without understanding the data.</p>
+<hr>
+</section>
+<section id="summary" class="level2" data-number="20.18">
+<h2 data-number="20.18" class="anchored" data-anchor-id="summary"><span class="header-section-number">20.18</span> Summary</h2>
+<p>This chapter introduced the principles of <strong>statistical inference</strong>. You learned about:</p>
+<ul>
+<li><p>Sampling distributions and the Central Limit Theorem</p></li>
+<li><p>Point and interval estimation</p></li>
+<li><p>Hypothesis testing framework</p></li>
+<li><p>p-values, significance levels, and errors</p></li>
+<li><p>Power and assumptions</p></li>
+</ul>
+<p>Statistical inference provides the tools needed to make evidence-based conclusions from data, forming the core of statistical reasoning and applied data analysis.</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -661,8 +898,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/19-regression.html" class="pagination-link" aria-label="19-regression.html">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">19-regression.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/19-regression.html" class="pagination-link" aria-label="Regression Analysis">
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Regression Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

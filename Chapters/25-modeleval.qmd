@@ -1,0 +1,126 @@
+# Model Evaluation and ROC Curves
+
+## Introduction
+
+Evaluating the performance of a classification model is as important as building the model itself. A model that performs well on training data may fail to generalize to new, unseen data. **Model evaluation** provides quantitative tools to assess how well a classifier performs and to compare competing models.
+
+This chapter introduces key evaluation metrics for classification models, with particular emphasis on **Receiver Operating Characteristic (ROC) curves** and **Area Under the Curve (AUC)**.
+
+---
+
+## Confusion Matrix
+
+A **confusion matrix** summarizes the relationship between actual and predicted class labels.
+
+```r
+table(Actual, Predicted)
+```
+
+It forms the basis for many evaluation metrics.
+
+---
+
+## Classification Metrics
+
+Common performance measures include:
+
+* **Accuracy** – proportion of correct predictions
+* **Sensitivity (Recall)** – ability to detect positive cases
+* **Specificity** – ability to detect negative cases
+* **Precision** – proportion of predicted positives that are correct
+* **F1-score** – harmonic mean of precision and recall
+
+Each metric highlights different aspects of model performance.
+
+---
+
+## Limitations of Accuracy
+
+Accuracy can be misleading, especially when class distributions are imbalanced. In such cases, a classifier may achieve high accuracy by predicting the majority class while performing poorly on the minority class.
+
+---
+
+## ROC Curve Concept
+
+A **ROC curve** plots:
+
+* True Positive Rate (Sensitivity)
+* False Positive Rate (1 − Specificity)
+
+across different classification thresholds.
+
+ROC curves illustrate the trade-off between sensitivity and specificity.
+
+---
+
+## Area Under the Curve (AUC)
+
+The **AUC** summarizes the ROC curve into a single value between 0 and 1.
+
+* AUC = 0.5 indicates no discriminative power
+* AUC = 1 indicates perfect classification
+
+Higher AUC values indicate better overall model performance.
+
+---
+
+## ROC Curves in R
+
+The `pROC` package is commonly used for ROC analysis.
+
+```r
+library(pROC)
+
+roc_obj <- roc(actual, predicted_probabilities)
+plot(roc_obj)
+auc(roc_obj)
+```
+
+Predicted probabilities, not class labels, are required to construct ROC curves.
+
+---
+
+## Comparing Models Using ROC Curves
+
+ROC curves can be used to compare multiple classifiers on the same dataset.
+
+A model with a consistently higher ROC curve and larger AUC is generally preferred.
+
+---
+
+## Threshold Selection
+
+Classification thresholds affect sensitivity and specificity.
+
+ROC analysis helps identify thresholds that balance false positives and false negatives according to application needs.
+
+---
+
+## Cross-Validation and Evaluation
+
+Reliable model evaluation often involves **cross-validation**.
+
+Cross-validation provides a more accurate estimate of generalization performance by repeatedly splitting data into training and testing sets.
+
+---
+
+## Practical Considerations
+
+* Choose evaluation metrics aligned with problem goals
+* Use ROC and AUC for probabilistic classifiers
+* Avoid evaluating models only on training data
+* Interpret metrics in the context of the application
+
+---
+
+## Summary
+
+This chapter introduced methods for **evaluating classification models**, focusing on ROC curves and AUC. You learned about:
+
+* Confusion matrices and classification metrics
+* Limitations of accuracy
+* ROC curves and their interpretation
+* AUC as a summary measure
+* Model comparison and threshold selection
+
+Robust evaluation is essential for building reliable and trustworthy classification models.

@@ -14,7 +14,7 @@
     "href": "index.html#r-for-data-analysis-from-fundamentals-to-advanced-applications",
     "title": "R4DataScience",
     "section": "1.1 R for Data Analysis: From Fundamentals to Advanced Applications",
-    "text": "1.1 R for Data Analysis: From Fundamentals to Advanced Applications\nA Course Offered by the Department of Statistics, University of Calicut",
+    "text": "1.1 R for Data Analysis: From Fundamentals to Advanced Applications\nA Course Offered by the Department of Statistics, University of Calicut.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -2647,6 +2647,866 @@
     "text": "19.19 Summary\nThis chapter introduced the fundamental ideas of probability theory. You learned about:\n\nRandom experiments, sample spaces, and events\nDefinitions and axioms of probability\nConditional probability and independence\nBayes’ theorem\nRandom variables and probability distributions\nThe role of simulation in understanding probability\n\nThese concepts form the mathematical backbone for statistical inference, which will be developed in the next chapter.",
     "crumbs": [
       "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html",
+    "href": "chapters/18-inference.html",
+    "title": "20  Statistical Inference",
+    "section": "",
+    "text": "20.1 Introduction\nStatistical inference is the process of drawing conclusions about a population based on information obtained from a sample. Because populations are often too large or impractical to study in full, inference provides a principled way to make decisions under uncertainty using probability theory.\nBuilding on the foundations of statistics and probability introduced in the previous chapters, this chapter presents the core framework of statistical inference. The emphasis is on understanding concepts, assumptions, and interpretation, with supporting examples in R. The goal is to develop sound inferential reasoning rather than mechanical application of tests.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#population-sample-and-parameters",
+    "href": "chapters/18-inference.html#population-sample-and-parameters",
+    "title": "20  Statistical Inference",
+    "section": "20.2 Population, Sample, and Parameters",
+    "text": "20.2 Population, Sample, and Parameters\n\nA population is the complete set of units of interest\nA sample is a subset selected from the population\nA parameter is a numerical characteristic of the population (e.g., mean, variance)\nA statistic is a numerical summary computed from the sample\n\nStatistical inference uses sample statistics to learn about unknown population parameters.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#sampling-distributions",
+    "href": "chapters/18-inference.html#sampling-distributions",
+    "title": "20  Statistical Inference",
+    "section": "20.3 Sampling Distributions",
+    "text": "20.3 Sampling Distributions\nA sampling distribution describes the distribution of a statistic over repeated samples drawn from the same population.\nFor example, if many samples are taken and the sample mean is computed each time, the distribution of these means forms the sampling distribution of the sample mean.\nSampling distributions are fundamental because they quantify sampling variability, which underlies all inferential procedures.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#the-central-limit-theorem",
+    "href": "chapters/18-inference.html#the-central-limit-theorem",
+    "title": "20  Statistical Inference",
+    "section": "20.4 The Central Limit Theorem",
+    "text": "20.4 The Central Limit Theorem\nThe Central Limit Theorem (CLT) states that, for a sufficiently large sample size, the sampling distribution of the sample mean is approximately normal, regardless of the population distribution, provided the variance is finite.\nKey implications:\n\nNormal-based inference is widely applicable\nSample size plays a critical role in inference\nVariability decreases as sample size increases",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#point-estimation",
+    "href": "chapters/18-inference.html#point-estimation",
+    "title": "20  Statistical Inference",
+    "section": "20.5 Point Estimation",
+    "text": "20.5 Point Estimation\nA point estimator provides a single numerical estimate of a population parameter.\nCommon examples include:\n\nSample mean as an estimator of population mean\nSample proportion as an estimator of population proportion\n\nx &lt;- c(10, 12, 15, 14, 13)\nmean(x)\nGood estimators are typically unbiased and have low variability.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#interval-estimation-and-confidence-intervals",
+    "href": "chapters/18-inference.html#interval-estimation-and-confidence-intervals",
+    "title": "20  Statistical Inference",
+    "section": "20.6 Interval Estimation and Confidence Intervals",
+    "text": "20.6 Interval Estimation and Confidence Intervals\nA confidence interval provides a range of plausible values for a population parameter.\nA 95% confidence interval means that, in repeated sampling, approximately 95% of such intervals will contain the true parameter.\nx &lt;- c(10, 12, 15, 14, 13)\nt.test(x)$conf.int\nConfidence intervals convey both estimation and uncertainty.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#hypothesis-testing-framework",
+    "href": "chapters/18-inference.html#hypothesis-testing-framework",
+    "title": "20  Statistical Inference",
+    "section": "20.7 Hypothesis Testing Framework",
+    "text": "20.7 Hypothesis Testing Framework\nHypothesis testing provides a structured method for evaluating claims about population parameters.\nThe framework involves:\n\nNull hypothesis (H₀): a statement of no effect or no difference\nAlternative hypothesis (H₁): a statement contradicting H₀\nA test statistic\nA decision rule based on probability",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#test-statistics",
+    "href": "chapters/18-inference.html#test-statistics",
+    "title": "20  Statistical Inference",
+    "section": "20.8 Test Statistics",
+    "text": "20.8 Test Statistics\nA test statistic summarizes the evidence in the data against the null hypothesis. Its distribution under the null hypothesis is known or approximated.\nExamples include:\n\nz-statistic\nt-statistic\nchi-square statistic\nF-statistic",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#p-values",
+    "href": "chapters/18-inference.html#p-values",
+    "title": "20  Statistical Inference",
+    "section": "20.9 p-values",
+    "text": "20.9 p-values\nThe p-value is the probability, under the null hypothesis, of observing a result at least as extreme as the one obtained.\nSmall p-values indicate strong evidence against the null hypothesis.\nt.test(x)$p.value\nCorrect interpretation of p-values is essential for valid conclusions.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#significance-level",
+    "href": "chapters/18-inference.html#significance-level",
+    "title": "20  Statistical Inference",
+    "section": "20.10 Significance Level",
+    "text": "20.10 Significance Level\nThe significance level, denoted by α, is the probability of rejecting a true null hypothesis.\nCommon choices include:\n\nα = 0.05\nα = 0.01\n\nThe significance level should be chosen before examining the data.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#types-of-errors",
+    "href": "chapters/18-inference.html#types-of-errors",
+    "title": "20  Statistical Inference",
+    "section": "20.11 Types of Errors",
+    "text": "20.11 Types of Errors\nTwo types of errors may occur in hypothesis testing:\n\nType I Error: Rejecting a true null hypothesis\nType II Error: Failing to reject a false null hypothesis\n\nThere is a trade-off between these errors, influenced by sample size and test design.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#power-of-a-test",
+    "href": "chapters/18-inference.html#power-of-a-test",
+    "title": "20  Statistical Inference",
+    "section": "20.12 Power of a Test",
+    "text": "20.12 Power of a Test\nThe power of a statistical test is the probability of correctly rejecting a false null hypothesis.\nHigher power is desirable and can be increased by:\n\nIncreasing sample size\nReducing variability\nChoosing an appropriate test",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#common-statistical-tests",
+    "href": "chapters/18-inference.html#common-statistical-tests",
+    "title": "20  Statistical Inference",
+    "section": "20.13 Common Statistical Tests",
+    "text": "20.13 Common Statistical Tests\nSome widely used inferential procedures include:\n\nOne-sample and two-sample t-tests\nPaired t-test\nChi-square tests for independence\nAnalysis of variance (ANOVA)\n\nDetailed treatment of these tests will be provided in subsequent chapters.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#assumptions-in-statistical-inference",
+    "href": "chapters/18-inference.html#assumptions-in-statistical-inference",
+    "title": "20  Statistical Inference",
+    "section": "20.14 Assumptions in Statistical Inference",
+    "text": "20.14 Assumptions in Statistical Inference\nInferential methods rely on assumptions such as:\n\nRandom sampling\nIndependence of observations\nNormality of distributions (in some tests)\nHomogeneity of variance\n\nViolating assumptions can lead to invalid conclusions.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#statistical-inference-using-r",
+    "href": "chapters/18-inference.html#statistical-inference-using-r",
+    "title": "20  Statistical Inference",
+    "section": "20.15 Statistical Inference Using R",
+    "text": "20.15 Statistical Inference Using R\nR provides built-in functions for inference.\nt.test(x)\nWhile software performs calculations automatically, understanding the underlying assumptions and interpretation remains essential.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#misinterpretations-and-common-pitfalls",
+    "href": "chapters/18-inference.html#misinterpretations-and-common-pitfalls",
+    "title": "20  Statistical Inference",
+    "section": "20.16 Misinterpretations and Common Pitfalls",
+    "text": "20.16 Misinterpretations and Common Pitfalls\n\nConfusing statistical significance with practical importance\nTreating p-values as probabilities of hypotheses\nIgnoring assumptions\nOverreliance on automated output\n\nCritical thinking is essential when applying inferential methods.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#inference-in-the-data-analysis-workflow",
+    "href": "chapters/18-inference.html#inference-in-the-data-analysis-workflow",
+    "title": "20  Statistical Inference",
+    "section": "20.17 Inference in the Data Analysis Workflow",
+    "text": "20.17 Inference in the Data Analysis Workflow\nStatistical inference is typically applied after:\n\nData collection\nData cleaning and transformation\nExploratory data analysis\n\nInference should never be performed blindly without understanding the data.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/18-inference.html#summary",
+    "href": "chapters/18-inference.html#summary",
+    "title": "20  Statistical Inference",
+    "section": "20.18 Summary",
+    "text": "20.18 Summary\nThis chapter introduced the principles of statistical inference. You learned about:\n\nSampling distributions and the Central Limit Theorem\nPoint and interval estimation\nHypothesis testing framework\np-values, significance levels, and errors\nPower and assumptions\n\nStatistical inference provides the tools needed to make evidence-based conclusions from data, forming the core of statistical reasoning and applied data analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html",
+    "href": "chapters/20-timeseries.html",
+    "title": "22  Time Series Analysis",
+    "section": "",
+    "text": "22.1 Introduction\nTime series analysis deals with data observed sequentially over time. Such data arise naturally in economics, finance, climatology, public health, industrial processes, and many other domains. Unlike cross-sectional data, time series observations are often dependent, meaning that values at one time point are related to past values.\nThis chapter introduces the foundations of time series analysis, focusing on concepts, components, and basic modeling approaches. Emphasis is placed on understanding temporal structure, preparing data for analysis, and applying core methods using R. Advanced models and forecasting techniques can be built upon this foundation.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#what-is-a-time-series",
+    "href": "chapters/20-timeseries.html#what-is-a-time-series",
+    "title": "22  Time Series Analysis",
+    "section": "22.2 What Is a Time Series?",
+    "text": "22.2 What Is a Time Series?\nA time series is a sequence of observations recorded at successive points in time, usually at equally spaced intervals.\nExamples include:\n\nMonthly rainfall totals\nDaily stock prices\nHourly temperature readings\nAnnual disease incidence counts\n\nTime series analysis seeks to understand the underlying structure and generate reliable forecasts.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#types-of-time-series",
+    "href": "chapters/20-timeseries.html#types-of-time-series",
+    "title": "22  Time Series Analysis",
+    "section": "22.3 Types of Time Series",
+    "text": "22.3 Types of Time Series\nTime series can be classified based on frequency and structure:\n\nDiscrete-time series: observed at fixed intervals (daily, monthly, yearly)\nContinuous-time series: observed continuously (often approximated discretely)\nUnivariate time series: single variable over time\nMultivariate time series: multiple variables observed simultaneously",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#time-series-objects-in-r",
+    "href": "chapters/20-timeseries.html#time-series-objects-in-r",
+    "title": "22  Time Series Analysis",
+    "section": "22.4 Time Series Objects in R",
+    "text": "22.4 Time Series Objects in R\nR provides dedicated classes for time series data.\n\n22.4.1 The ts Class\nsales &lt;- c(120, 135, 150, 160, 170, 180)\nsales_ts &lt;- ts(sales, start = c(2020, 1), frequency = 12)\nsales_ts\nThe frequency argument specifies the number of observations per unit time (e.g., 12 for monthly data).",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#plotting-time-series",
+    "href": "chapters/20-timeseries.html#plotting-time-series",
+    "title": "22  Time Series Analysis",
+    "section": "22.5 Plotting Time Series",
+    "text": "22.5 Plotting Time Series\nVisual inspection is the first step in time series analysis.\nplot(sales_ts, main = \"Monthly Sales Time Series\",\n     ylab = \"Sales\", xlab = \"Time\")\nPlots help identify trends, seasonality, and irregular behavior.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#components-of-a-time-series",
+    "href": "chapters/20-timeseries.html#components-of-a-time-series",
+    "title": "22  Time Series Analysis",
+    "section": "22.6 Components of a Time Series",
+    "text": "22.6 Components of a Time Series\nA time series is often decomposed into the following components:\n\nTrend (T): long-term movement\nSeasonal (S): repeating patterns at fixed intervals\nCyclical (C): long-term oscillations\nIrregular (I): random variation\n\nUnderstanding these components is essential for modeling and forecasting.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#additive-and-multiplicative-models",
+    "href": "chapters/20-timeseries.html#additive-and-multiplicative-models",
+    "title": "22  Time Series Analysis",
+    "section": "22.7 Additive and Multiplicative Models",
+    "text": "22.7 Additive and Multiplicative Models\nTwo common decomposition models are:\n\nAdditive model:\n$Y_t = T_t + S_t + I_t $\nMultiplicative model:\n$Y_t = T_t S_t I_t $\n\nThe choice depends on whether seasonal variation is constant or proportional to the level of the series.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#time-series-decomposition",
+    "href": "chapters/20-timeseries.html#time-series-decomposition",
+    "title": "22  Time Series Analysis",
+    "section": "22.8 Time Series Decomposition",
+    "text": "22.8 Time Series Decomposition\nR provides tools for decomposing time series.\ndecomp &lt;- decompose(sales_ts)\nplot(decomp)\nDecomposition separates the observed series into its components, aiding interpretation.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#stationarity",
+    "href": "chapters/20-timeseries.html#stationarity",
+    "title": "22  Time Series Analysis",
+    "section": "22.9 Stationarity",
+    "text": "22.9 Stationarity\nA key concept in time series analysis is stationarity.\nA time series is said to be stationary if its statistical properties (mean, variance, autocorrelation) do not change over time.\nMany time series models assume stationarity.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#achieving-stationarity",
+    "href": "chapters/20-timeseries.html#achieving-stationarity",
+    "title": "22  Time Series Analysis",
+    "section": "22.10 Achieving Stationarity",
+    "text": "22.10 Achieving Stationarity\nNon-stationary series can often be transformed into stationary ones using:\n\nDifferencing\nLogarithmic transformation\nRemoving trend and seasonality\n\ndiff_sales &lt;- diff(sales_ts)\nplot(diff_sales)",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#autocorrelation-and-partial-autocorrelation",
+    "href": "chapters/20-timeseries.html#autocorrelation-and-partial-autocorrelation",
+    "title": "22  Time Series Analysis",
+    "section": "22.11 Autocorrelation and Partial Autocorrelation",
+    "text": "22.11 Autocorrelation and Partial Autocorrelation\n\n22.11.1 Autocorrelation Function (ACF)\nThe ACF measures correlation between observations separated by different time lags.\nacf(sales_ts)\n\n\n22.11.2 Partial Autocorrelation Function (PACF)\nThe PACF measures correlation between observations after removing intermediate effects.\npacf(sales_ts)\nACF and PACF plots are essential tools for model identification.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#basic-time-series-models",
+    "href": "chapters/20-timeseries.html#basic-time-series-models",
+    "title": "22  Time Series Analysis",
+    "section": "22.12 Basic Time Series Models",
+    "text": "22.12 Basic Time Series Models\n\n22.12.1 Moving Average Models\nMoving average models express the current value as a function of past random shocks.\n\n\n22.12.2 Autoregressive Models\nAutoregressive (AR) models express the current value as a function of its past values.\n\n\n22.12.3 ARMA and ARIMA Models\n\nARMA: combines AR and MA (stationary series)\nARIMA: includes differencing to handle non-stationarity\n\nDetailed treatment of these models can be developed in advanced chapters.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#fitting-an-arima-model-in-r",
+    "href": "chapters/20-timeseries.html#fitting-an-arima-model-in-r",
+    "title": "22  Time Series Analysis",
+    "section": "22.13 Fitting an ARIMA Model in R",
+    "text": "22.13 Fitting an ARIMA Model in R\nmodel_arima &lt;- arima(sales_ts, order = c(1, 1, 1))\nmodel_arima\nModel selection is guided by diagnostics and information criteria.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#forecasting",
+    "href": "chapters/20-timeseries.html#forecasting",
+    "title": "22  Time Series Analysis",
+    "section": "22.14 Forecasting",
+    "text": "22.14 Forecasting\nTime series models are commonly used for forecasting future values.\nlibrary(forecast)\nforecast_values &lt;- forecast(model_arima, h = 6)\nplot(forecast_values)\nForecasts should always be accompanied by measures of uncertainty.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#model-diagnostics",
+    "href": "chapters/20-timeseries.html#model-diagnostics",
+    "title": "22  Time Series Analysis",
+    "section": "22.15 Model Diagnostics",
+    "text": "22.15 Model Diagnostics\nAfter fitting a model, residuals should be examined.\nacf(residuals(model_arima))\nResiduals should resemble white noise if the model is adequate.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#time-series-in-the-data-analysis-workflow",
+    "href": "chapters/20-timeseries.html#time-series-in-the-data-analysis-workflow",
+    "title": "22  Time Series Analysis",
+    "section": "22.16 Time Series in the Data Analysis Workflow",
+    "text": "22.16 Time Series in the Data Analysis Workflow\nTime series analysis typically involves:\n\nVisualization and exploration\nDecomposition\nChecking stationarity\nModel identification\nModel estimation\nDiagnostic checking\nForecasting\n\nThis systematic approach improves reliability and interpretability.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#limitations-and-challenges",
+    "href": "chapters/20-timeseries.html#limitations-and-challenges",
+    "title": "22  Time Series Analysis",
+    "section": "22.17 Limitations and Challenges",
+    "text": "22.17 Limitations and Challenges\n\nStructural breaks\nMissing observations\nNonlinear patterns\nExternal shocks\n\nTime series models should be used with caution and domain knowledge.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/20-timeseries.html#summary",
+    "href": "chapters/20-timeseries.html#summary",
+    "title": "22  Time Series Analysis",
+    "section": "22.18 Summary",
+    "text": "22.18 Summary\nThis chapter introduced the foundations of time series analysis. You learned about:\n\nTime series concepts and types\nTime series objects and plotting in R\nComponents and decomposition\nStationarity and differencing\nAutocorrelation and partial autocorrelation\nBasic ARIMA modeling and forecasting\n\nTime series analysis is a powerful tool for understanding temporal data and forms the basis for advanced forecasting and dynamic modeling techniques.",
+    "crumbs": [
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Time Series Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/23-knn.html",
+    "href": "chapters/23-knn.html",
+    "title": "25  k-Nearest Neighbors (k-NN)",
+    "section": "",
+    "text": "25.1 Introduction\nThe k-Nearest Neighbors (k-NN) algorithm is one of the simplest and most intuitive classification methods. It is a non-parametric, instance-based learning algorithm, meaning that it does not assume an explicit statistical model for the data and does not involve a training phase in the traditional sense.\nInstead, k-NN makes predictions by comparing a new observation to previously observed data points and assigning the most common class among its nearest neighbors. This chapter focuses on the conceptual understanding of k-NN, its assumptions, and its practical use in classification problems.",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>k-Nearest Neighbors (k-NN)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/23-knn.html#basic-idea-of-k-nn",
+    "href": "chapters/23-knn.html#basic-idea-of-k-nn",
+    "title": "25  k-Nearest Neighbors (k-NN)",
+    "section": "25.2 Basic Idea of k-NN",
+    "text": "25.2 Basic Idea of k-NN\nThe central idea of k-NN is straightforward:\n\nChoose a value for (k), the number of nearest neighbors\nMeasure the distance between a new observation and all training observations\nIdentify the (k) closest observations\nAssign the class that occurs most frequently among these neighbors\n\nThe simplicity of this approach makes k-NN an excellent starting point for understanding classification algorithms.",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>k-Nearest Neighbors (k-NN)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/23-knn.html#distance-measures",
+    "href": "chapters/23-knn.html#distance-measures",
+    "title": "25  k-Nearest Neighbors (k-NN)",
+    "section": "25.3 Distance Measures",
+    "text": "25.3 Distance Measures\nThe notion of “nearness” depends on the distance metric used. Common distance measures include:\n\nEuclidean distance – most commonly used for continuous variables\nManhattan distance – based on absolute differences\nMinkowski distance – a generalization of distance measures\n\nFor numeric features, Euclidean distance is typically used.",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>k-Nearest Neighbors (k-NN)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/23-knn.html#choosing-the-value-of-k",
+    "href": "chapters/23-knn.html#choosing-the-value-of-k",
+    "title": "25  k-Nearest Neighbors (k-NN)",
+    "section": "25.4 Choosing the Value of k",
+    "text": "25.4 Choosing the Value of k\nThe choice of (k) has a significant impact on model performance:\n\nSmall (k) values can lead to overfitting\nLarge (k) values can lead to oversmoothing and underfitting\n\nSelecting an appropriate value of (k) is often done using cross-validation.",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>k-Nearest Neighbors (k-NN)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/23-knn.html#feature-scaling-in-k-nn",
+    "href": "chapters/23-knn.html#feature-scaling-in-k-nn",
+    "title": "25  k-Nearest Neighbors (k-NN)",
+    "section": "25.5 Feature Scaling in k-NN",
+    "text": "25.5 Feature Scaling in k-NN\nBecause k-NN relies on distance calculations, feature scaling is essential.\nscale()\nVariables measured on larger scales can dominate distance computations if scaling is ignored.",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>k-Nearest Neighbors (k-NN)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/23-knn.html#k-nn-classification-in-r",
+    "href": "chapters/23-knn.html#k-nn-classification-in-r",
+    "title": "25  k-Nearest Neighbors (k-NN)",
+    "section": "25.6 k-NN Classification in R",
+    "text": "25.6 k-NN Classification in R\nThe class package provides a simple implementation of k-NN.\nlibrary(class)\n\nknn(train = train_data,\n    test = test_data,\n    cl = train_labels,\n    k = 5)\nHere:\n\ntrain contains predictor variables for training\ntest contains predictor variables for testing\ncl contains class labels",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>k-Nearest Neighbors (k-NN)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/23-knn.html#advantages-of-k-nn",
+    "href": "chapters/23-knn.html#advantages-of-k-nn",
+    "title": "25  k-Nearest Neighbors (k-NN)",
+    "section": "25.7 Advantages of k-NN",
+    "text": "25.7 Advantages of k-NN\n\nSimple and intuitive\nNo explicit training phase\nFlexible decision boundaries",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>k-Nearest Neighbors (k-NN)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/23-knn.html#limitations-of-k-nn",
+    "href": "chapters/23-knn.html#limitations-of-k-nn",
+    "title": "25  k-Nearest Neighbors (k-NN)",
+    "section": "25.8 Limitations of k-NN",
+    "text": "25.8 Limitations of k-NN\n\nComputationally expensive for large datasets\nSensitive to noise and irrelevant features\nRequires careful choice of distance metric and (k)",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>k-Nearest Neighbors (k-NN)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/23-knn.html#applications-of-k-nn",
+    "href": "chapters/23-knn.html#applications-of-k-nn",
+    "title": "25  k-Nearest Neighbors (k-NN)",
+    "section": "25.9 Applications of k-NN",
+    "text": "25.9 Applications of k-NN\nk-NN is commonly used in:\n\nPattern recognition\nRecommendation systems\nMedical diagnosis (small datasets)\nImage classification",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>k-Nearest Neighbors (k-NN)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/23-knn.html#summary",
+    "href": "chapters/23-knn.html#summary",
+    "title": "25  k-Nearest Neighbors (k-NN)",
+    "section": "25.10 Summary",
+    "text": "25.10 Summary\nThis chapter introduced the k-Nearest Neighbors algorithm as a simple yet powerful classification technique. You learned about:\n\nThe intuition behind k-NN\nDistance measures and feature scaling\nChoosing the value of (k)\nAdvantages and limitations\n\nk-NN provides a foundation for understanding more complex classification algorithms.",
+    "crumbs": [
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>k-Nearest Neighbors (k-NN)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/24-dtree.html",
+    "href": "chapters/24-dtree.html",
+    "title": "26  Decision Trees",
+    "section": "",
+    "text": "26.1 Introduction\nDecision Trees are a popular and intuitive classification and regression method that model decision-making as a sequence of rules. They represent decisions using a tree-like structure, where internal nodes correspond to decision rules, branches represent outcomes of these rules, and terminal nodes (leaves) represent predicted classes.\nDecision trees are widely used due to their interpretability and flexibility, making them particularly valuable in applied statistics, healthcare, and business analytics.",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Decision Trees</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/24-dtree.html#structure-of-a-decision-tree",
+    "href": "chapters/24-dtree.html#structure-of-a-decision-tree",
+    "title": "26  Decision Trees",
+    "section": "26.2 Structure of a Decision Tree",
+    "text": "26.2 Structure of a Decision Tree\nA decision tree consists of:\n\nRoot node – the initial split\nInternal nodes – decision rules based on features\nBranches – outcomes of the rules\nLeaf nodes – final class labels\n\nEach path from root to leaf represents a classification rule.",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Decision Trees</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/24-dtree.html#splitting-criteria",
+    "href": "chapters/24-dtree.html#splitting-criteria",
+    "title": "26  Decision Trees",
+    "section": "26.3 Splitting Criteria",
+    "text": "26.3 Splitting Criteria\nDecision trees use impurity measures to decide how to split data:\n\nGini Index\nEntropy and Information Gain\n\nThe goal is to create child nodes that are as homogeneous as possible.",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Decision Trees</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/24-dtree.html#building-decision-trees-in-r",
+    "href": "chapters/24-dtree.html#building-decision-trees-in-r",
+    "title": "26  Decision Trees",
+    "section": "26.4 Building Decision Trees in R",
+    "text": "26.4 Building Decision Trees in R\nThe rpart package is commonly used to build decision trees.\nlibrary(rpart)\n\nmodel &lt;- rpart(Class ~ ., data = data)\nThe formula interface specifies the response variable and predictors.",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Decision Trees</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/24-dtree.html#tree-visualization",
+    "href": "chapters/24-dtree.html#tree-visualization",
+    "title": "26  Decision Trees",
+    "section": "26.5 Tree Visualization",
+    "text": "26.5 Tree Visualization\nDecision trees can be visualized for interpretation.\nplot(model)\ntext(model)\nVisualization helps in understanding decision rules and variable importance.",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Decision Trees</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/24-dtree.html#overfitting-and-pruning",
+    "href": "chapters/24-dtree.html#overfitting-and-pruning",
+    "title": "26  Decision Trees",
+    "section": "26.6 Overfitting and Pruning",
+    "text": "26.6 Overfitting and Pruning\nDecision trees can grow very large and overfit the data.\nPruning reduces tree complexity by removing branches that provide little predictive power.\nprintcp(model)\nPruning improves generalization performance.",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Decision Trees</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/24-dtree.html#advantages-of-decision-trees",
+    "href": "chapters/24-dtree.html#advantages-of-decision-trees",
+    "title": "26  Decision Trees",
+    "section": "26.7 Advantages of Decision Trees",
+    "text": "26.7 Advantages of Decision Trees\n\nEasy to interpret and explain\nHandles both numeric and categorical variables\nRequires little data preparation",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Decision Trees</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/24-dtree.html#limitations-of-decision-trees",
+    "href": "chapters/24-dtree.html#limitations-of-decision-trees",
+    "title": "26  Decision Trees",
+    "section": "26.8 Limitations of Decision Trees",
+    "text": "26.8 Limitations of Decision Trees\n\nProne to overfitting\nUnstable with small data changes\nOften less accurate than ensemble methods",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Decision Trees</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/24-dtree.html#applications-of-decision-trees",
+    "href": "chapters/24-dtree.html#applications-of-decision-trees",
+    "title": "26  Decision Trees",
+    "section": "26.9 Applications of Decision Trees",
+    "text": "26.9 Applications of Decision Trees\nDecision trees are widely used in:\n\nMedical decision-making\nCredit scoring\nCustomer segmentation\nRisk analysis",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Decision Trees</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/24-dtree.html#summary",
+    "href": "chapters/24-dtree.html#summary",
+    "title": "26  Decision Trees",
+    "section": "26.10 Summary",
+    "text": "26.10 Summary\nThis chapter introduced decision trees as an interpretable classification method. You learned about:\n\nTree structure and splitting criteria\nBuilding and visualizing trees in R\nOverfitting and pruning\nAdvantages and limitations\n\nDecision trees form the basis for advanced ensemble methods such as random forests and boosting.",
+    "crumbs": [
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Decision Trees</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/25-modeleval.html",
+    "href": "chapters/25-modeleval.html",
+    "title": "27  Model Evaluation and ROC Curves",
+    "section": "",
+    "text": "27.1 Introduction\nEvaluating the performance of a classification model is as important as building the model itself. A model that performs well on training data may fail to generalize to new, unseen data. Model evaluation provides quantitative tools to assess how well a classifier performs and to compare competing models.\nThis chapter introduces key evaluation metrics for classification models, with particular emphasis on Receiver Operating Characteristic (ROC) curves and Area Under the Curve (AUC).",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Model Evaluation and ROC Curves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/25-modeleval.html#confusion-matrix",
+    "href": "chapters/25-modeleval.html#confusion-matrix",
+    "title": "27  Model Evaluation and ROC Curves",
+    "section": "27.2 Confusion Matrix",
+    "text": "27.2 Confusion Matrix\nA confusion matrix summarizes the relationship between actual and predicted class labels.\ntable(Actual, Predicted)\nIt forms the basis for many evaluation metrics.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Model Evaluation and ROC Curves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/25-modeleval.html#classification-metrics",
+    "href": "chapters/25-modeleval.html#classification-metrics",
+    "title": "27  Model Evaluation and ROC Curves",
+    "section": "27.3 Classification Metrics",
+    "text": "27.3 Classification Metrics\nCommon performance measures include:\n\nAccuracy – proportion of correct predictions\nSensitivity (Recall) – ability to detect positive cases\nSpecificity – ability to detect negative cases\nPrecision – proportion of predicted positives that are correct\nF1-score – harmonic mean of precision and recall\n\nEach metric highlights different aspects of model performance.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Model Evaluation and ROC Curves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/25-modeleval.html#limitations-of-accuracy",
+    "href": "chapters/25-modeleval.html#limitations-of-accuracy",
+    "title": "27  Model Evaluation and ROC Curves",
+    "section": "27.4 Limitations of Accuracy",
+    "text": "27.4 Limitations of Accuracy\nAccuracy can be misleading, especially when class distributions are imbalanced. In such cases, a classifier may achieve high accuracy by predicting the majority class while performing poorly on the minority class.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Model Evaluation and ROC Curves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/25-modeleval.html#roc-curve-concept",
+    "href": "chapters/25-modeleval.html#roc-curve-concept",
+    "title": "27  Model Evaluation and ROC Curves",
+    "section": "27.5 ROC Curve Concept",
+    "text": "27.5 ROC Curve Concept\nA ROC curve plots:\n\nTrue Positive Rate (Sensitivity)\nFalse Positive Rate (1 − Specificity)\n\nacross different classification thresholds.\nROC curves illustrate the trade-off between sensitivity and specificity.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Model Evaluation and ROC Curves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/25-modeleval.html#area-under-the-curve-auc",
+    "href": "chapters/25-modeleval.html#area-under-the-curve-auc",
+    "title": "27  Model Evaluation and ROC Curves",
+    "section": "27.6 Area Under the Curve (AUC)",
+    "text": "27.6 Area Under the Curve (AUC)\nThe AUC summarizes the ROC curve into a single value between 0 and 1.\n\nAUC = 0.5 indicates no discriminative power\nAUC = 1 indicates perfect classification\n\nHigher AUC values indicate better overall model performance.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Model Evaluation and ROC Curves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/25-modeleval.html#roc-curves-in-r",
+    "href": "chapters/25-modeleval.html#roc-curves-in-r",
+    "title": "27  Model Evaluation and ROC Curves",
+    "section": "27.7 ROC Curves in R",
+    "text": "27.7 ROC Curves in R\nThe pROC package is commonly used for ROC analysis.\nlibrary(pROC)\n\nroc_obj &lt;- roc(actual, predicted_probabilities)\nplot(roc_obj)\nauc(roc_obj)\nPredicted probabilities, not class labels, are required to construct ROC curves.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Model Evaluation and ROC Curves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/25-modeleval.html#comparing-models-using-roc-curves",
+    "href": "chapters/25-modeleval.html#comparing-models-using-roc-curves",
+    "title": "27  Model Evaluation and ROC Curves",
+    "section": "27.8 Comparing Models Using ROC Curves",
+    "text": "27.8 Comparing Models Using ROC Curves\nROC curves can be used to compare multiple classifiers on the same dataset.\nA model with a consistently higher ROC curve and larger AUC is generally preferred.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Model Evaluation and ROC Curves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/25-modeleval.html#threshold-selection",
+    "href": "chapters/25-modeleval.html#threshold-selection",
+    "title": "27  Model Evaluation and ROC Curves",
+    "section": "27.9 Threshold Selection",
+    "text": "27.9 Threshold Selection\nClassification thresholds affect sensitivity and specificity.\nROC analysis helps identify thresholds that balance false positives and false negatives according to application needs.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Model Evaluation and ROC Curves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/25-modeleval.html#cross-validation-and-evaluation",
+    "href": "chapters/25-modeleval.html#cross-validation-and-evaluation",
+    "title": "27  Model Evaluation and ROC Curves",
+    "section": "27.10 Cross-Validation and Evaluation",
+    "text": "27.10 Cross-Validation and Evaluation\nReliable model evaluation often involves cross-validation.\nCross-validation provides a more accurate estimate of generalization performance by repeatedly splitting data into training and testing sets.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Model Evaluation and ROC Curves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/25-modeleval.html#practical-considerations",
+    "href": "chapters/25-modeleval.html#practical-considerations",
+    "title": "27  Model Evaluation and ROC Curves",
+    "section": "27.11 Practical Considerations",
+    "text": "27.11 Practical Considerations\n\nChoose evaluation metrics aligned with problem goals\nUse ROC and AUC for probabilistic classifiers\nAvoid evaluating models only on training data\nInterpret metrics in the context of the application",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Model Evaluation and ROC Curves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/25-modeleval.html#summary",
+    "href": "chapters/25-modeleval.html#summary",
+    "title": "27  Model Evaluation and ROC Curves",
+    "section": "27.12 Summary",
+    "text": "27.12 Summary\nThis chapter introduced methods for evaluating classification models, focusing on ROC curves and AUC. You learned about:\n\nConfusion matrices and classification metrics\nLimitations of accuracy\nROC curves and their interpretation\nAUC as a summary measure\nModel comparison and threshold selection\n\nRobust evaluation is essential for building reliable and trustworthy classification models.",
+    "crumbs": [
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Model Evaluation and ROC Curves</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html",
+    "href": "chapters/21-classification.html",
+    "title": "23  Classification",
+    "section": "",
+    "text": "23.1 Introduction\nClassification is a fundamental task in statistics, machine learning, and data science, where the objective is to assign observations to predefined categories or classes based on their features. Unlike regression, which predicts continuous outcomes, classification deals with categorical response variables.\nClassification problems arise across many domains, including medicine (disease diagnosis), finance (credit risk), marketing (customer segmentation), and text analytics (spam detection). This chapter introduces the conceptual foundations of classification, common types of classification problems, and the general workflow used in classification analysis. Detailed algorithms and implementations will be covered in subsequent chapters.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#what-is-classification",
+    "href": "chapters/21-classification.html#what-is-classification",
+    "title": "23  Classification",
+    "section": "23.2 What Is Classification?",
+    "text": "23.2 What Is Classification?\nClassification is a supervised learning task in which:\n\nThe response variable (target) is categorical\nEach observation belongs to one of a finite number of classes\nA model is trained using labeled data\n\nExamples include:\n\nClassifying emails as spam or not spam\nDiagnosing patients as diseased or healthy\nPredicting customer churn (yes/no)",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#types-of-classification-problems",
+    "href": "chapters/21-classification.html#types-of-classification-problems",
+    "title": "23  Classification",
+    "section": "23.3 Types of Classification Problems",
+    "text": "23.3 Types of Classification Problems\n\n23.3.1 Binary Classification\nBinary classification involves two possible classes.\nExamples:\n\nPass / Fail\nPositive / Negative\nYes / No\n\nBinary classification is the most common and forms the basis for many advanced methods.\n\n\n\n23.3.2 Multiclass Classification\nMulticlass classification involves more than two classes.\nExamples:\n\nBlood group classification\nHandwritten digit recognition\nProduct category prediction\n\n\n\n\n23.3.3 Multilabel Classification\nIn multilabel classification, an observation can belong to multiple classes simultaneously.\nExample:\n\nTagging news articles with multiple topics",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#features-and-class-labels",
+    "href": "chapters/21-classification.html#features-and-class-labels",
+    "title": "23  Classification",
+    "section": "23.4 Features and Class Labels",
+    "text": "23.4 Features and Class Labels\n\nFeatures (predictors) are variables used to make predictions\nClass labels are the categorical outcomes\n\nIn R, features are usually stored as columns in a data frame, while the class label is represented as a factor.\ndata &lt;- data.frame(\n  Age = c(25, 40, 30, 50),\n  Income = c(30000, 60000, 45000, 80000),\n  Purchase = factor(c(\"No\", \"Yes\", \"No\", \"Yes\"))\n)",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#classification-vs-regression",
+    "href": "chapters/21-classification.html#classification-vs-regression",
+    "title": "23  Classification",
+    "section": "23.5 Classification vs Regression",
+    "text": "23.5 Classification vs Regression\n\n\n\nAspect\nClassification\nRegression\n\n\n\n\nTarget variable\nCategorical\nContinuous\n\n\nOutput\nClass or probability\nNumeric value\n\n\nExamples\nDisease status\nBlood pressure\n\n\n\nUnderstanding this distinction is crucial for selecting appropriate models.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#decision-boundary-concept",
+    "href": "chapters/21-classification.html#decision-boundary-concept",
+    "title": "23  Classification",
+    "section": "23.6 Decision Boundary Concept",
+    "text": "23.6 Decision Boundary Concept\nA classification model learns a decision boundary that separates different classes in the feature space.\n\nLinear boundaries are simple and interpretable\nNonlinear boundaries can capture complex patterns\n\nThe choice of boundary affects accuracy and generalization.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#common-classification-algorithms-overview",
+    "href": "chapters/21-classification.html#common-classification-algorithms-overview",
+    "title": "23  Classification",
+    "section": "23.7 Common Classification Algorithms (Overview)",
+    "text": "23.7 Common Classification Algorithms (Overview)\nSome widely used classification methods include:\n\nLogistic Regression\nk-Nearest Neighbors (k-NN)\nDecision Trees\nNaive Bayes\nSupport Vector Machines (SVM)\n\nEach method has different assumptions, strengths, and limitations.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#logistic-regression-as-a-classification-model",
+    "href": "chapters/21-classification.html#logistic-regression-as-a-classification-model",
+    "title": "23  Classification",
+    "section": "23.8 Logistic Regression as a Classification Model",
+    "text": "23.8 Logistic Regression as a Classification Model\nAlthough called regression, logistic regression is a classification method used for binary outcomes.\n\nModels the probability of class membership\nUses a logistic (sigmoid) function\nOutputs probabilities between 0 and 1\n\nmodel &lt;- glm(Purchase ~ Age + Income,\n             data = data,\n             family = binomial)\nsummary(model)\nLogistic regression is widely used due to its interpretability.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#probabilistic-interpretation",
+    "href": "chapters/21-classification.html#probabilistic-interpretation",
+    "title": "23  Classification",
+    "section": "23.9 Probabilistic Interpretation",
+    "text": "23.9 Probabilistic Interpretation\nMost classification models estimate class probabilities.\npredict(model, type = \"response\")\nA decision threshold (commonly 0.5) is then applied to assign class labels.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#training-and-testing-data",
+    "href": "chapters/21-classification.html#training-and-testing-data",
+    "title": "23  Classification",
+    "section": "23.10 Training and Testing Data",
+    "text": "23.10 Training and Testing Data\nTo evaluate classification models fairly, data is typically split into:\n\nTraining set – used to build the model\nTest set – used to evaluate performance\n\nThis helps assess how well the model generalizes to unseen data.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#model-evaluation-in-classification",
+    "href": "chapters/21-classification.html#model-evaluation-in-classification",
+    "title": "23  Classification",
+    "section": "23.11 Model Evaluation in Classification",
+    "text": "23.11 Model Evaluation in Classification\nClassification performance is evaluated using several metrics:\n\nAccuracy\nSensitivity (Recall)\nSpecificity\nPrecision\nF1-score\n\nThe choice of metric depends on the problem context.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#confusion-matrix",
+    "href": "chapters/21-classification.html#confusion-matrix",
+    "title": "23  Classification",
+    "section": "23.12 Confusion Matrix",
+    "text": "23.12 Confusion Matrix\nA confusion matrix summarizes prediction results.\ntable(Actual = data$Purchase,\n      Predicted = ifelse(predict(model, type = \"response\") &gt; 0.5,\n                         \"Yes\", \"No\"))\nIt provides insight into different types of classification errors.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#imbalanced-classes",
+    "href": "chapters/21-classification.html#imbalanced-classes",
+    "title": "23  Classification",
+    "section": "23.13 Imbalanced Classes",
+    "text": "23.13 Imbalanced Classes\nIn many real-world problems, one class may be much more frequent than others.\nExamples:\n\nFraud detection\nRare disease diagnosis\n\nAccuracy alone can be misleading in such cases, and alternative evaluation metrics are needed.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#assumptions-and-challenges-in-classification",
+    "href": "chapters/21-classification.html#assumptions-and-challenges-in-classification",
+    "title": "23  Classification",
+    "section": "23.14 Assumptions and Challenges in Classification",
+    "text": "23.14 Assumptions and Challenges in Classification\nCommon challenges include:\n\nOverfitting\nMulticollinearity among predictors\nNoisy or irrelevant features\nClass imbalance\n\nUnderstanding data characteristics is essential for effective classification.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#classification-workflow",
+    "href": "chapters/21-classification.html#classification-workflow",
+    "title": "23  Classification",
+    "section": "23.15 Classification Workflow",
+    "text": "23.15 Classification Workflow\nA typical classification analysis follows these steps:\n\nData collection and cleaning\nFeature selection and transformation\nModel selection\nModel training\nModel evaluation\nInterpretation and deployment",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#applications-of-classification",
+    "href": "chapters/21-classification.html#applications-of-classification",
+    "title": "23  Classification",
+    "section": "23.16 Applications of Classification",
+    "text": "23.16 Applications of Classification\nClassification methods are widely used in:\n\nMedical diagnosis and prognosis\nCredit scoring and risk assessment\nMarketing response prediction\nText and document classification\nImage and signal recognition",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/21-classification.html#summary",
+    "href": "chapters/21-classification.html#summary",
+    "title": "23  Classification",
+    "section": "23.17 Summary",
+    "text": "23.17 Summary\nThis chapter introduced the fundamental concepts of classification. You learned about:\n\nThe nature of classification problems\nTypes of classification tasks\nFeatures and class labels\nDecision boundaries\nCommon classification algorithms\nModel evaluation and challenges\n\nClassification forms a core component of predictive analytics. Subsequent chapters will explore specific classification algorithms and their implementation in R in greater detail.",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Classification</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "28  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Course Summary</span>"
     ]
   }
 ]

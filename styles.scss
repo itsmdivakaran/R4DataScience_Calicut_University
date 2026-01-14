@@ -1,0 +1,148 @@
+/*-- scss:defaults --*/
+
+// 1. Import Professional Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@700;900&display=swap');
+
+// 2. Layout & Width Variables (Adjust widths here)
+$sidebar-width: 300px;   // Force the left sidebar width
+$toc-width: 200px;       // Force the right TOC width
+
+// 3. Theme Colors & Fonts
+$font-family-sans-serif: "Inter", sans-serif;
+$font-family-serif: "Merriweather", serif;
+
+$body-bg: #f9fbfd;       // Soft professional off-white/blue tint
+$h1-color: #1a365d;      // Deep Navy for Headings
+$link-color: #2563eb;    // Bright blue for navigation
+
+/*-- scss:rules --*/
+
+// --- LAYOUT ENGINE OVERRIDE ---
+// This ensures Quarto respects the widths defined above
+:root {
+  --quarto-sidebar-width: #{$sidebar-width};
+  --quarto-toc-width: #{$toc-width};
+  --quarto-sidebar-collapsed-width: 60px;
+}
+
+body {
+  background-color: $body-bg;
+  font-family: $font-family-sans-serif;
+  color: #1e293b;
+}
+
+// --- HEADINGS STYLE ---
+h1, .title {
+  font-family: $font-family-serif;
+  color: $h1-color;
+  font-weight: 900;
+  margin-top: 1.5rem;
+}
+
+h2, h3 {
+  font-family: $font-family-serif;
+  color: #334155;
+  margin-top: 2rem;
+}
+
+// --- LEFT SIDEBAR (The Navigation) ---
+.quarto-sidebar {
+  width: var(--quarto-sidebar-width) !important;
+  font-size: 0.45rem;      // Increased for readability
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  padding-top: 0.8rem;
+
+  // Sidebar Links
+  .sidebar-link {
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    margin: 0.1rem 0.5rem;
+    color: #475569;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #f1f5f9;
+      color: $link-color;
+    }
+
+    &.active {
+      background-color: #eff6ff;
+      color: $link-color;
+      font-weight: 350;
+    }
+  }
+}
+
+// --- RIGHT SIDEBAR (Table of Contents) ---
+.sidebar-nav nav[role="doc-toc"] {
+  font-size: 0.50rem;
+  border-left: 1px solid #e2e8f0;
+  padding-left: 1rem;
+
+  #toc-title {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.45rem;
+    letter-spacing: 0.05rem;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+  }
+
+  ul li a {
+    color: #64748b;
+    border-left: 2px solid transparent;
+    padding-left: 10px;
+
+    &:hover {
+      color: $link-color;
+    }
+
+    &.active {
+      color: $link-color;
+      border-left: 2px solid $link-color;
+      font-weight: 300;
+    }
+  }
+}
+
+/*-- scss:defaults --*/
+// ... (keep your previous font imports here) ...
+
+$body-bg: #f1f7e9; // Base light blue-grey
+$content-bg: #ffffff; // Pure white for the text area
+
+/*-- scss:rules --*/
+
+body {
+  /* This creates a soft gradient background for the whole page */
+  background: linear-gradient(135deg, #f5f7fa 0%, #f1f7e9 100%);
+  background-attachment: fixed; /* Keeps background still while scrolling */
+  font-family: "Inter", sans-serif;
+}
+
+// --- MAIN CONTENT PANEL ---
+// This targets the white "page" where your text lives
+#quarto-content.page-columns {
+  background-color: transparent; // Keeps the gradient visible behind
+}
+
+main.content {
+  background-color: $content-bg;
+  padding: 1rem !important;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;         // Rounded corners for a modern look
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); // Subtle shadow for depth
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+// --- ADJUSTING THE SIDEBARS TO MATCH ---
+.quarto-sidebar, .sidebar-nav {
+  background-color: transparent !important; // Lets the gradient show through
+}
+
+// Optional: Give the sidebar items a slight background so they pop
+.sidebar-item-text {
+    padding: 2px 2px;
+}

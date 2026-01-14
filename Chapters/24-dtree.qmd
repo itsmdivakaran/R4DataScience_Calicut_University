@@ -1,0 +1,112 @@
+# Decision Trees
+
+## Introduction
+
+**Decision Trees** are a popular and intuitive classification and regression method that model decision-making as a sequence of rules. They represent decisions using a tree-like structure, where internal nodes correspond to decision rules, branches represent outcomes of these rules, and terminal nodes (leaves) represent predicted classes.
+
+Decision trees are widely used due to their **interpretability and flexibility**, making them particularly valuable in applied statistics, healthcare, and business analytics.
+
+---
+
+## Structure of a Decision Tree
+
+A decision tree consists of:
+
+* **Root node** – the initial split
+* **Internal nodes** – decision rules based on features
+* **Branches** – outcomes of the rules
+* **Leaf nodes** – final class labels
+
+Each path from root to leaf represents a classification rule.
+
+---
+
+## Splitting Criteria
+
+Decision trees use impurity measures to decide how to split data:
+
+* **Gini Index**
+* **Entropy** and **Information Gain**
+
+The goal is to create child nodes that are as homogeneous as possible.
+
+---
+
+## Building Decision Trees in R
+
+The `rpart` package is commonly used to build decision trees.
+
+```r
+library(rpart)
+
+model <- rpart(Class ~ ., data = data)
+```
+
+The formula interface specifies the response variable and predictors.
+
+---
+
+## Tree Visualization
+
+Decision trees can be visualized for interpretation.
+
+```r
+plot(model)
+text(model)
+```
+
+Visualization helps in understanding decision rules and variable importance.
+
+---
+
+## Overfitting and Pruning
+
+Decision trees can grow very large and overfit the data.
+
+**Pruning** reduces tree complexity by removing branches that provide little predictive power.
+
+```r
+printcp(model)
+```
+
+Pruning improves generalization performance.
+
+---
+
+## Advantages of Decision Trees
+
+* Easy to interpret and explain
+* Handles both numeric and categorical variables
+* Requires little data preparation
+
+---
+
+## Limitations of Decision Trees
+
+* Prone to overfitting
+* Unstable with small data changes
+* Often less accurate than ensemble methods
+
+---
+
+## Applications of Decision Trees
+
+Decision trees are widely used in:
+
+* Medical decision-making
+* Credit scoring
+* Customer segmentation
+* Risk analysis
+
+---
+
+## Summary
+
+This chapter introduced **decision trees** as an interpretable classification method. You learned about:
+
+* Tree structure and splitting criteria
+* Building and visualizing trees in R
+* Overfitting and pruning
+* Advantages and limitations
+
+Decision trees form the basis for advanced ensemble methods such as random forests and boosting.

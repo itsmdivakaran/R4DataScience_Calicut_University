@@ -6,6 +6,10 @@ book:
   subtitle: "A Course offered by Department of Statistics, University of Calicut"
   author: "Mahesh Divakaran"
   date: "1/14/2026"
+  sidebar:
+    collapse: true
+    style: "docked"
+    background: '#8FD9FB'
   chapters:
     - index.qmd
     - Author.qmd
@@ -28,6 +32,14 @@ book:
     - chapters/17-probability.qmd
     - chapters/18-inference.qmd
     - chapters/19-regression.qmd
+    - chapters/20-timeseries.qmd
+    - chapters/21-classification.qmd
+    - chapters/22-clustering.qmd
+    - chapters/23-knn.qmd
+    - chapters/24-dtree.qmd
+    - chapters/25-modeleval.qmd
+    - summary.qmd
+    - references.qmd
     
 
 bibliography: references.bib
@@ -37,6 +49,7 @@ format:
     theme:
       - flatly
       - brand
+      - styles.scss
   pdf:
     pdf:
     documentclass: scrbook
@@ -44,6 +57,10 @@ format:
     geometry: margin=1in
 toc: true
 toc-depth: 3
+toc-location: right
+# This grid section is critical for width control
+grid:
+  body-width: 1200px
 number-sections: true
 code-copy: true
 code-overflow: wrap

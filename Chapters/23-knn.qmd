@@ -1,0 +1,116 @@
+# k-Nearest Neighbors (k-NN)
+
+## Introduction
+
+The **k-Nearest Neighbors (k-NN)** algorithm is one of the simplest and most intuitive classification methods. It is a **non-parametric, instance-based learning algorithm**, meaning that it does not assume an explicit statistical model for the data and does not involve a training phase in the traditional sense.
+
+Instead, k-NN makes predictions by comparing a new observation to previously observed data points and assigning the most common class among its nearest neighbors. This chapter focuses on the conceptual understanding of k-NN, its assumptions, and its practical use in classification problems.
+
+---
+
+## Basic Idea of k-NN
+
+The central idea of k-NN is straightforward:
+
+1. Choose a value for (k), the number of nearest neighbors
+2. Measure the distance between a new observation and all training observations
+3. Identify the (k) closest observations
+4. Assign the class that occurs most frequently among these neighbors
+
+The simplicity of this approach makes k-NN an excellent starting point for understanding classification algorithms.
+
+---
+
+## Distance Measures
+
+The notion of "nearness" depends on the distance metric used. Common distance measures include:
+
+* **Euclidean distance** – most commonly used for continuous variables
+* **Manhattan distance** – based on absolute differences
+* **Minkowski distance** – a generalization of distance measures
+
+For numeric features, Euclidean distance is typically used.
+
+---
+
+## Choosing the Value of k
+
+The choice of (k) has a significant impact on model performance:
+
+* Small (k) values can lead to overfitting
+* Large (k) values can lead to oversmoothing and underfitting
+
+Selecting an appropriate value of (k) is often done using cross-validation.
+
+---
+
+## Feature Scaling in k-NN
+
+Because k-NN relies on distance calculations, **feature scaling is essential**.
+
+```r
+scale()
+```
+
+Variables measured on larger scales can dominate distance computations if scaling is ignored.
+
+---
+
+## k-NN Classification in R
+
+The `class` package provides a simple implementation of k-NN.
+
+```r
+library(class)
+
+knn(train = train_data,
+    test = test_data,
+    cl = train_labels,
+    k = 5)
+```
+
+Here:
+
+* `train` contains predictor variables for training
+* `test` contains predictor variables for testing
+* `cl` contains class labels
+
+---
+
+## Advantages of k-NN
+
+* Simple and intuitive
+* No explicit training phase
+* Flexible decision boundaries
+
+---
+
+## Limitations of k-NN
+
+* Computationally expensive for large datasets
+* Sensitive to noise and irrelevant features
+* Requires careful choice of distance metric and (k)
+
+---
+
+## Applications of k-NN
+
+k-NN is commonly used in:
+
+* Pattern recognition
+* Recommendation systems
+* Medical diagnosis (small datasets)
+* Image classification
+
+---
+
+## Summary
+
+This chapter introduced the **k-Nearest Neighbors algorithm** as a simple yet powerful classification technique. You learned about:
+
+* The intuition behind k-NN
+* Distance measures and feature scaling
+* Choosing the value of (k)
+* Advantages and limitations
+
+k-NN provides a foundation for understanding more complex classification algorithms.

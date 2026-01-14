@@ -1,0 +1,236 @@
+# Clustering
+
+## Introduction
+
+**Clustering** is an unsupervised learning technique used to group observations such that objects within the same group (cluster) are more similar to each other than to those in other groups. Unlike classification, clustering does not rely on predefined class labels. Instead, it seeks to **discover hidden structure and patterns** in data.
+
+Clustering plays a key role in exploratory data analysis, market segmentation, bioinformatics, image analysis, and social science research. This chapter introduces the **conceptual foundations of clustering**, common clustering paradigms, and practical considerations for applying clustering methods in R.
+
+------------------------------------------------------------------------
+
+## What Is Clustering?
+
+In clustering:
+
+-   The response variable is unknown or absent
+-   The algorithm groups data based on similarity or distance
+-   The goal is pattern discovery rather than prediction
+
+Typical questions answered by clustering include:
+
+-   Are there natural groupings in the data?
+-   How many distinct patterns exist?
+-   Which observations are similar to each other?
+
+------------------------------------------------------------------------
+
+## Clustering vs Classification
+
+| Aspect        | Clustering            | Classification       |
+|---------------|-----------------------|----------------------|
+| Learning type | Unsupervised          | Supervised           |
+| Class labels  | Unknown               | Known                |
+| Objective     | Discover structure    | Predict class        |
+| Evaluation    | Subjective / internal | Objective / external |
+
+Clustering is often used **before classification** to understand data structure.
+
+------------------------------------------------------------------------
+
+## Similarity and Distance Measures
+
+Clustering methods rely on measures of similarity or dissimilarity.
+
+Common distance measures include:
+
+-   **Euclidean distance** – continuous variables
+-   **Manhattan distance** – absolute differences
+-   **Cosine similarity** – text and high-dimensional data
+
+The choice of distance metric strongly influences clustering results.
+
+------------------------------------------------------------------------
+
+## Importance of Feature Scaling
+
+Clustering algorithms are sensitive to scale.
+
+``` r
+scaled_data <- scale(data)
+```
+
+Without scaling, variables with larger ranges may dominate distance calculations.
+
+------------------------------------------------------------------------
+
+## Types of Clustering Methods
+
+Clustering methods can be broadly classified into:
+
+-   Partition-based clustering
+-   Hierarchical clustering
+-   Density-based clustering
+
+Each approach has different assumptions and use cases.
+
+------------------------------------------------------------------------
+
+## Partition-Based Clustering: k-Means
+
+**k-means clustering** partitions data into (k) clusters by minimizing within-cluster variation.
+
+Key characteristics:
+
+-   Requires pre-specifying the number of clusters
+-   Assumes roughly spherical clusters
+-   Efficient for large datasets
+
+``` r
+set.seed(123)
+kmeans_model <- kmeans(scaled_data, centers = 3)
+kmeans_model$cluster
+```
+
+------------------------------------------------------------------------
+
+## Choosing the Number of Clusters
+
+Selecting an appropriate number of clusters is a critical step.
+
+Common approaches include:
+
+-   Elbow method
+-   Silhouette analysis
+-   Domain knowledge
+
+``` r
+# Elbow method illustration
+wss <- sapply(1:10, function(k) kmeans(scaled_data, k)$tot.withinss)
+plot(1:10, wss, type = "b")
+```
+
+------------------------------------------------------------------------
+
+## Hierarchical Clustering
+
+Hierarchical clustering builds a tree-like structure of clusters.
+
+Two main approaches:
+
+-   **Agglomerative** – bottom-up approach
+-   **Divisive** – top-down approach
+
+``` r
+dist_mat <- dist(scaled_data)
+hc <- hclust(dist_mat)
+plot(hc)
+```
+
+------------------------------------------------------------------------
+
+## Linkage Methods
+
+Hierarchical clustering uses linkage criteria to define cluster distance:
+
+-   Single linkage
+-   Complete linkage
+-   Average linkage
+-   Ward’s method
+
+Different linkage methods can lead to very different clustering structures.
+
+------------------------------------------------------------------------
+
+## Cutting the Dendrogram
+
+``` r
+clusters <- cutree(hc, k = 3)
+clusters
+```
+
+This assigns each observation to a cluster.
+
+------------------------------------------------------------------------
+
+## Density-Based Clustering (Overview)
+
+Density-based methods identify clusters as regions of high density.
+
+Key ideas:
+
+-   Clusters can have arbitrary shapes
+-   Noise and outliers are explicitly identified
+
+Examples include DBSCAN and OPTICS (covered in advanced chapters).
+
+------------------------------------------------------------------------
+
+## Evaluating Clustering Results
+
+Clustering evaluation is challenging due to the absence of true labels.
+
+Common internal measures include:
+
+-   Within-cluster sum of squares
+-   Silhouette width
+-   Cluster stability
+
+Visualization also plays a key role in assessment.
+
+------------------------------------------------------------------------
+
+## Visualization of Clusters
+
+``` r
+plot(scaled_data, col = kmeans_model$cluster)
+```
+
+Dimensionality reduction techniques such as PCA are often used for visualization.
+
+------------------------------------------------------------------------
+
+## Practical Challenges in Clustering
+
+-   Choosing the number of clusters
+-   Sensitivity to initialization
+-   High-dimensional data
+-   Interpretability of clusters
+
+Clustering results should always be interpreted cautiously and in context.
+
+------------------------------------------------------------------------
+
+## Applications of Clustering
+
+Clustering is widely applied in:
+
+-   Customer and market segmentation
+-   Gene expression analysis
+-   Image and pattern recognition
+-   Social network analysis
+-   Exploratory survey analysis
+
+------------------------------------------------------------------------
+
+## Best Practices for Clustering
+
+-   Scale variables before clustering
+-   Try multiple clustering methods
+-   Validate results using multiple criteria
+-   Combine clustering with visualization
+-   Use domain knowledge for interpretation
+
+------------------------------------------------------------------------
+
+## Summary
+
+This chapter introduced the foundations of **clustering analysis**. You learned about:
+
+-   The concept and purpose of clustering
+-   Differences between clustering and classification
+-   Distance measures and scaling
+-   k-means and hierarchical clustering
+-   Choosing the number of clusters
+-   Evaluating and visualizing clusters
+
+Clustering is a powerful exploratory tool that often precedes predictive modeling and deeper statistical analysis.

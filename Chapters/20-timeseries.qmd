@@ -1,0 +1,248 @@
+# Time Series Analysis
+
+## Introduction
+
+Time series analysis deals with data observed **sequentially over time**. Such data arise naturally in economics, finance, climatology, public health, industrial processes, and many other domains. Unlike cross-sectional data, time series observations are often **dependent**, meaning that values at one time point are related to past values.
+
+This chapter introduces the **foundations of time series analysis**, focusing on concepts, components, and basic modeling approaches. Emphasis is placed on understanding temporal structure, preparing data for analysis, and applying core methods using R. Advanced models and forecasting techniques can be built upon this foundation.
+
+---
+
+## What Is a Time Series?
+
+A **time series** is a sequence of observations recorded at successive points in time, usually at equally spaced intervals.
+
+Examples include:
+
+- Monthly rainfall totals
+- Daily stock prices
+- Hourly temperature readings
+- Annual disease incidence counts
+
+Time series analysis seeks to understand the underlying structure and generate reliable forecasts.
+
+---
+
+## Types of Time Series
+
+Time series can be classified based on frequency and structure:
+
+- **Discrete-time series**: observed at fixed intervals (daily, monthly, yearly)
+- **Continuous-time series**: observed continuously (often approximated discretely)
+- **Univariate time series**: single variable over time
+- **Multivariate time series**: multiple variables observed simultaneously
+
+---
+
+## Time Series Objects in R
+
+R provides dedicated classes for time series data.
+
+### The `ts` Class
+
+```r
+sales <- c(120, 135, 150, 160, 170, 180)
+sales_ts <- ts(sales, start = c(2020, 1), frequency = 12)
+sales_ts
+```
+
+The `frequency` argument specifies the number of observations per unit time (e.g., 12 for monthly data).
+
+---
+
+## Plotting Time Series
+
+Visual inspection is the first step in time series analysis.
+
+```r
+plot(sales_ts, main = "Monthly Sales Time Series",
+     ylab = "Sales", xlab = "Time")
+```
+
+Plots help identify trends, seasonality, and irregular behavior.
+
+---
+
+## Components of a Time Series
+
+A time series is often decomposed into the following components:
+
+- **Trend (T)**: long-term movement
+- **Seasonal (S)**: repeating patterns at fixed intervals
+- **Cyclical (C)**: long-term oscillations
+- **Irregular (I)**: random variation
+
+Understanding these components is essential for modeling and forecasting.
+
+---
+
+## Additive and Multiplicative Models
+
+Two common decomposition models are:
+
+- **Additive model**:  
+  $Y_t = T_t + S_t + I_t $
+
+- **Multiplicative model**:  
+  $Y_t = T_t \times S_t \times I_t $
+
+The choice depends on whether seasonal variation is constant or proportional to the level of the series.
+
+---
+
+## Time Series Decomposition
+
+R provides tools for decomposing time series.
+
+```r
+decomp <- decompose(sales_ts)
+plot(decomp)
+```
+
+Decomposition separates the observed series into its components, aiding interpretation.
+
+---
+
+## Stationarity
+
+A key concept in time series analysis is **stationarity**.
+
+A time series is said to be stationary if its statistical properties (mean, variance, autocorrelation) do not change over time.
+
+Many time series models assume stationarity.
+
+---
+
+## Achieving Stationarity
+
+Non-stationary series can often be transformed into stationary ones using:
+
+- Differencing
+- Logarithmic transformation
+- Removing trend and seasonality
+
+```r
+diff_sales <- diff(sales_ts)
+plot(diff_sales)
+```
+
+---
+
+## Autocorrelation and Partial Autocorrelation
+
+### Autocorrelation Function (ACF)
+
+The ACF measures correlation between observations separated by different time lags.
+
+```r
+acf(sales_ts)
+```
+
+### Partial Autocorrelation Function (PACF)
+
+The PACF measures correlation between observations after removing intermediate effects.
+
+```r
+pacf(sales_ts)
+```
+
+ACF and PACF plots are essential tools for model identification.
+
+---
+
+## Basic Time Series Models
+
+### Moving Average Models
+
+Moving average models express the current value as a function of past random shocks.
+
+### Autoregressive Models
+
+Autoregressive (AR) models express the current value as a function of its past values.
+
+### ARMA and ARIMA Models
+
+- **ARMA**: combines AR and MA (stationary series)
+- **ARIMA**: includes differencing to handle non-stationarity
+
+Detailed treatment of these models can be developed in advanced chapters.
+
+---
+
+## Fitting an ARIMA Model in R
+
+```r
+model_arima <- arima(sales_ts, order = c(1, 1, 1))
+model_arima
+```
+
+Model selection is guided by diagnostics and information criteria.
+
+---
+
+## Forecasting
+
+Time series models are commonly used for forecasting future values.
+
+```r
+library(forecast)
+forecast_values <- forecast(model_arima, h = 6)
+plot(forecast_values)
+```
+
+Forecasts should always be accompanied by measures of uncertainty.
+
+---
+
+## Model Diagnostics
+
+After fitting a model, residuals should be examined.
+
+```r
+acf(residuals(model_arima))
+```
+
+Residuals should resemble white noise if the model is adequate.
+
+---
+
+## Time Series in the Data Analysis Workflow
+
+Time series analysis typically involves:
+
+1. Visualization and exploration
+2. Decomposition
+3. Checking stationarity
+4. Model identification
+5. Model estimation
+6. Diagnostic checking
+7. Forecasting
+
+This systematic approach improves reliability and interpretability.
+
+---
+
+## Limitations and Challenges
+
+- Structural breaks
+- Missing observations
+- Nonlinear patterns
+- External shocks
+
+Time series models should be used with caution and domain knowledge.
+
+---
+
+## Summary
+
+This chapter introduced the foundations of **time series analysis**. You learned about:
+
+- Time series concepts and types
+- Time series objects and plotting in R
+- Components and decomposition
+- Stationarity and differencing
+- Autocorrelation and partial autocorrelation
+- Basic ARIMA modeling and forecasting
+
+Time series analysis is a powerful tool for understanding temporal data and forms the basis for advanced forecasting and dynamic modeling techniques.
+

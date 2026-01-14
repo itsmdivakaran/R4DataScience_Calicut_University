@@ -1,0 +1,238 @@
+# Regression Analysis
+
+## Introduction
+
+Regression analysis is one of the most important tools in statistics and data science. It is used to **study the relationship between a response (dependent) variable and one or more explanatory (independent) variables**. Regression allows us to explain variation, make predictions, and assess the effect of one variable on another.
+
+In this chapter, we introduce the **fundamental ideas of regression analysis**, with an emphasis on interpretation, assumptions, and practical implementation using R. The focus is on understanding regression as a statistical model rather than merely a computational technique.
+
+---
+
+## Relationship Between Variables
+
+In many real-world problems, variables are related to each other. For example:
+
+- Income may depend on education and experience
+- Blood pressure may depend on age and lifestyle
+- Sales may depend on price and advertising
+
+Regression provides a formal framework to quantify such relationships.
+
+---
+
+## Simple Linear Regression
+
+Simple linear regression models the relationship between two variables:
+
+- One response variable $Y$
+- One explanatory variable $X$
+
+The model is written as:
+
+$$
+Y = \beta_0 + \beta_1 X + \varepsilon
+$$
+
+where:
+- $\beta_0$ is the intercept
+- $\beta_1$ is the slope
+- $\varepsilon$ is the random error term
+
+---
+
+## Interpretation of Regression Coefficients
+
+- **Intercept ($\beta_0$)**: Expected value of $Y$ when $X = 0$
+- **Slope ($\beta_1$)**: Expected change in $Y$ for a one-unit increase in $X$
+
+Interpretation should always be done in the context of the problem.
+
+---
+
+## Fitting a Simple Linear Regression Model in R
+
+```r
+model <- lm(mpg ~ wt, data = mtcars)
+summary(model)
+```
+
+The `lm()` function fits linear regression models using the method of least squares.
+
+---
+
+## Least Squares Principle
+
+The method of **least squares** estimates regression coefficients by minimizing the sum of squared residuals:
+
+$$
+\sum (Y_i - \hat{Y}_i)^2
+$$
+
+This ensures the best linear fit in terms of squared error.
+
+---
+
+## Fitted Values and Residuals
+
+- **Fitted values** are the predicted values $\hat{Y}$
+- **Residuals** are the differences $Y - \hat{Y}$
+
+```r
+fitted(model)
+residuals(model)
+```
+
+Residuals play a crucial role in diagnosing model adequacy.
+
+---
+
+## Assumptions of Linear Regression
+
+Classical linear regression relies on the following assumptions:
+
+- Linearity of relationship
+- Independence of errors
+- Constant variance (homoscedasticity)
+- Normality of errors (for inference)
+
+Violations of these assumptions can affect the validity of conclusions.
+
+---
+
+## Graphical Diagnostics
+
+Diagnostic plots help assess model assumptions.
+
+```r
+plot(model)
+```
+
+Common diagnostic plots include:
+
+- Residuals vs fitted values
+- Normal Q–Q plot
+- Scale–location plot
+- Residuals vs leverage
+
+---
+
+## Coefficient of Determination (R²)
+
+The **coefficient of determination**, $R^2$, measures the proportion of variability in the response variable explained by the model.
+
+$$
+R^2 = 1 - \frac{\text{Residual Sum of Squares}}{\text{Total Sum of Squares}}
+$$
+
+Higher values of $R^2$ indicate better explanatory power, but should not be used alone to judge model quality.
+
+---
+
+## Hypothesis Testing in Regression
+
+Regression models allow hypothesis testing for coefficients.
+
+Typical hypotheses:
+
+- $H_0: \beta_1 = 0$
+- $H_1: \beta_1 \neq 0$
+
+The test assesses whether the explanatory variable has a statistically significant effect on the response.
+
+---
+
+## Confidence Intervals for Regression Coefficients
+
+```r
+confint(model)
+```
+
+Confidence intervals provide a range of plausible values for regression parameters.
+
+---
+
+## Multiple Linear Regression
+
+When more than one explanatory variable is included, the model becomes:
+
+$$
+Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p + \varepsilon
+$$
+
+Multiple regression allows the effect of each variable to be studied **while controlling for others**.
+
+---
+
+## Fitting Multiple Regression in R
+
+```r
+model2 <- lm(mpg ~ wt + hp, data = mtcars)
+summary(model2)
+```
+
+Interpretation of coefficients must consider the presence of other predictors.
+
+---
+
+## Model Comparison
+
+Models can be compared using:
+
+- Adjusted $R^2$
+- Analysis of variance (ANOVA)
+
+```r
+anova(model, model2)
+```
+
+---
+
+## Prediction Using Regression Models
+
+Regression models can be used for prediction.
+
+```r
+new_data <- data.frame(wt = 3)
+predict(model, new_data)
+```
+
+Prediction intervals account for uncertainty in future observations.
+
+---
+
+## Limitations of Regression
+
+- Correlation does not imply causation
+- Extrapolation outside data range can be misleading
+- Omitted variables can bias estimates
+- Multicollinearity affects interpretation
+
+Careful model building and domain knowledge are essential.
+
+---
+
+## Regression in the Data Analysis Workflow
+
+Regression analysis is typically performed after:
+
+1. Exploratory data analysis
+2. Data transformation and cleaning
+3. Checking assumptions
+
+Regression results should always be interpreted in context.
+
+---
+
+## Summary
+
+This chapter introduced **regression analysis** as a core statistical modeling tool. You learned about:
+
+- Simple and multiple linear regression
+- Interpretation of regression coefficients
+- Least squares estimation
+- Model assumptions and diagnostics
+- Hypothesis testing and confidence intervals
+- Prediction and model comparison
+
+Regression forms the foundation for many advanced statistical and machine learning methods and is a cornerstone of applied data analysis.
+

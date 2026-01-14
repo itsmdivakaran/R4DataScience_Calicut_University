@@ -1,0 +1,255 @@
+# Statistical Inference
+
+## Introduction
+
+Statistical inference is the process of **drawing conclusions about a population based on information obtained from a sample**. Because populations are often too large or impractical to study in full, inference provides a principled way to make decisions under uncertainty using probability theory.
+
+Building on the foundations of statistics and probability introduced in the previous chapters, this chapter presents the **core framework of statistical inference**. The emphasis is on understanding concepts, assumptions, and interpretation, with supporting examples in R. The goal is to develop sound inferential reasoning rather than mechanical application of tests.
+
+------------------------------------------------------------------------
+
+## Population, Sample, and Parameters
+
+-   A **population** is the complete set of units of interest
+
+-   A **sample** is a subset selected from the population
+
+-   A **parameter** is a numerical characteristic of the population (e.g., mean, variance)
+
+-   A **statistic** is a numerical summary computed from the sample
+
+Statistical inference uses sample statistics to learn about unknown population parameters.
+
+------------------------------------------------------------------------
+
+## Sampling Distributions
+
+A **sampling distribution** describes the distribution of a statistic over repeated samples drawn from the same population.
+
+For example, if many samples are taken and the sample mean is computed each time, the distribution of these means forms the sampling distribution of the sample mean.
+
+Sampling distributions are fundamental because they quantify **sampling variability**, which underlies all inferential procedures.
+
+------------------------------------------------------------------------
+
+## The Central Limit Theorem
+
+The **Central Limit Theorem (CLT)** states that, for a sufficiently large sample size, the sampling distribution of the sample mean is approximately normal, regardless of the population distribution, provided the variance is finite.
+
+Key implications:
+
+-   Normal-based inference is widely applicable
+
+-   Sample size plays a critical role in inference
+
+-   Variability decreases as sample size increases
+
+------------------------------------------------------------------------
+
+## Point Estimation
+
+A **point estimator** provides a single numerical estimate of a population parameter.
+
+Common examples include:
+
+-   Sample mean as an estimator of population mean
+
+-   Sample proportion as an estimator of population proportion
+
+```         
+x <- c(10, 12, 15, 14, 13)
+mean(x)
+```
+
+Good estimators are typically unbiased and have low variability.
+
+------------------------------------------------------------------------
+
+## Interval Estimation and Confidence Intervals
+
+A **confidence interval** provides a range of plausible values for a population parameter.
+
+A 95% confidence interval means that, in repeated sampling, approximately 95% of such intervals will contain the true parameter.
+
+```         
+x <- c(10, 12, 15, 14, 13)
+t.test(x)$conf.int
+```
+
+Confidence intervals convey both estimation and uncertainty.
+
+------------------------------------------------------------------------
+
+## Hypothesis Testing Framework
+
+Hypothesis testing provides a structured method for evaluating claims about population parameters.
+
+The framework involves:
+
+-   **Null hypothesis (H₀)**: a statement of no effect or no difference
+
+-   **Alternative hypothesis (H₁)**: a statement contradicting H₀
+
+-   A test statistic
+
+-   A decision rule based on probability
+
+------------------------------------------------------------------------
+
+## Test Statistics
+
+A **test statistic** summarizes the evidence in the data against the null hypothesis. Its distribution under the null hypothesis is known or approximated.
+
+Examples include:
+
+-   z-statistic
+
+-   t-statistic
+
+-   chi-square statistic
+
+-   F-statistic
+
+------------------------------------------------------------------------
+
+## p-values
+
+The **p-value** is the probability, under the null hypothesis, of observing a result at least as extreme as the one obtained.
+
+Small p-values indicate strong evidence against the null hypothesis.
+
+```         
+t.test(x)$p.value
+```
+
+Correct interpretation of p-values is essential for valid conclusions.
+
+------------------------------------------------------------------------
+
+## Significance Level
+
+The **significance level**, denoted by α, is the probability of rejecting a true null hypothesis.
+
+Common choices include:
+
+-   α = 0.05
+
+-   α = 0.01
+
+The significance level should be chosen before examining the data.
+
+------------------------------------------------------------------------
+
+## Types of Errors
+
+Two types of errors may occur in hypothesis testing:
+
+-   **Type I Error**: Rejecting a true null hypothesis
+
+-   **Type II Error**: Failing to reject a false null hypothesis
+
+There is a trade-off between these errors, influenced by sample size and test design.
+
+------------------------------------------------------------------------
+
+## Power of a Test
+
+The **power** of a statistical test is the probability of correctly rejecting a false null hypothesis.
+
+Higher power is desirable and can be increased by:
+
+-   Increasing sample size
+
+-   Reducing variability
+
+-   Choosing an appropriate test
+
+------------------------------------------------------------------------
+
+## Common Statistical Tests
+
+Some widely used inferential procedures include:
+
+-   One-sample and two-sample t-tests
+
+-   Paired t-test
+
+-   Chi-square tests for independence
+
+-   Analysis of variance (ANOVA)
+
+Detailed treatment of these tests will be provided in subsequent chapters.
+
+------------------------------------------------------------------------
+
+## Assumptions in Statistical Inference
+
+Inferential methods rely on assumptions such as:
+
+-   Random sampling
+
+-   Independence of observations
+
+-   Normality of distributions (in some tests)
+
+-   Homogeneity of variance
+
+Violating assumptions can lead to invalid conclusions.
+
+------------------------------------------------------------------------
+
+## Statistical Inference Using R
+
+R provides built-in functions for inference.
+
+```         
+t.test(x)
+```
+
+While software performs calculations automatically, understanding the underlying assumptions and interpretation remains essential.
+
+------------------------------------------------------------------------
+
+## Misinterpretations and Common Pitfalls
+
+-   Confusing statistical significance with practical importance
+
+-   Treating p-values as probabilities of hypotheses
+
+-   Ignoring assumptions
+
+-   Overreliance on automated output
+
+Critical thinking is essential when applying inferential methods.
+
+------------------------------------------------------------------------
+
+## Inference in the Data Analysis Workflow
+
+Statistical inference is typically applied after:
+
+1.  Data collection
+
+2.  Data cleaning and transformation
+
+3.  Exploratory data analysis
+
+Inference should never be performed blindly without understanding the data.
+
+------------------------------------------------------------------------
+
+## Summary
+
+This chapter introduced the principles of **statistical inference**. You learned about:
+
+-   Sampling distributions and the Central Limit Theorem
+
+-   Point and interval estimation
+
+-   Hypothesis testing framework
+
+-   p-values, significance levels, and errors
+
+-   Power and assumptions
+
+Statistical inference provides the tools needed to make evidence-based conclusions from data, forming the core of statistical reasoning and applied data analysis.

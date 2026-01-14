@@ -6,7 +6,7 @@ Probability provides the **mathematical framework for quantifying uncertainty**.
 
 This chapter introduces the **core concepts of probability theory** required for statistical analysis. The emphasis is on clear definitions, intuitive understanding, and simple illustrations, with light use of R to reinforce concepts. Statistical inference based on probability will be covered in the next chapter.
 
-------------------------------------------------------------------------
+---
 
 ## Random Experiments
 
@@ -14,50 +14,53 @@ A **random experiment** is a process that produces an outcome which cannot be pr
 
 Examples include:
 
--   Tossing a coin
--   Rolling a die
--   Selecting a patient randomly from a population
--   Measuring response time in an experiment
+- Tossing a coin
+- Rolling a die
+- Selecting a patient randomly from a population
+- Measuring response time in an experiment
 
 The defining feature of a random experiment is **uncertainty in outcomes**.
 
-------------------------------------------------------------------------
+---
 
 ## Sample Space
 
-The **sample space**, denoted by (S), is the set of all possible outcomes of a random experiment.
+The **sample space**, denoted by $S$, is the set of all possible outcomes of a random experiment.
 
 Examples:
 
--   Coin toss: (S = {H, T})
+- Coin toss:  
+  $S = \{H, T\}$
 
--   Die roll: (S = {1, 2, 3, 4, 5, 6})
+- Die roll:  
+  $S = \{1, 2, 3, 4, 5, 6\}$
 
 In R, a sample space can be represented using vectors:
 
-``` r
+```r
 sample_space <- c("H", "T")
 sample_space
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Events
 
 An **event** is any subset of the sample space. Events may consist of:
 
--   A single outcome (simple event)
--   Multiple outcomes (compound event)
+- A single outcome (simple event)
+- Multiple outcomes (compound event)
 
 Example (die roll):
 
--   Event A = rolling an even number (A = {2, 4, 6})
+- Event A = rolling an even number  
+  $A = \{2, 4, 6\}$
 
-``` r
+```r
 A <- c(2, 4, 6)
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Types of Events
 
@@ -67,9 +70,9 @@ Two events are **mutually exclusive** if they cannot occur at the same time.
 
 Example:
 
--   Rolling a 2 and rolling a 5 on a single die
+- Rolling a 2 and rolling a 5 on a single die
 
-------------------------------------------------------------------------
+---
 
 ### Exhaustive Events
 
@@ -77,105 +80,124 @@ A set of events is **exhaustive** if at least one of them must occur.
 
 Example:
 
--   Even number or odd number in a die roll
+- Even number or odd number in a die roll
 
-------------------------------------------------------------------------
+---
 
 ## Classical Definition of Probability
 
-If a random experiment has a finite number of equally likely outcomes, the probability of an event (A) is defined as:
+If a random experiment has a finite number of equally likely outcomes, the probability of an event $A$ is defined as:
 
-\[ P(A) = \frac{\text{Number of favorable outcomes}}{\text{Total number of outcomes}}\]
+$$
+P(A) = \frac{\text{Number of favorable outcomes}}{\text{Total number of outcomes}}
+$$
 
 Example:
 
 Probability of rolling an even number on a fair die:
 
-\[ P(A) = \frac{3}{6} = 0.5\]
+$$
+P(A) = \frac{3}{6} = 0.5
+$$
 
-------------------------------------------------------------------------
+---
 
 ## Axiomatic Definition of Probability
 
 Modern probability theory is based on three axioms proposed by **Kolmogorov**:
 
-1.  For any event (A), (P(A) \ge 0)
-2.  (P(S) = 1)
-3.  For mutually exclusive events (A_1, A_2, \dots): (P(A_1 \cup A_2 \cup \dots) = \sum P(A_i))
+1. For any event $A$, $P(A) \ge 0$
+2. $P(S) = 1$
+3. For mutually exclusive events $A_1, A_2, \dots$:  
+   $P(A_1 \cup A_2 \cup \dots) = \sum P(A_i)$
 
 These axioms provide a rigorous mathematical foundation for probability.
 
-------------------------------------------------------------------------
+---
 
 ## Probability of Complementary Events
 
-The **complement** of an event (A), denoted by (A\^c), consists of all outcomes not in (A).
+The **complement** of an event $A$, denoted by $A^c$, consists of all outcomes not in $A$.
 
-\[ P(A\^c) = 1 - P(A)\]
+$$
+P(A^c) = 1 - P(A)
+$$
 
 Example:
 
-If (P(A) = 0.7), then:
+If $P(A) = 0.7$, then:
 
-\[ P(A\^c) = 0.3\]
+$$
+P(A^c) = 0.3
+$$
 
-------------------------------------------------------------------------
+---
 
 ## Addition Law of Probability
 
-For any two events (A) and (B):
+For any two events $A$ and $B$:
 
-\[ P(A \cup B) = P(A) + P(B) - P(A \cap B)\]
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
 
-If (A) and (B) are mutually exclusive:
+If $A$ and $B$ are mutually exclusive:
 
-\[ P(A \cup B) = P(A) + P(B)\]
+$$
+P(A \cup B) = P(A) + P(B)
+$$
 
-------------------------------------------------------------------------
+---
 
 ## Conditional Probability
 
-The **conditional probability** of event (A) given that event (B) has occurred is defined as:
+The **conditional probability** of event $A$ given that event $B$ has occurred is defined as:
 
-\[ P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \quad P(B) \> 0\]
+$$
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \quad P(B) > 0
+$$
 
 Conditional probability allows us to update probabilities based on additional information.
 
-------------------------------------------------------------------------
+---
 
 ## Independence of Events
 
-Two events (A) and (B) are said to be **independent** if the occurrence of one does not affect the probability of the other.
+Two events $A$ and $B$ are said to be **independent** if the occurrence of one does not affect the probability of the other.
 
-\[ P(A \cap B) = P(A)P(B)\]
+$$
+P(A \cap B) = P(A)P(B)
+$$
 
 Independence is a strong assumption and must be justified carefully in practice.
 
-------------------------------------------------------------------------
+---
 
 ## Bayes’ Theorem
 
 Bayes’ theorem provides a way to reverse conditional probabilities.
 
-\[ P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}\]
+$$
+P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}
+$$
 
 Bayes’ theorem is fundamental in medical testing, machine learning, and decision theory.
 
-------------------------------------------------------------------------
+---
 
 ## Random Variables
 
 A **random variable** is a function that assigns a numerical value to each outcome in the sample space.
 
--   **Discrete random variables** take countable values
--   **Continuous random variables** take values over an interval
+- **Discrete random variables** take countable values
+- **Continuous random variables** take values over an interval
 
 Examples include:
 
--   Number of heads in coin tosses
--   Height or weight of individuals
+- Number of heads in coin tosses
+- Height or weight of individuals
 
-------------------------------------------------------------------------
+---
 
 ## Probability Distributions
 
@@ -183,23 +205,23 @@ A **probability distribution** describes how probabilities are assigned to value
 
 Examples:
 
--   Discrete: Bernoulli, Binomial, Poisson
--   Continuous: Uniform, Normal, Exponential
+- Discrete: Bernoulli, Binomial, Poisson
+- Continuous: Uniform, Normal, Exponential
 
 Detailed study of distributions will appear in later chapters.
 
-------------------------------------------------------------------------
+---
 
 ## Expectation and Variance
 
-For a random variable (X):
+For a random variable $X$:
 
--   **Expected value** measures the long-run average
--   **Variance** measures variability around the mean
+- **Expected value** measures the long-run average
+- **Variance** measures variability around the mean
 
 These quantities play a central role in statistical modeling and inference.
 
-------------------------------------------------------------------------
+---
 
 ## Law of Large Numbers (Conceptual)
 
@@ -207,7 +229,7 @@ The **Law of Large Numbers** states that as the number of trials increases, the 
 
 This principle explains why probabilities manifest as stable long-run frequencies.
 
-------------------------------------------------------------------------
+---
 
 ## Probability and Simulation in R
 
