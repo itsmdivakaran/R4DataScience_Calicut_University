@@ -1,0 +1,249 @@
+# Functional Programming in R
+
+## Introduction
+
+Functional programming is a programming paradigm that treats **functions as first-class objects** and emphasizes writing code by composing functions rather than modifying state. In R, functional programming is especially powerful for writing **concise, reusable, and reliable code**, and it plays a central role in modern data analysis workflows.
+
+This chapter introduces the principles of functional programming in R, starting from base R concepts and extending to tidyverse-friendly tools such as **`purrr`**. The focus is on *why* functional programming is useful, *when* to use it, and *how* it improves clarity and correctness in data analysis.
+
+------------------------------------------------------------------------
+
+## Functions as Objects in R
+
+In R, functions are objects just like vectors or data frames. They can be:
+
+-   Assigned to variables
+-   Passed as arguments to other functions
+-   Returned as outputs from functions
+
+``` r
+f <- mean
+f(c(10, 20, 30))
+```
+
+This property allows R users to write highly flexible and expressive code.
+
+------------------------------------------------------------------------
+
+## Writing Your Own Functions
+
+Creating functions helps avoid repetition and improves code organization.
+
+``` r
+add_percentage <- function(x, p) {
+  x + (x * p / 100)
+}
+
+add_percentage(100, 10)
+```
+
+A function typically consists of:
+
+-   A name
+-   Input arguments
+-   A body containing expressions
+-   A return value (implicit or explicit)
+
+------------------------------------------------------------------------
+
+## Pure Functions and Side Effects
+
+A **pure function** always produces the same output for the same input and does not modify external variables.
+
+``` r
+square <- function(x) {
+  x^2
+}
+```
+
+Pure functions are easier to test, debug, and reuse. Avoiding side effects is considered good practice in data analysis code.
+
+------------------------------------------------------------------------
+
+## Avoiding Loops with Vectorization
+
+R is designed for vectorized operations, which are faster and more readable than explicit loops.
+
+``` r
+x <- 1:5
+x^2
+```
+
+Compare with a loop:
+
+``` r
+result <- numeric(length(x))
+for (i in seq_along(x)) {
+  result[i] <- x[i]^2
+}
+```
+
+Vectorization is often the first step toward functional programming in R.
+
+------------------------------------------------------------------------
+
+## The apply Family of Functions
+
+Base R provides a family of functions for applying operations over data structures.
+
+### `lapply()`
+
+``` r
+numbers <- list(1:5, 6:10, 11:15)
+lapply(numbers, mean)
+```
+
+### `sapply()`
+
+``` r
+sapply(numbers, mean)
+```
+
+### `apply()`
+
+``` r
+mat <- matrix(1:6, nrow = 2)
+apply(mat, 1, sum)
+```
+
+These functions reduce the need for explicit loops and improve clarity.
+
+------------------------------------------------------------------------
+
+## Anonymous Functions
+
+Anonymous (or lambda) functions are functions without names, often used for short operations.
+
+``` r
+lapply(numbers, function(x) x^2)
+```
+
+They are useful when a function is needed only once.
+
+------------------------------------------------------------------------
+
+## Introduction to purrr
+
+The **`purrr`** package provides a modern, consistent alternative to the `apply` family. It is part of the tidyverse and is designed to work seamlessly with pipelines.
+
+``` r
+install.packages("purrr")
+library(purrr)
+```
+
+------------------------------------------------------------------------
+
+## Mapping Functions with `map()`
+
+The core idea of `purrr` is **mapping a function over a vector or list**.
+
+``` r
+map(numbers, mean)
+```
+
+Typed variants ensure predictable output:
+
+``` r
+map_dbl(numbers, mean)
+map_int(numbers, length)
+```
+
+------------------------------------------------------------------------
+
+## Mapping with Anonymous Functions
+
+``` r
+map(numbers, ~ .x * 2)
+```
+
+The `.x` syntax provides a concise way to define anonymous functions.
+
+------------------------------------------------------------------------
+
+## Mapping Over Multiple Inputs
+
+``` r
+x <- c(1, 2, 3)
+y <- c(4, 5, 6)
+
+map2(x, y, ~ .x + .y)
+```
+
+This is useful when combining multiple vectors element-wise.
+
+------------------------------------------------------------------------
+
+## Iteration with Side Effects: `walk()`
+
+Sometimes iteration is needed for side effects, such as printing or saving files.
+
+``` r
+walk(x, print)
+```
+
+Unlike `map()`, `walk()` returns no output.
+
+------------------------------------------------------------------------
+
+## Functional Programming in Data Analysis Workflows
+
+Functional programming is often used to apply the same operation to multiple variables or datasets.
+
+``` r
+df <- data.frame(
+  A = c(1, 2, 3),
+  B = c(4, 5, 6)
+)
+
+map(df, mean)
+```
+
+This approach avoids repetitive code and scales well as data grows.
+
+------------------------------------------------------------------------
+
+## Error Handling with `possibly()` and `safely()`
+
+Functional programming also supports robust error handling.
+
+``` r
+safe_log <- possibly(log, NA)
+safe_log(c(1, -1, 10))
+```
+
+This prevents entire workflows from failing due to a single error.
+
+------------------------------------------------------------------------
+
+## When to Use Functional Programming
+
+Functional programming is particularly useful when:
+
+-   Repeating the same operation many times
+-   Working with lists or nested data
+-   Writing reusable and modular code
+-   Building reproducible data analysis pipelines
+
+------------------------------------------------------------------------
+
+## Best Practices for Functional Programming
+
+-   Prefer vectorization over loops
+-   Write small, single-purpose functions
+-   Use `map()` instead of `lapply()` in tidyverse workflows
+-   Avoid side effects when possible
+-   Name functions clearly and document them
+
+------------------------------------------------------------------------
+
+## Summary
+
+This chapter introduced the principles of **functional programming in R**. You learned how to:
+
+-   Treat functions as objects
+-   Write and use custom functions
+-   Replace loops with vectorized and functional approaches
+-   Use the `apply` family and `purrr` mapping functions
+-   Build robust, reusable data analysis code
+
+Functional programming is a powerful mindset that improves code quality, readability, and scalability in R-based data analysis.

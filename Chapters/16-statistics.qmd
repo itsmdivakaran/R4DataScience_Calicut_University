@@ -1,0 +1,214 @@
+# Introduction to Statistics
+
+## Introduction
+
+Statistics is the science of **collecting, organizing, analyzing, interpreting, and presenting data**. In modern data-driven disciplines, statistics provides the theoretical foundation that guides how data is summarized, modeled, and used for decision-making. In this course, statistics and R are taught together so that **statistical thinking is reinforced through computation and real data examples**.
+
+This chapter introduces the **core ideas of statistics** that are essential before studying probability theory and statistical inference. The focus here is on understanding what statistics is, why it is needed, and how data is classified and summarized. Detailed probability concepts will be covered in the next chapter, followed by statistical inference.
+
+---
+
+## What Is Statistics?
+
+Statistics can be broadly defined as the discipline concerned with:
+
+* Designing data collection methods
+* Organizing and summarizing data
+* Analyzing patterns and relationships
+* Drawing conclusions under uncertainty
+
+Rather than dealing with certainty, statistics helps us **reason from data**, especially when variability and randomness are present.
+
+---
+
+## Role of Statistics in Data Analysis
+
+In data analysis workflows, statistics plays several critical roles:
+
+* Understanding the structure and nature of data
+* Summarizing large datasets into meaningful quantities
+* Comparing groups and identifying patterns
+* Supporting evidence-based decisions
+
+In R-based analysis, statistical concepts guide the choice of functions, models, and visualizations.
+
+---
+
+## Branches of Statistics
+
+Statistics is traditionally divided into two main branches:
+
+* **Descriptive Statistics** – concerned with summarizing and describing data
+* **Inferential Statistics** – concerned with drawing conclusions about populations based on samples
+
+This chapter focuses primarily on descriptive statistics. Inferential statistics will be discussed in detail in a later chapter.
+
+---
+
+## Data and Its Types
+
+Before applying statistical methods, it is essential to understand the nature of the data.
+
+### Qualitative and Quantitative Data
+
+* **Qualitative (Categorical) Data**: Describes attributes or categories
+
+  * Examples: Gender, blood group, treatment group
+
+* **Quantitative (Numerical) Data**: Represents numerical measurements
+
+  * Examples: Height, weight, income, age
+
+---
+
+## Levels of Measurement
+
+Data can be classified based on levels of measurement:
+
+* **Nominal**: Categories without order (e.g., gender, blood group)
+* **Ordinal**: Categories with order but no fixed scale (e.g., satisfaction level)
+* **Interval**: Numeric scale without a true zero (e.g., temperature in Celsius)
+* **Ratio**: Numeric scale with a true zero (e.g., weight, income)
+
+Understanding measurement levels helps determine appropriate statistical methods.
+
+---
+
+## Population and Sample
+
+* A **population** is the entire set of units of interest
+* A **sample** is a subset of the population used for analysis
+
+Because studying entire populations is often impractical, statistical analysis typically relies on samples to make informed conclusions.
+
+---
+
+## Variables and Observations
+
+* A **variable** is a characteristic that can take different values
+* An **observation** is a single recorded instance of all variables for one unit
+
+In R, variables are usually represented as columns and observations as rows in a data frame.
+
+---
+
+## Descriptive Statistics
+
+Descriptive statistics summarize and organize data to make it understandable.
+
+### Measures of Central Tendency
+
+* **Mean** – arithmetic average
+* **Median** – middle value
+* **Mode** – most frequent value
+
+```r
+x <- c(10, 15, 20, 25, 30)
+mean(x)
+median(x)
+```
+
+---
+
+### Measures of Dispersion
+
+Dispersion measures the spread of data.
+
+* **Range** – difference between maximum and minimum
+* **Variance** – average squared deviation from the mean
+* **Standard Deviation** – square root of variance
+
+```r
+range(x)
+var(x)
+sd(x)
+```
+
+---
+
+## Shape of a Distribution
+
+The distribution of data describes how values are spread.
+
+Common shapes include:
+
+* Symmetric distribution
+* Positively skewed distribution
+* Negatively skewed distribution
+
+Understanding distribution shape is important for selecting appropriate statistical methods.
+
+---
+
+## Graphical Representation of Data
+
+Graphs are a powerful way to summarize data visually.
+
+Common graphical tools include:
+
+* Bar charts for categorical data
+* Histograms for numerical data
+* Boxplots for comparing distributions
+
+```r
+hist(x)
+boxplot(x)
+```
+
+Visualization complements numerical summaries and often reveals patterns not immediately obvious.
+
+---
+
+## Data Summaries Using R
+
+R provides several functions for quick descriptive summaries.
+
+```r
+summary(x)
+```
+
+For data frames:
+
+```r
+data <- data.frame(Age = c(20, 22, 25, 30))
+summary(data)
+```
+
+---
+
+## Importance of Exploratory Analysis
+
+Before applying probability models or inferential methods, it is essential to explore the data thoroughly. Exploratory analysis helps:
+
+* Detect errors or anomalies
+* Understand variability
+* Identify potential relationships
+
+This exploratory mindset is central to good statistical practice.
+
+---
+
+## Statistics, Probability, and Inference
+
+Statistics, probability, and inference are closely connected:
+
+* **Statistics** describes and explores data
+* **Probability** models randomness
+* **Inference** draws conclusions using probability
+
+The next chapter will introduce **probability theory**, which provides the mathematical framework for statistical inference.
+
+---
+
+## Summary
+
+This chapter introduced the foundations of statistics. You learned about:
+
+* The meaning and role of statistics
+* Types and levels of data
+* Population and sample concepts
+* Variables and observations
+* Descriptive statistics and data summaries
+* The importance of exploratory analysis
+
+These concepts form the groundwork for the study of **probability** and **statistical inference**, which will be covered in the following chapters.

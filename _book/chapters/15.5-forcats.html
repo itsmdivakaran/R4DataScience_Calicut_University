@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Data Transformation in R – R4DataScience</title>
+<title>17&nbsp; Factors and Categorical Data with forcats – R4DataScience</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/14-dates-times.html" rel="next">
-<link href="../chapters/12-stringr.html" rel="prev">
+<link href="../chapters/16-statistics.html" rel="next">
+<link href="../chapters/15-functional-programming.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/13-data-transformation.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Transformation in R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/15.5-forcats.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Factors and Categorical Data with forcats</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -225,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/13-data-transformation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/13-data-transformation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Transformation in R</span></span></a>
   </div>
 </li>
@@ -243,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/15.5-forcats.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/15.5-forcats.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Factors and Categorical Data with forcats</span></span></a>
   </div>
 </li>
@@ -281,28 +281,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">14.1</span> Introduction</a></li>
-  <li><a href="#why-data-transformation-is-necessary" id="toc-why-data-transformation-is-necessary" class="nav-link" data-scroll-target="#why-data-transformation-is-necessary"><span class="header-section-number">14.2</span> Why Data Transformation Is Necessary</a></li>
-  <li><a href="#creating-new-variables" id="toc-creating-new-variables" class="nav-link" data-scroll-target="#creating-new-variables"><span class="header-section-number">14.3</span> Creating New Variables</a></li>
-  <li><a href="#mathematical-transformations" id="toc-mathematical-transformations" class="nav-link" data-scroll-target="#mathematical-transformations"><span class="header-section-number">14.4</span> Mathematical Transformations</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">17.1</span> Introduction</a>
   <ul class="collapse">
-  <li><a href="#log-transformation" id="toc-log-transformation" class="nav-link" data-scroll-target="#log-transformation"><span class="header-section-number">14.4.1</span> Log Transformation</a></li>
-  <li><a href="#square-root-transformation" id="toc-square-root-transformation" class="nav-link" data-scroll-target="#square-root-transformation"><span class="header-section-number">14.4.2</span> Square Root Transformation</a></li>
+  <li><a href="#specifying-levels-explicitly" id="toc-specifying-levels-explicitly" class="nav-link" data-scroll-target="#specifying-levels-explicitly"><span class="header-section-number">17.1.1</span> Specifying Levels Explicitly</a></li>
+  <li><a href="#lump-infrequent-levels" id="toc-lump-infrequent-levels" class="nav-link" data-scroll-target="#lump-infrequent-levels"><span class="header-section-number">17.1.2</span> Lump Infrequent Levels</a></li>
   </ul></li>
-  <li><a href="#standardization-and-scaling" id="toc-standardization-and-scaling" class="nav-link" data-scroll-target="#standardization-and-scaling"><span class="header-section-number">14.5</span> Standardization and Scaling</a>
-  <ul class="collapse">
-  <li><a href="#standardization-z-score" id="toc-standardization-z-score" class="nav-link" data-scroll-target="#standardization-z-score"><span class="header-section-number">14.5.1</span> Standardization (Z-score)</a></li>
-  <li><a href="#minmax-scaling" id="toc-minmax-scaling" class="nav-link" data-scroll-target="#minmax-scaling"><span class="header-section-number">14.5.2</span> Min–Max Scaling</a></li>
-  </ul></li>
-  <li><a href="#recoding-variables" id="toc-recoding-variables" class="nav-link" data-scroll-target="#recoding-variables"><span class="header-section-number">14.6</span> Recoding Variables</a></li>
-  <li><a href="#transforming-categorical-variables" id="toc-transforming-categorical-variables" class="nav-link" data-scroll-target="#transforming-categorical-variables"><span class="header-section-number">14.7</span> Transforming Categorical Variables</a></li>
-  <li><a href="#handling-outliers-through-transformation" id="toc-handling-outliers-through-transformation" class="nav-link" data-scroll-target="#handling-outliers-through-transformation"><span class="header-section-number">14.8</span> Handling Outliers Through Transformation</a></li>
-  <li><a href="#conditional-transformations" id="toc-conditional-transformations" class="nav-link" data-scroll-target="#conditional-transformations"><span class="header-section-number">14.9</span> Conditional Transformations</a></li>
-  <li><a href="#transformations-using-dplyr" id="toc-transformations-using-dplyr" class="nav-link" data-scroll-target="#transformations-using-dplyr"><span class="header-section-number">14.10</span> Transformations Using dplyr</a></li>
-  <li><a href="#transformations-for-visualization" id="toc-transformations-for-visualization" class="nav-link" data-scroll-target="#transformations-for-visualization"><span class="header-section-number">14.11</span> Transformations for Visualization</a></li>
-  <li><a href="#common-mistakes-in-data-transformation" id="toc-common-mistakes-in-data-transformation" class="nav-link" data-scroll-target="#common-mistakes-in-data-transformation"><span class="header-section-number">14.12</span> Common Mistakes in Data Transformation</a></li>
-  <li><a href="#best-practices-for-data-transformation" id="toc-best-practices-for-data-transformation" class="nav-link" data-scroll-target="#best-practices-for-data-transformation"><span class="header-section-number">14.13</span> Best Practices for Data Transformation</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">14.14</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -311,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Transformation in R</span></h1>
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Factors and Categorical Data with forcats</span></h1>
 </div>
 
 
@@ -328,175 +311,148 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="introduction" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">14.1</span> Introduction</h2>
-<p>Data transformation is the process of <strong>modifying data to make it suitable for analysis, modeling, and interpretation</strong>. After importing, tidying, and manipulating data, analysts often need to transform variables to improve interpretability, meet statistical assumptions, or derive new insights.</p>
-<p>In statistics and data science, data transformation is not merely a technical step—it is an <strong>analytical decision</strong>. This chapter introduces the most common data transformation techniques in R, with an emphasis on understanding <em>why</em> transformations are applied, not just <em>how</em> they are implemented.</p>
+<section id="introduction" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">17.1</span> Introduction</h2>
+<p>Categorical data plays a central role in statistics, representing <strong>qualitative attributes</strong> such as gender, treatment groups, education levels, disease status, or survey responses. In R, categorical variables are handled using a special data type called a <strong>factor</strong>. Correct handling of factors is essential for <strong>statistical modeling, data summarization, and visualization</strong>.</p>
+<p>While base R provides basic tools for working with factors, the <strong><code>forcats</code></strong> package (part of the tidyverse) offers a more intuitive, consistent, and powerful approach. This chapter focuses on understanding factors conceptually and using <code>forcats</code> to manage categorical data effectively in modern R workflows.</p>
 <hr>
-</section>
-<section id="why-data-transformation-is-necessary" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="why-data-transformation-is-necessary"><span class="header-section-number">14.2</span> Why Data Transformation Is Necessary</h2>
-<p>Real-world data frequently exhibits issues such as:</p>
+<p>## Understanding Factors in R</p>
+<p>A factor is a data structure used to represent categorical data with a fixed set of possible values called <strong>levels</strong>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Male"</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>gender</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Factors store data internally as integers with associated labels. This internal structure makes factors efficient and suitable for statistical modeling.</p>
+<hr>
+<p>## Why Factors Matter in Statistics</p>
+<p>Factors are not just labels; they influence how R performs:</p>
 <ul>
-<li>Skewed distributions</li>
-<li>Outliers</li>
-<li>Inconsistent scales</li>
-<li>Categorical variables encoded numerically</li>
-<li>Variables measured in inconvenient units</li>
+<li>Group-wise summaries</li>
+<li>Statistical tests</li>
+<li>Regression and ANOVA models</li>
+<li>Plot ordering and legends</li>
 </ul>
-<p>Data transformation helps to:</p>
+<p>Incorrect factor handling can lead to misleading results, especially in modeling and interpretation.</p>
+<hr>
+<p>## Creating Factors</p>
+<p>### From Character Vectors</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>status <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>, <span class="st">"Medium"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>status_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(status)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>status_factor</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="specifying-levels-explicitly" class="level3" data-number="17.1.1">
+<h3 data-number="17.1.1" class="anchored" data-anchor-id="specifying-levels-explicitly"><span class="header-section-number">17.1.1</span> Specifying Levels Explicitly</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>status_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(status, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Explicit levels ensure correct ordering and interpretation.</p>
+<hr>
+<p>## Ordered vs Unordered Factors</p>
+<p>Some categorical variables have a natural order.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>rating <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Poor"</span>, <span class="st">"Good"</span>, <span class="st">"Excellent"</span>),</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Poor"</span>, <span class="st">"Good"</span>, <span class="st">"Excellent"</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ordered factors are especially important in ordinal data analysis.</p>
+<hr>
+<p>## Common Problems with Factors</p>
 <ul>
-<li>Improve model performance</li>
-<li>Satisfy statistical assumptions</li>
-<li>Enhance interpretability</li>
-<li>Enable meaningful comparisons</li>
-<li>Prepare data for visualization and reporting</li>
+<li>Automatic conversion from character to factor</li>
+<li>Unwanted level ordering</li>
+<li>Levels with no observations</li>
+<li>Inconsistent labels (e.g., spelling or case)</li>
 </ul>
+<p>The <code>forcats</code> package is designed to address these issues cleanly.</p>
 <hr>
-</section>
-<section id="creating-new-variables" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="creating-new-variables"><span class="header-section-number">14.3</span> Creating New Variables</h2>
-<p>One of the most common transformations is the creation of new variables from existing ones.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Salary =</span> <span class="fu">c</span>(<span class="dv">25000</span>, <span class="dv">40000</span>, <span class="dv">60000</span>),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Experience =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>AnnualSalary <span class="ot">&lt;-</span> data<span class="sc">$</span>Salary <span class="sc">*</span> <span class="dv">12</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Derived variables often carry more analytical meaning than raw measurements.</p>
+<p>## Installing and Loading forcats</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"forcats"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>When using <code>library(tidyverse)</code>, <code>forcats</code> is loaded automatically.</p>
 <hr>
-</section>
-<section id="mathematical-transformations" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="mathematical-transformations"><span class="header-section-number">14.4</span> Mathematical Transformations</h2>
-<section id="log-transformation" class="level3" data-number="14.4.1">
-<h3 data-number="14.4.1" class="anchored" data-anchor-id="log-transformation"><span class="header-section-number">14.4.1</span> Log Transformation</h3>
-<p>Logarithmic transformations are used to reduce skewness and stabilize variance.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>LogSalary <span class="ot">&lt;-</span> <span class="fu">log</span>(data<span class="sc">$</span>Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Log transformations are common in income, clinical, and biological data.</p>
-</section>
-<section id="square-root-transformation" class="level3" data-number="14.4.2">
-<h3 data-number="14.4.2" class="anchored" data-anchor-id="square-root-transformation"><span class="header-section-number">14.4.2</span> Square Root Transformation</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>SqrtSalary <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(data<span class="sc">$</span>Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Square root transformations are useful for count data and moderately skewed variables.</p>
+<p>## Changing the Order of Factor Levels</p>
+<p>### Reordering by Frequency</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>responses <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fct_infreq</span>(responses)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is particularly useful for bar plots.</p>
 <hr>
-</section>
-</section>
-<section id="standardization-and-scaling" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="standardization-and-scaling"><span class="header-section-number">14.5</span> Standardization and Scaling</h2>
-<p>Variables measured on different scales often need to be standardized.</p>
-<section id="standardization-z-score" class="level3" data-number="14.5.1">
-<h3 data-number="14.5.1" class="anchored" data-anchor-id="standardization-z-score"><span class="header-section-number">14.5.1</span> Standardization (Z-score)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Salary_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(data<span class="sc">$</span>Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Standardized variables have mean 0 and standard deviation 1.</p>
-</section>
-<section id="minmax-scaling" class="level3" data-number="14.5.2">
-<h3 data-number="14.5.2" class="anchored" data-anchor-id="minmax-scaling"><span class="header-section-number">14.5.2</span> Min–Max Scaling</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>min_max <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">min</span>(x)) <span class="sc">/</span> (<span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Salary_scaled <span class="ot">&lt;-</span> <span class="fu">min_max</span>(data<span class="sc">$</span>Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Scaling is essential in machine learning and distance-based methods.</p>
+<p>### Reordering by Another Variable</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">group =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>)),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">score =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">18</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">fct_reorder</span>(data<span class="sc">$</span>group, data<span class="sc">$</span>score, <span class="at">.fun =</span> mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This ensures meaningful ordering in summaries and plots.</p>
 <hr>
-</section>
-</section>
-<section id="recoding-variables" class="level2" data-number="14.6">
-<h2 data-number="14.6" class="anchored" data-anchor-id="recoding-variables"><span class="header-section-number">14.6</span> Recoding Variables</h2>
-<p>Recoding replaces existing values with more meaningful or simplified categories.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Level <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data<span class="sc">$</span>Experience <span class="sc">&lt;</span> <span class="dv">3</span>, <span class="st">"Junior"</span>,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">ifelse</span>(data<span class="sc">$</span>Experience <span class="sc">&lt;</span> <span class="dv">8</span>, <span class="st">"Mid"</span>, <span class="st">"Senior"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Recoding is especially common in survey and categorical data.</p>
+<p>## Renaming Factor Levels</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(gender)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">fct_recode</span>(gender,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">M =</span> <span class="st">"Male"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">F =</span> <span class="st">"Female"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Renaming improves clarity without altering the underlying data.</p>
 <hr>
+<p>## Combining and Collapsing Levels</p>
+<p>### Collapsing Levels</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>region <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"North"</span>, <span class="st">"South"</span>, <span class="st">"East"</span>, <span class="st">"West"</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>region2 <span class="ot">&lt;-</span> <span class="fu">fct_collapse</span>(region,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Urban =</span> <span class="fu">c</span>(<span class="st">"North"</span>, <span class="st">"East"</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Rural =</span> <span class="fu">c</span>(<span class="st">"South"</span>, <span class="st">"West"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="transforming-categorical-variables" class="level2" data-number="14.7">
-<h2 data-number="14.7" class="anchored" data-anchor-id="transforming-categorical-variables"><span class="header-section-number">14.7</span> Transforming Categorical Variables</h2>
-<p>Categorical variables often require transformation before analysis.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Level <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>Level,</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Junior"</span>, <span class="st">"Mid"</span>, <span class="st">"Senior"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Proper ordering of factor levels is important for modeling and visualization.</p>
+<section id="lump-infrequent-levels" class="level3" data-number="17.1.2">
+<h3 data-number="17.1.2" class="anchored" data-anchor-id="lump-infrequent-levels"><span class="header-section-number">17.1.2</span> Lump Infrequent Levels</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>categories <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fct_lump</span>(categories, <span class="at">n =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is useful when dealing with high-cardinality categorical variables.</p>
 <hr>
-</section>
-<section id="handling-outliers-through-transformation" class="level2" data-number="14.8">
-<h2 data-number="14.8" class="anchored" data-anchor-id="handling-outliers-through-transformation"><span class="header-section-number">14.8</span> Handling Outliers Through Transformation</h2>
-<p>Transformations can reduce the influence of extreme values.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(data<span class="sc">$</span>Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Applying a log transformation:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">log</span>(data<span class="sc">$</span>Salary))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This often results in a more symmetric distribution.</p>
+<p>## Dropping Unused Levels</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fct_drop</span>(f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Unused levels can cause confusion in analysis and plots.</p>
 <hr>
-</section>
-<section id="conditional-transformations" class="level2" data-number="14.9">
-<h2 data-number="14.9" class="anchored" data-anchor-id="conditional-transformations"><span class="header-section-number">14.9</span> Conditional Transformations</h2>
-<p>Conditional logic allows transformations based on rules.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Bonus <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data<span class="sc">$</span>Salary <span class="sc">&gt;</span> <span class="dv">50000</span>,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                     data<span class="sc">$</span>Salary <span class="sc">*</span> <span class="fl">0.10</span>,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                     data<span class="sc">$</span>Salary <span class="sc">*</span> <span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Such transformations are common in policy-based or business-rule-driven analyses.</p>
+<p>## Handling Missing Values in Factors</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="cn">NA</span>, <span class="st">"No"</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fct_na_value_to_level</span>(f, <span class="at">level =</span> <span class="st">"Missing"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Explicitly labeling missing categories improves transparency.</p>
 <hr>
-</section>
-<section id="transformations-using-dplyr" class="level2" data-number="14.10">
-<h2 data-number="14.10" class="anchored" data-anchor-id="transformations-using-dplyr"><span class="header-section-number">14.10</span> Transformations Using dplyr</h2>
-<p>Most transformations are performed using <code>mutate()</code> in tidyverse workflows.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">AnnualSalary =</span> Salary <span class="sc">*</span> <span class="dv">12</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">LogSalary =</span> <span class="fu">log</span>(Salary),</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Level =</span> <span class="fu">case_when</span>(</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>      Experience <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Junior"</span>,</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>      Experience <span class="sc">&lt;</span> <span class="dv">8</span> <span class="sc">~</span> <span class="st">"Mid"</span>,</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Senior"</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This approach improves readability and reproducibility.</p>
+<p>## Factors in Data Analysis Workflows</p>
+<p>Factors are often manipulated within <code>dplyr</code> pipelines.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">group =</span> <span class="fu">fct_relevel</span>(group, <span class="st">"B"</span>, <span class="st">"A"</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">group =</span> <span class="fu">fct_recode</span>(group, <span class="at">Control =</span> <span class="st">"A"</span>, <span class="at">Treatment =</span> <span class="st">"B"</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This approach ensures consistency across analysis steps.</p>
 <hr>
-</section>
-<section id="transformations-for-visualization" class="level2" data-number="14.11">
-<h2 data-number="14.11" class="anchored" data-anchor-id="transformations-for-visualization"><span class="header-section-number">14.11</span> Transformations for Visualization</h2>
-<p>Transforming data before plotting can reveal hidden patterns.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>Salary)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log</span>(data<span class="sc">$</span>Salary))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Choosing appropriate transformations is a key part of exploratory data analysis.</p>
+<p>## Factors and Visualization</p>
+<p>Factor levels directly affect plot ordering.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> score)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reordering factors before plotting leads to clearer and more interpretable graphics.</p>
 <hr>
-</section>
-<section id="common-mistakes-in-data-transformation" class="level2" data-number="14.12">
-<h2 data-number="14.12" class="anchored" data-anchor-id="common-mistakes-in-data-transformation"><span class="header-section-number">14.12</span> Common Mistakes in Data Transformation</h2>
+<p>## Best Practices for Working with Factors</p>
 <ul>
-<li>Applying transformations without justification</li>
-<li>Forgetting to handle zero or negative values in log transforms</li>
-<li>Overwriting original variables</li>
-<li>Ignoring interpretability after transformation</li>
-</ul>
-<p>Maintaining both original and transformed variables is often best practice.</p>
-<hr>
-</section>
-<section id="best-practices-for-data-transformation" class="level2" data-number="14.13">
-<h2 data-number="14.13" class="anchored" data-anchor-id="best-practices-for-data-transformation"><span class="header-section-number">14.13</span> Best Practices for Data Transformation</h2>
-<ul>
-<li>Understand the purpose of each transformation</li>
-<li>Keep transformations simple and interpretable</li>
-<li>Document transformations clearly</li>
-<li>Apply transformations consistently</li>
-<li>Validate results visually and numerically</li>
+<li>Convert character variables to factors intentionally</li>
+<li>Always inspect levels using <code>levels()</code></li>
+<li>Explicitly set reference levels in modeling</li>
+<li>Use <code>forcats</code> functions instead of manual recoding</li>
+<li>Drop unused levels regularly</li>
 </ul>
 <hr>
-</section>
-<section id="summary" class="level2" data-number="14.14">
-<h2 data-number="14.14" class="anchored" data-anchor-id="summary"><span class="header-section-number">14.14</span> Summary</h2>
-<p>This chapter introduced the concept and practice of <strong>data transformation in R</strong>. You learned how to:</p>
+<p>## Summary</p>
+<p>This chapter introduced <strong>factors and categorical data handling using <code>forcats</code></strong>. You learned how to:</p>
 <ul>
-<li>Create derived variables</li>
-<li>Apply mathematical transformations</li>
-<li>Standardize and scale data</li>
-<li>Recode and transform categorical variables</li>
-<li>Handle outliers through transformation</li>
-<li>Perform transformations using tidyverse workflows</li>
+<li>Understand factors and their role in statistics</li>
+<li>Create ordered and unordered factors</li>
+<li>Reorder, rename, and collapse levels</li>
+<li>Handle missing and infrequent categories</li>
+<li>Integrate factor handling into tidyverse workflows</li>
 </ul>
-<p>Data transformation is a critical step that connects raw data to meaningful statistical analysis and modeling.</p>
+<p>Mastering factors is essential for accurate statistical analysis, effective visualization, and meaningful interpretation of categorical data.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -902,13 +858,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/12-stringr.html" class="pagination-link" aria-label="String Manipulation with stringr">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">String Manipulation with stringr</span></span>
+      <a href="../chapters/15-functional-programming.html" class="pagination-link" aria-label="Functional Programming in R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Functional Programming in R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/14-dates-times.html" class="pagination-link" aria-label="Working with Dates and Times in R">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Working with Dates and Times in R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/16-statistics.html" class="pagination-link" aria-label="Introduction to Statistics">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Introduction to Statistics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

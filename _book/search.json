@@ -1778,5 +1778,875 @@
     "crumbs": [
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
     ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html",
+    "href": "chapters/13-data-transformation.html",
+    "title": "14  Data Transformation in R",
+    "section": "",
+    "text": "14.1 Introduction\nData transformation is the process of modifying data to make it suitable for analysis, modeling, and interpretation. After importing, tidying, and manipulating data, analysts often need to transform variables to improve interpretability, meet statistical assumptions, or derive new insights.\nIn statistics and data science, data transformation is not merely a technical step—it is an analytical decision. This chapter introduces the most common data transformation techniques in R, with an emphasis on understanding why transformations are applied, not just how they are implemented.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#why-data-transformation-is-necessary",
+    "href": "chapters/13-data-transformation.html#why-data-transformation-is-necessary",
+    "title": "14  Data Transformation in R",
+    "section": "14.2 Why Data Transformation Is Necessary",
+    "text": "14.2 Why Data Transformation Is Necessary\nReal-world data frequently exhibits issues such as:\n\nSkewed distributions\nOutliers\nInconsistent scales\nCategorical variables encoded numerically\nVariables measured in inconvenient units\n\nData transformation helps to:\n\nImprove model performance\nSatisfy statistical assumptions\nEnhance interpretability\nEnable meaningful comparisons\nPrepare data for visualization and reporting",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#creating-new-variables",
+    "href": "chapters/13-data-transformation.html#creating-new-variables",
+    "title": "14  Data Transformation in R",
+    "section": "14.3 Creating New Variables",
+    "text": "14.3 Creating New Variables\nOne of the most common transformations is the creation of new variables from existing ones.\ndata &lt;- data.frame(\n  Salary = c(25000, 40000, 60000),\n  Experience = c(2, 5, 10)\n)\n\ndata$AnnualSalary &lt;- data$Salary * 12\ndata\nDerived variables often carry more analytical meaning than raw measurements.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#mathematical-transformations",
+    "href": "chapters/13-data-transformation.html#mathematical-transformations",
+    "title": "14  Data Transformation in R",
+    "section": "14.4 Mathematical Transformations",
+    "text": "14.4 Mathematical Transformations\n\n14.4.1 Log Transformation\nLogarithmic transformations are used to reduce skewness and stabilize variance.\ndata$LogSalary &lt;- log(data$Salary)\nLog transformations are common in income, clinical, and biological data.\n\n\n14.4.2 Square Root Transformation\ndata$SqrtSalary &lt;- sqrt(data$Salary)\nSquare root transformations are useful for count data and moderately skewed variables.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#standardization-and-scaling",
+    "href": "chapters/13-data-transformation.html#standardization-and-scaling",
+    "title": "14  Data Transformation in R",
+    "section": "14.5 Standardization and Scaling",
+    "text": "14.5 Standardization and Scaling\nVariables measured on different scales often need to be standardized.\n\n14.5.1 Standardization (Z-score)\ndata$Salary_z &lt;- scale(data$Salary)\nStandardized variables have mean 0 and standard deviation 1.\n\n\n14.5.2 Min–Max Scaling\nmin_max &lt;- function(x) {\n  (x - min(x)) / (max(x) - min(x))\n}\n\ndata$Salary_scaled &lt;- min_max(data$Salary)\nScaling is essential in machine learning and distance-based methods.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#recoding-variables",
+    "href": "chapters/13-data-transformation.html#recoding-variables",
+    "title": "14  Data Transformation in R",
+    "section": "14.6 Recoding Variables",
+    "text": "14.6 Recoding Variables\nRecoding replaces existing values with more meaningful or simplified categories.\ndata$Level &lt;- ifelse(data$Experience &lt; 3, \"Junior\",\n                     ifelse(data$Experience &lt; 8, \"Mid\", \"Senior\"))\nRecoding is especially common in survey and categorical data.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#transforming-categorical-variables",
+    "href": "chapters/13-data-transformation.html#transforming-categorical-variables",
+    "title": "14  Data Transformation in R",
+    "section": "14.7 Transforming Categorical Variables",
+    "text": "14.7 Transforming Categorical Variables\nCategorical variables often require transformation before analysis.\ndata$Level &lt;- factor(data$Level,\n                     levels = c(\"Junior\", \"Mid\", \"Senior\"))\nProper ordering of factor levels is important for modeling and visualization.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#handling-outliers-through-transformation",
+    "href": "chapters/13-data-transformation.html#handling-outliers-through-transformation",
+    "title": "14  Data Transformation in R",
+    "section": "14.8 Handling Outliers Through Transformation",
+    "text": "14.8 Handling Outliers Through Transformation\nTransformations can reduce the influence of extreme values.\nboxplot(data$Salary)\nApplying a log transformation:\nboxplot(log(data$Salary))\nThis often results in a more symmetric distribution.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#conditional-transformations",
+    "href": "chapters/13-data-transformation.html#conditional-transformations",
+    "title": "14  Data Transformation in R",
+    "section": "14.9 Conditional Transformations",
+    "text": "14.9 Conditional Transformations\nConditional logic allows transformations based on rules.\ndata$Bonus &lt;- ifelse(data$Salary &gt; 50000,\n                     data$Salary * 0.10,\n                     data$Salary * 0.05)\nSuch transformations are common in policy-based or business-rule-driven analyses.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#transformations-using-dplyr",
+    "href": "chapters/13-data-transformation.html#transformations-using-dplyr",
+    "title": "14  Data Transformation in R",
+    "section": "14.10 Transformations Using dplyr",
+    "text": "14.10 Transformations Using dplyr\nMost transformations are performed using mutate() in tidyverse workflows.\nlibrary(dplyr)\n\ndata &lt;- data %&gt;%\n  mutate(\n    AnnualSalary = Salary * 12,\n    LogSalary = log(Salary),\n    Level = case_when(\n      Experience &lt; 3 ~ \"Junior\",\n      Experience &lt; 8 ~ \"Mid\",\n      TRUE ~ \"Senior\"\n    )\n  )\nThis approach improves readability and reproducibility.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#transformations-for-visualization",
+    "href": "chapters/13-data-transformation.html#transformations-for-visualization",
+    "title": "14  Data Transformation in R",
+    "section": "14.11 Transformations for Visualization",
+    "text": "14.11 Transformations for Visualization\nTransforming data before plotting can reveal hidden patterns.\nhist(data$Salary)\nhist(log(data$Salary))\nChoosing appropriate transformations is a key part of exploratory data analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#common-mistakes-in-data-transformation",
+    "href": "chapters/13-data-transformation.html#common-mistakes-in-data-transformation",
+    "title": "14  Data Transformation in R",
+    "section": "14.12 Common Mistakes in Data Transformation",
+    "text": "14.12 Common Mistakes in Data Transformation\n\nApplying transformations without justification\nForgetting to handle zero or negative values in log transforms\nOverwriting original variables\nIgnoring interpretability after transformation\n\nMaintaining both original and transformed variables is often best practice.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#best-practices-for-data-transformation",
+    "href": "chapters/13-data-transformation.html#best-practices-for-data-transformation",
+    "title": "14  Data Transformation in R",
+    "section": "14.13 Best Practices for Data Transformation",
+    "text": "14.13 Best Practices for Data Transformation\n\nUnderstand the purpose of each transformation\nKeep transformations simple and interpretable\nDocument transformations clearly\nApply transformations consistently\nValidate results visually and numerically",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13-data-transformation.html#summary",
+    "href": "chapters/13-data-transformation.html#summary",
+    "title": "14  Data Transformation in R",
+    "section": "14.14 Summary",
+    "text": "14.14 Summary\nThis chapter introduced the concept and practice of data transformation in R. You learned how to:\n\nCreate derived variables\nApply mathematical transformations\nStandardize and scale data\nRecode and transform categorical variables\nHandle outliers through transformation\nPerform transformations using tidyverse workflows\n\nData transformation is a critical step that connects raw data to meaningful statistical analysis and modeling.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Data Transformation in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html",
+    "href": "chapters/14-dates-times.html",
+    "title": "15  Working with Dates and Times in R",
+    "section": "",
+    "text": "15.1 Introduction\nDate and time variables play a crucial role in many areas of statistics and data science, including time series analysis, clinical studies, event history analysis, surveys, and operational analytics. Unlike numeric variables, dates and times carry inherent structure, such as ordering, intervals, and time zones, which must be handled carefully.\nR provides built-in support for dates and times, and the lubridate package (part of the tidyverse) greatly simplifies working with them. This chapter introduces how dates and times are represented in R, common operations performed on them, and best practices for handling temporal data.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#date-and-time-classes-in-r",
+    "href": "chapters/14-dates-times.html#date-and-time-classes-in-r",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.2 Date and Time Classes in R",
+    "text": "15.2 Date and Time Classes in R\nR represents temporal data using specific classes:\n\nDate – calendar dates without time (e.g., 2024-01-15)\nPOSIXct – date-time stored as seconds since the Unix epoch\nPOSIXlt – date-time stored as a list of components\n\nUnderstanding these classes is essential for correct analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#creating-date-objects",
+    "href": "chapters/14-dates-times.html#creating-date-objects",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.3 Creating Date Objects",
+    "text": "15.3 Creating Date Objects\nDates in R typically follow the ISO 8601 format: YYYY-MM-DD.\ndate1 &lt;- as.Date(\"2024-01-01\")\ndate2 &lt;- as.Date(\"2024-12-31\")\n\ndate1\ndate2\nDifferent formats can be specified explicitly:\nas.Date(\"01-12-2024\", format = \"%d-%m-%Y\")",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#date-arithmetic",
+    "href": "chapters/14-dates-times.html#date-arithmetic",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.4 Date Arithmetic",
+    "text": "15.4 Date Arithmetic\nOnce dates are created, arithmetic operations can be performed.\ndate2 - date1\nThis returns the number of days between two dates.\nAdding or subtracting days:\ndate1 + 30\ndate2 - 15",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#creating-date-time-objects",
+    "href": "chapters/14-dates-times.html#creating-date-time-objects",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.5 Creating Date-Time Objects",
+    "text": "15.5 Creating Date-Time Objects\nDate-time objects include both date and time components.\ndt1 &lt;- as.POSIXct(\"2024-01-01 10:30:00\")\ndt2 &lt;- as.POSIXct(\"2024-01-01 18:45:00\")\nThe default time zone is taken from the system unless specified.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#understanding-posixct-and-posixlt",
+    "href": "chapters/14-dates-times.html#understanding-posixct-and-posixlt",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.6 Understanding POSIXct and POSIXlt",
+    "text": "15.6 Understanding POSIXct and POSIXlt\nclass(dt1)\nunclass(dt1)\n\nPOSIXct is efficient and preferred for storage\nPOSIXlt is useful for extracting components\n\nas.POSIXlt(dt1)",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#extracting-components-from-dates",
+    "href": "chapters/14-dates-times.html#extracting-components-from-dates",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.7 Extracting Components from Dates",
+    "text": "15.7 Extracting Components from Dates\nBase R provides functions to extract components:\nformat(date1, \"%Y\")   # Year\nformat(date1, \"%m\")   # Month\nformat(date1, \"%d\")   # Day\nHowever, these return character values, which may require conversion.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#introduction-to-lubridate",
+    "href": "chapters/14-dates-times.html#introduction-to-lubridate",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.8 Introduction to lubridate",
+    "text": "15.8 Introduction to lubridate\nThe lubridate package simplifies working with dates and times by providing intuitive functions.\ninstall.packages(\"lubridate\")\nlibrary(lubridate)",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#parsing-dates-with-lubridate",
+    "href": "chapters/14-dates-times.html#parsing-dates-with-lubridate",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.9 Parsing Dates with lubridate",
+    "text": "15.9 Parsing Dates with lubridate\nLubridate automatically recognizes common date formats.\nd1 &lt;- ymd(\"2024-01-15\")\nd2 &lt;- dmy(\"15-01-2024\")\nd3 &lt;- mdy(\"01/15/2024\")\nThese functions return Date objects without requiring format strings.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#parsing-date-time-values",
+    "href": "chapters/14-dates-times.html#parsing-date-time-values",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.10 Parsing Date-Time Values",
+    "text": "15.10 Parsing Date-Time Values\ndt &lt;- ymd_hms(\"2024-01-01 10:30:00\")\nLubridate functions include ymd_hm(), dmy_hms(), and others.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#extracting-date-components-with-lubridate",
+    "href": "chapters/14-dates-times.html#extracting-date-components-with-lubridate",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.11 Extracting Date Components with lubridate",
+    "text": "15.11 Extracting Date Components with lubridate\nyear(d1)\nmonth(d1)\nday(d1)\nAdditional components:\nwday(d1)\nweek(d1)\nquarter(d1)\nLubridate returns numeric values by default, which are easy to use in analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#working-with-time-zones",
+    "href": "chapters/14-dates-times.html#working-with-time-zones",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.12 Working with Time Zones",
+    "text": "15.12 Working with Time Zones\nTime zones are critical in global and clinical data.\ndt_tz &lt;- ymd_hms(\"2024-01-01 10:30:00\", tz = \"UTC\")\nConverting time zones:\nwith_tz(dt_tz, \"Asia/Kolkata\")",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#time-differences-and-durations",
+    "href": "chapters/14-dates-times.html#time-differences-and-durations",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.13 Time Differences and Durations",
+    "text": "15.13 Time Differences and Durations\nLubridate distinguishes between durations, periods, and intervals.\n\n15.13.1 Durations\nduration &lt;- dhours(5)\n\n\n15.13.2 Periods\nperiod &lt;- days(10)\n\n\n15.13.3 Intervals\ninterval &lt;- interval(date1, date2)\nEach serves a different analytical purpose.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#adding-and-subtracting-time-periods",
+    "href": "chapters/14-dates-times.html#adding-and-subtracting-time-periods",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.14 Adding and Subtracting Time Periods",
+    "text": "15.14 Adding and Subtracting Time Periods\ndate1 + days(7)\ndate1 + months(1)\ndate1 - years(2)\nLubridate handles calendar irregularities automatically.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#rounding-and-flooring-dates",
+    "href": "chapters/14-dates-times.html#rounding-and-flooring-dates",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.15 Rounding and Flooring Dates",
+    "text": "15.15 Rounding and Flooring Dates\nfloor_date(dt, unit = \"hour\")\nceiling_date(dt, unit = \"day\")\nround_date(dt, unit = \"month\")\nThese operations are useful for aggregation and reporting.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#dates-and-times-in-data-frames",
+    "href": "chapters/14-dates-times.html#dates-and-times-in-data-frames",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.16 Dates and Times in Data Frames",
+    "text": "15.16 Dates and Times in Data Frames\nDates often appear as character variables when imported.\ndata &lt;- data.frame(\n  ID = 1:3,\n  VisitDate = c(\"2024-01-01\", \"2024-02-15\", \"2024-03-10\")\n)\n\ndata$VisitDate &lt;- ymd(data$VisitDate)\nConverting early in the workflow is considered best practice.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#dates-in-analysis-and-visualization",
+    "href": "chapters/14-dates-times.html#dates-in-analysis-and-visualization",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.17 Dates in Analysis and Visualization",
+    "text": "15.17 Dates in Analysis and Visualization\nDates are commonly used in grouping and plotting.\ndata %&gt;%\n  mutate(Month = month(VisitDate)) %&gt;%\n  group_by(Month) %&gt;%\n  summarise(Count = n())\nTemporal aggregation is a key step in time-based analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#common-issues-with-dates-and-times",
+    "href": "chapters/14-dates-times.html#common-issues-with-dates-and-times",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.18 Common Issues with Dates and Times",
+    "text": "15.18 Common Issues with Dates and Times\n\nIncorrect date formats\nImplicit time zone conversions\nTreating dates as characters\nIgnoring daylight saving time\n\nCareful inspection and explicit conversion help avoid these issues.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#best-practices-for-working-with-dates-and-times",
+    "href": "chapters/14-dates-times.html#best-practices-for-working-with-dates-and-times",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.19 Best Practices for Working with Dates and Times",
+    "text": "15.19 Best Practices for Working with Dates and Times\n\nConvert date variables immediately after import\nUse ISO formats whenever possible\nPrefer lubridate for clarity and safety\nAlways be explicit about time zones\nValidate transformations using summaries and plots",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14-dates-times.html#summary",
+    "href": "chapters/14-dates-times.html#summary",
+    "title": "15  Working with Dates and Times in R",
+    "section": "15.20 Summary",
+    "text": "15.20 Summary\nThis chapter introduced how to work with dates and times in R. You learned:\n\nDate and time classes in R\nCreating and manipulating Date and POSIX objects\nUsing lubridate for parsing and extraction\nHandling time zones and intervals\nApplying date-time operations in data analysis\n\nCorrect handling of dates and times is essential for reliable statistical analysis, particularly in longitudinal and time-based studies.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Working with Dates and Times in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html",
+    "href": "chapters/15-functional-programming.html",
+    "title": "16  Functional Programming in R",
+    "section": "",
+    "text": "16.1 Introduction\nFunctional programming is a programming paradigm that treats functions as first-class objects and emphasizes writing code by composing functions rather than modifying state. In R, functional programming is especially powerful for writing concise, reusable, and reliable code, and it plays a central role in modern data analysis workflows.\nThis chapter introduces the principles of functional programming in R, starting from base R concepts and extending to tidyverse-friendly tools such as purrr. The focus is on why functional programming is useful, when to use it, and how it improves clarity and correctness in data analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#functions-as-objects-in-r",
+    "href": "chapters/15-functional-programming.html#functions-as-objects-in-r",
+    "title": "16  Functional Programming in R",
+    "section": "16.2 Functions as Objects in R",
+    "text": "16.2 Functions as Objects in R\nIn R, functions are objects just like vectors or data frames. They can be:\n\nAssigned to variables\nPassed as arguments to other functions\nReturned as outputs from functions\n\nf &lt;- mean\nf(c(10, 20, 30))\nThis property allows R users to write highly flexible and expressive code.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#writing-your-own-functions",
+    "href": "chapters/15-functional-programming.html#writing-your-own-functions",
+    "title": "16  Functional Programming in R",
+    "section": "16.3 Writing Your Own Functions",
+    "text": "16.3 Writing Your Own Functions\nCreating functions helps avoid repetition and improves code organization.\nadd_percentage &lt;- function(x, p) {\n  x + (x * p / 100)\n}\n\nadd_percentage(100, 10)\nA function typically consists of:\n\nA name\nInput arguments\nA body containing expressions\nA return value (implicit or explicit)",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#pure-functions-and-side-effects",
+    "href": "chapters/15-functional-programming.html#pure-functions-and-side-effects",
+    "title": "16  Functional Programming in R",
+    "section": "16.4 Pure Functions and Side Effects",
+    "text": "16.4 Pure Functions and Side Effects\nA pure function always produces the same output for the same input and does not modify external variables.\nsquare &lt;- function(x) {\n  x^2\n}\nPure functions are easier to test, debug, and reuse. Avoiding side effects is considered good practice in data analysis code.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#avoiding-loops-with-vectorization",
+    "href": "chapters/15-functional-programming.html#avoiding-loops-with-vectorization",
+    "title": "16  Functional Programming in R",
+    "section": "16.5 Avoiding Loops with Vectorization",
+    "text": "16.5 Avoiding Loops with Vectorization\nR is designed for vectorized operations, which are faster and more readable than explicit loops.\nx &lt;- 1:5\nx^2\nCompare with a loop:\nresult &lt;- numeric(length(x))\nfor (i in seq_along(x)) {\n  result[i] &lt;- x[i]^2\n}\nVectorization is often the first step toward functional programming in R.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#the-apply-family-of-functions",
+    "href": "chapters/15-functional-programming.html#the-apply-family-of-functions",
+    "title": "16  Functional Programming in R",
+    "section": "16.6 The apply Family of Functions",
+    "text": "16.6 The apply Family of Functions\nBase R provides a family of functions for applying operations over data structures.\n\n16.6.1 lapply()\nnumbers &lt;- list(1:5, 6:10, 11:15)\nlapply(numbers, mean)\n\n\n16.6.2 sapply()\nsapply(numbers, mean)\n\n\n16.6.3 apply()\nmat &lt;- matrix(1:6, nrow = 2)\napply(mat, 1, sum)\nThese functions reduce the need for explicit loops and improve clarity.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#anonymous-functions",
+    "href": "chapters/15-functional-programming.html#anonymous-functions",
+    "title": "16  Functional Programming in R",
+    "section": "16.7 Anonymous Functions",
+    "text": "16.7 Anonymous Functions\nAnonymous (or lambda) functions are functions without names, often used for short operations.\nlapply(numbers, function(x) x^2)\nThey are useful when a function is needed only once.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#introduction-to-purrr",
+    "href": "chapters/15-functional-programming.html#introduction-to-purrr",
+    "title": "16  Functional Programming in R",
+    "section": "16.8 Introduction to purrr",
+    "text": "16.8 Introduction to purrr\nThe purrr package provides a modern, consistent alternative to the apply family. It is part of the tidyverse and is designed to work seamlessly with pipelines.\ninstall.packages(\"purrr\")\nlibrary(purrr)",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#mapping-functions-with-map",
+    "href": "chapters/15-functional-programming.html#mapping-functions-with-map",
+    "title": "16  Functional Programming in R",
+    "section": "16.9 Mapping Functions with map()",
+    "text": "16.9 Mapping Functions with map()\nThe core idea of purrr is mapping a function over a vector or list.\nmap(numbers, mean)\nTyped variants ensure predictable output:\nmap_dbl(numbers, mean)\nmap_int(numbers, length)",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#mapping-with-anonymous-functions",
+    "href": "chapters/15-functional-programming.html#mapping-with-anonymous-functions",
+    "title": "16  Functional Programming in R",
+    "section": "16.10 Mapping with Anonymous Functions",
+    "text": "16.10 Mapping with Anonymous Functions\nmap(numbers, ~ .x * 2)\nThe .x syntax provides a concise way to define anonymous functions.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#mapping-over-multiple-inputs",
+    "href": "chapters/15-functional-programming.html#mapping-over-multiple-inputs",
+    "title": "16  Functional Programming in R",
+    "section": "16.11 Mapping Over Multiple Inputs",
+    "text": "16.11 Mapping Over Multiple Inputs\nx &lt;- c(1, 2, 3)\ny &lt;- c(4, 5, 6)\n\nmap2(x, y, ~ .x + .y)\nThis is useful when combining multiple vectors element-wise.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#iteration-with-side-effects-walk",
+    "href": "chapters/15-functional-programming.html#iteration-with-side-effects-walk",
+    "title": "16  Functional Programming in R",
+    "section": "16.12 Iteration with Side Effects: walk()",
+    "text": "16.12 Iteration with Side Effects: walk()\nSometimes iteration is needed for side effects, such as printing or saving files.\nwalk(x, print)\nUnlike map(), walk() returns no output.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#functional-programming-in-data-analysis-workflows",
+    "href": "chapters/15-functional-programming.html#functional-programming-in-data-analysis-workflows",
+    "title": "16  Functional Programming in R",
+    "section": "16.13 Functional Programming in Data Analysis Workflows",
+    "text": "16.13 Functional Programming in Data Analysis Workflows\nFunctional programming is often used to apply the same operation to multiple variables or datasets.\ndf &lt;- data.frame(\n  A = c(1, 2, 3),\n  B = c(4, 5, 6)\n)\n\nmap(df, mean)\nThis approach avoids repetitive code and scales well as data grows.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#error-handling-with-possibly-and-safely",
+    "href": "chapters/15-functional-programming.html#error-handling-with-possibly-and-safely",
+    "title": "16  Functional Programming in R",
+    "section": "16.14 Error Handling with possibly() and safely()",
+    "text": "16.14 Error Handling with possibly() and safely()\nFunctional programming also supports robust error handling.\nsafe_log &lt;- possibly(log, NA)\nsafe_log(c(1, -1, 10))\nThis prevents entire workflows from failing due to a single error.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#when-to-use-functional-programming",
+    "href": "chapters/15-functional-programming.html#when-to-use-functional-programming",
+    "title": "16  Functional Programming in R",
+    "section": "16.15 When to Use Functional Programming",
+    "text": "16.15 When to Use Functional Programming\nFunctional programming is particularly useful when:\n\nRepeating the same operation many times\nWorking with lists or nested data\nWriting reusable and modular code\nBuilding reproducible data analysis pipelines",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#best-practices-for-functional-programming",
+    "href": "chapters/15-functional-programming.html#best-practices-for-functional-programming",
+    "title": "16  Functional Programming in R",
+    "section": "16.16 Best Practices for Functional Programming",
+    "text": "16.16 Best Practices for Functional Programming\n\nPrefer vectorization over loops\nWrite small, single-purpose functions\nUse map() instead of lapply() in tidyverse workflows\nAvoid side effects when possible\nName functions clearly and document them",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15-functional-programming.html#summary",
+    "href": "chapters/15-functional-programming.html#summary",
+    "title": "16  Functional Programming in R",
+    "section": "16.17 Summary",
+    "text": "16.17 Summary\nThis chapter introduced the principles of functional programming in R. You learned how to:\n\nTreat functions as objects\nWrite and use custom functions\nReplace loops with vectorized and functional approaches\nUse the apply family and purrr mapping functions\nBuild robust, reusable data analysis code\n\nFunctional programming is a powerful mindset that improves code quality, readability, and scalability in R-based data analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Functional Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15.5-forcats.html",
+    "href": "chapters/15.5-forcats.html",
+    "title": "17  Factors and Categorical Data with forcats",
+    "section": "",
+    "text": "17.1 Introduction\nCategorical data plays a central role in statistics, representing qualitative attributes such as gender, treatment groups, education levels, disease status, or survey responses. In R, categorical variables are handled using a special data type called a factor. Correct handling of factors is essential for statistical modeling, data summarization, and visualization.\nWhile base R provides basic tools for working with factors, the forcats package (part of the tidyverse) offers a more intuitive, consistent, and powerful approach. This chapter focuses on understanding factors conceptually and using forcats to manage categorical data effectively in modern R workflows.\n## Understanding Factors in R\nA factor is a data structure used to represent categorical data with a fixed set of possible values called levels.\nFactors store data internally as integers with associated labels. This internal structure makes factors efficient and suitable for statistical modeling.\n## Why Factors Matter in Statistics\nFactors are not just labels; they influence how R performs:\nIncorrect factor handling can lead to misleading results, especially in modeling and interpretation.\n## Creating Factors\n### From Character Vectors",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Factors and Categorical Data with forcats</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15.5-forcats.html#introduction",
+    "href": "chapters/15.5-forcats.html#introduction",
+    "title": "17  Factors and Categorical Data with forcats",
+    "section": "",
+    "text": "gender &lt;- factor(c(\"Male\", \"Female\", \"Female\", \"Male\"))\ngender\n\n\n\n\n\nGroup-wise summaries\nStatistical tests\nRegression and ANOVA models\nPlot ordering and legends\n\n\n\n\n\nstatus &lt;- c(\"Low\", \"Medium\", \"High\", \"Medium\")\nstatus_factor &lt;- factor(status)\nstatus_factor\n\n17.1.1 Specifying Levels Explicitly\nstatus_factor &lt;- factor(status, levels = c(\"Low\", \"Medium\", \"High\"))\nExplicit levels ensure correct ordering and interpretation.\n\n## Ordered vs Unordered Factors\nSome categorical variables have a natural order.\nrating &lt;- factor(c(\"Poor\", \"Good\", \"Excellent\"),\n                 levels = c(\"Poor\", \"Good\", \"Excellent\"),\n                 ordered = TRUE)\nOrdered factors are especially important in ordinal data analysis.\n\n## Common Problems with Factors\n\nAutomatic conversion from character to factor\nUnwanted level ordering\nLevels with no observations\nInconsistent labels (e.g., spelling or case)\n\nThe forcats package is designed to address these issues cleanly.\n\n## Installing and Loading forcats\ninstall.packages(\"forcats\")\nlibrary(forcats)\nWhen using library(tidyverse), forcats is loaded automatically.\n\n## Changing the Order of Factor Levels\n### Reordering by Frequency\nresponses &lt;- factor(c(\"Yes\", \"No\", \"Yes\", \"Yes\", \"No\"))\nfct_infreq(responses)\nThis is particularly useful for bar plots.\n\n### Reordering by Another Variable\ndata &lt;- data.frame(\ngroup = factor(c(\"A\", \"A\", \"B\", \"B\")),\nscore = c(10, 15, 20, 18)\n)\n\ndata$group &lt;- fct_reorder(data$group, data$score, .fun = mean)\nThis ensures meaningful ordering in summaries and plots.\n\n## Renaming Factor Levels\nlevels(gender)\n\ngender &lt;- fct_recode(gender,\n                   M = \"Male\",\n                   F = \"Female\"\n)\nRenaming improves clarity without altering the underlying data.\n\n## Combining and Collapsing Levels\n### Collapsing Levels\nregion &lt;- factor(c(\"North\", \"South\", \"East\", \"West\"))\n\nregion2 &lt;- fct_collapse(region,\n                      Urban = c(\"North\", \"East\"),\n                      Rural = c(\"South\", \"West\")\n)\n\n\n17.1.2 Lump Infrequent Levels\ncategories &lt;- factor(c(\"A\", \"B\", \"C\", \"A\", \"D\", \"E\"))\nfct_lump(categories, n = 3)\nThis is useful when dealing with high-cardinality categorical variables.\n\n## Dropping Unused Levels\nf &lt;- factor(c(\"A\", \"B\"), levels = c(\"A\", \"B\", \"C\"))\nfct_drop(f)\nUnused levels can cause confusion in analysis and plots.\n\n## Handling Missing Values in Factors\nf &lt;- factor(c(\"Yes\", NA, \"No\"))\nfct_na_value_to_level(f, level = \"Missing\")\nExplicitly labeling missing categories improves transparency.\n\n## Factors in Data Analysis Workflows\nFactors are often manipulated within dplyr pipelines.\nlibrary(dplyr)\n\ndata %&gt;%\n  mutate(\n    group = fct_relevel(group, \"B\", \"A\"),\n    group = fct_recode(group, Control = \"A\", Treatment = \"B\")\n  )\nThis approach ensures consistency across analysis steps.\n\n## Factors and Visualization\nFactor levels directly affect plot ordering.\nlibrary(ggplot2)\n\nggplot(data, aes(x = group, y = score)) +\n  geom_boxplot()\nReordering factors before plotting leads to clearer and more interpretable graphics.\n\n## Best Practices for Working with Factors\n\nConvert character variables to factors intentionally\nAlways inspect levels using levels()\nExplicitly set reference levels in modeling\nUse forcats functions instead of manual recoding\nDrop unused levels regularly\n\n\n## Summary\nThis chapter introduced factors and categorical data handling using forcats. You learned how to:\n\nUnderstand factors and their role in statistics\nCreate ordered and unordered factors\nReorder, rename, and collapse levels\nHandle missing and infrequent categories\nIntegrate factor handling into tidyverse workflows\n\nMastering factors is essential for accurate statistical analysis, effective visualization, and meaningful interpretation of categorical data.",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Factors and Categorical Data with forcats</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html",
+    "href": "chapters/16-statistics.html",
+    "title": "18  Introduction to Statistics",
+    "section": "",
+    "text": "18.1 Introduction\nStatistics is the science of collecting, organizing, analyzing, interpreting, and presenting data. In modern data-driven disciplines, statistics provides the theoretical foundation that guides how data is summarized, modeled, and used for decision-making. In this course, statistics and R are taught together so that statistical thinking is reinforced through computation and real data examples.\nThis chapter introduces the core ideas of statistics that are essential before studying probability theory and statistical inference. The focus here is on understanding what statistics is, why it is needed, and how data is classified and summarized. Detailed probability concepts will be covered in the next chapter, followed by statistical inference.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#what-is-statistics",
+    "href": "chapters/16-statistics.html#what-is-statistics",
+    "title": "18  Introduction to Statistics",
+    "section": "18.2 What Is Statistics?",
+    "text": "18.2 What Is Statistics?\nStatistics can be broadly defined as the discipline concerned with:\n\nDesigning data collection methods\nOrganizing and summarizing data\nAnalyzing patterns and relationships\nDrawing conclusions under uncertainty\n\nRather than dealing with certainty, statistics helps us reason from data, especially when variability and randomness are present.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#role-of-statistics-in-data-analysis",
+    "href": "chapters/16-statistics.html#role-of-statistics-in-data-analysis",
+    "title": "18  Introduction to Statistics",
+    "section": "18.3 Role of Statistics in Data Analysis",
+    "text": "18.3 Role of Statistics in Data Analysis\nIn data analysis workflows, statistics plays several critical roles:\n\nUnderstanding the structure and nature of data\nSummarizing large datasets into meaningful quantities\nComparing groups and identifying patterns\nSupporting evidence-based decisions\n\nIn R-based analysis, statistical concepts guide the choice of functions, models, and visualizations.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#branches-of-statistics",
+    "href": "chapters/16-statistics.html#branches-of-statistics",
+    "title": "18  Introduction to Statistics",
+    "section": "18.4 Branches of Statistics",
+    "text": "18.4 Branches of Statistics\nStatistics is traditionally divided into two main branches:\n\nDescriptive Statistics – concerned with summarizing and describing data\nInferential Statistics – concerned with drawing conclusions about populations based on samples\n\nThis chapter focuses primarily on descriptive statistics. Inferential statistics will be discussed in detail in a later chapter.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#data-and-its-types",
+    "href": "chapters/16-statistics.html#data-and-its-types",
+    "title": "18  Introduction to Statistics",
+    "section": "18.5 Data and Its Types",
+    "text": "18.5 Data and Its Types\nBefore applying statistical methods, it is essential to understand the nature of the data.\n\n18.5.1 Qualitative and Quantitative Data\n\nQualitative (Categorical) Data: Describes attributes or categories\n\nExamples: Gender, blood group, treatment group\n\nQuantitative (Numerical) Data: Represents numerical measurements\n\nExamples: Height, weight, income, age",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#levels-of-measurement",
+    "href": "chapters/16-statistics.html#levels-of-measurement",
+    "title": "18  Introduction to Statistics",
+    "section": "18.6 Levels of Measurement",
+    "text": "18.6 Levels of Measurement\nData can be classified based on levels of measurement:\n\nNominal: Categories without order (e.g., gender, blood group)\nOrdinal: Categories with order but no fixed scale (e.g., satisfaction level)\nInterval: Numeric scale without a true zero (e.g., temperature in Celsius)\nRatio: Numeric scale with a true zero (e.g., weight, income)\n\nUnderstanding measurement levels helps determine appropriate statistical methods.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#population-and-sample",
+    "href": "chapters/16-statistics.html#population-and-sample",
+    "title": "18  Introduction to Statistics",
+    "section": "18.7 Population and Sample",
+    "text": "18.7 Population and Sample\n\nA population is the entire set of units of interest\nA sample is a subset of the population used for analysis\n\nBecause studying entire populations is often impractical, statistical analysis typically relies on samples to make informed conclusions.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#variables-and-observations",
+    "href": "chapters/16-statistics.html#variables-and-observations",
+    "title": "18  Introduction to Statistics",
+    "section": "18.8 Variables and Observations",
+    "text": "18.8 Variables and Observations\n\nA variable is a characteristic that can take different values\nAn observation is a single recorded instance of all variables for one unit\n\nIn R, variables are usually represented as columns and observations as rows in a data frame.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#descriptive-statistics",
+    "href": "chapters/16-statistics.html#descriptive-statistics",
+    "title": "18  Introduction to Statistics",
+    "section": "18.9 Descriptive Statistics",
+    "text": "18.9 Descriptive Statistics\nDescriptive statistics summarize and organize data to make it understandable.\n\n18.9.1 Measures of Central Tendency\n\nMean – arithmetic average\nMedian – middle value\nMode – most frequent value\n\nx &lt;- c(10, 15, 20, 25, 30)\nmean(x)\nmedian(x)\n\n\n\n18.9.2 Measures of Dispersion\nDispersion measures the spread of data.\n\nRange – difference between maximum and minimum\nVariance – average squared deviation from the mean\nStandard Deviation – square root of variance\n\nrange(x)\nvar(x)\nsd(x)",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#shape-of-a-distribution",
+    "href": "chapters/16-statistics.html#shape-of-a-distribution",
+    "title": "18  Introduction to Statistics",
+    "section": "18.10 Shape of a Distribution",
+    "text": "18.10 Shape of a Distribution\nThe distribution of data describes how values are spread.\nCommon shapes include:\n\nSymmetric distribution\nPositively skewed distribution\nNegatively skewed distribution\n\nUnderstanding distribution shape is important for selecting appropriate statistical methods.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#graphical-representation-of-data",
+    "href": "chapters/16-statistics.html#graphical-representation-of-data",
+    "title": "18  Introduction to Statistics",
+    "section": "18.11 Graphical Representation of Data",
+    "text": "18.11 Graphical Representation of Data\nGraphs are a powerful way to summarize data visually.\nCommon graphical tools include:\n\nBar charts for categorical data\nHistograms for numerical data\nBoxplots for comparing distributions\n\nhist(x)\nboxplot(x)\nVisualization complements numerical summaries and often reveals patterns not immediately obvious.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#data-summaries-using-r",
+    "href": "chapters/16-statistics.html#data-summaries-using-r",
+    "title": "18  Introduction to Statistics",
+    "section": "18.12 Data Summaries Using R",
+    "text": "18.12 Data Summaries Using R\nR provides several functions for quick descriptive summaries.\nsummary(x)\nFor data frames:\ndata &lt;- data.frame(Age = c(20, 22, 25, 30))\nsummary(data)",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#importance-of-exploratory-analysis",
+    "href": "chapters/16-statistics.html#importance-of-exploratory-analysis",
+    "title": "18  Introduction to Statistics",
+    "section": "18.13 Importance of Exploratory Analysis",
+    "text": "18.13 Importance of Exploratory Analysis\nBefore applying probability models or inferential methods, it is essential to explore the data thoroughly. Exploratory analysis helps:\n\nDetect errors or anomalies\nUnderstand variability\nIdentify potential relationships\n\nThis exploratory mindset is central to good statistical practice.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#statistics-probability-and-inference",
+    "href": "chapters/16-statistics.html#statistics-probability-and-inference",
+    "title": "18  Introduction to Statistics",
+    "section": "18.14 Statistics, Probability, and Inference",
+    "text": "18.14 Statistics, Probability, and Inference\nStatistics, probability, and inference are closely connected:\n\nStatistics describes and explores data\nProbability models randomness\nInference draws conclusions using probability\n\nThe next chapter will introduce probability theory, which provides the mathematical framework for statistical inference.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/16-statistics.html#summary",
+    "href": "chapters/16-statistics.html#summary",
+    "title": "18  Introduction to Statistics",
+    "section": "18.15 Summary",
+    "text": "18.15 Summary\nThis chapter introduced the foundations of statistics. You learned about:\n\nThe meaning and role of statistics\nTypes and levels of data\nPopulation and sample concepts\nVariables and observations\nDescriptive statistics and data summaries\nThe importance of exploratory analysis\n\nThese concepts form the groundwork for the study of probability and statistical inference, which will be covered in the following chapters.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Introduction to Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html",
+    "href": "chapters/17-probability.html",
+    "title": "19  Probability",
+    "section": "",
+    "text": "19.1 Introduction\nProbability provides the mathematical framework for quantifying uncertainty. While statistics focuses on describing and analyzing observed data, probability deals with the underlying randomness that generates the data. Together, probability and statistics form the foundation of modern data analysis, inference, and decision-making.\nThis chapter introduces the core concepts of probability theory required for statistical analysis. The emphasis is on clear definitions, intuitive understanding, and simple illustrations, with light use of R to reinforce concepts. Statistical inference based on probability will be covered in the next chapter.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#random-experiments",
+    "href": "chapters/17-probability.html#random-experiments",
+    "title": "19  Probability",
+    "section": "19.2 Random Experiments",
+    "text": "19.2 Random Experiments\nA random experiment is a process that produces an outcome which cannot be predicted with certainty, even if the experiment is repeated under identical conditions.\nExamples include:\n\nTossing a coin\nRolling a die\nSelecting a patient randomly from a population\nMeasuring response time in an experiment\n\nThe defining feature of a random experiment is uncertainty in outcomes.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#sample-space",
+    "href": "chapters/17-probability.html#sample-space",
+    "title": "19  Probability",
+    "section": "19.3 Sample Space",
+    "text": "19.3 Sample Space\nThe sample space, denoted by (S), is the set of all possible outcomes of a random experiment.\nExamples:\n\nCoin toss: (S = {H, T})\nDie roll: (S = {1, 2, 3, 4, 5, 6})\n\nIn R, a sample space can be represented using vectors:\nsample_space &lt;- c(\"H\", \"T\")\nsample_space",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#events",
+    "href": "chapters/17-probability.html#events",
+    "title": "19  Probability",
+    "section": "19.4 Events",
+    "text": "19.4 Events\nAn event is any subset of the sample space. Events may consist of:\n\nA single outcome (simple event)\nMultiple outcomes (compound event)\n\nExample (die roll):\n\nEvent A = rolling an even number (A = {2, 4, 6})\n\nA &lt;- c(2, 4, 6)",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#types-of-events",
+    "href": "chapters/17-probability.html#types-of-events",
+    "title": "19  Probability",
+    "section": "19.5 Types of Events",
+    "text": "19.5 Types of Events\n\n19.5.1 Mutually Exclusive Events\nTwo events are mutually exclusive if they cannot occur at the same time.\nExample:\n\nRolling a 2 and rolling a 5 on a single die\n\n\n\n\n19.5.2 Exhaustive Events\nA set of events is exhaustive if at least one of them must occur.\nExample:\n\nEven number or odd number in a die roll",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#classical-definition-of-probability",
+    "href": "chapters/17-probability.html#classical-definition-of-probability",
+    "title": "19  Probability",
+    "section": "19.6 Classical Definition of Probability",
+    "text": "19.6 Classical Definition of Probability\nIf a random experiment has a finite number of equally likely outcomes, the probability of an event (A) is defined as:\n[ P(A) = ]\nExample:\nProbability of rolling an even number on a fair die:\n[ P(A) = = 0.5]",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#axiomatic-definition-of-probability",
+    "href": "chapters/17-probability.html#axiomatic-definition-of-probability",
+    "title": "19  Probability",
+    "section": "19.7 Axiomatic Definition of Probability",
+    "text": "19.7 Axiomatic Definition of Probability\nModern probability theory is based on three axioms proposed by Kolmogorov:\n\nFor any event (A), (P(A) )\n(P(S) = 1)\nFor mutually exclusive events (A_1, A_2, ): (P(A_1 A_2 ) = P(A_i))\n\nThese axioms provide a rigorous mathematical foundation for probability.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#probability-of-complementary-events",
+    "href": "chapters/17-probability.html#probability-of-complementary-events",
+    "title": "19  Probability",
+    "section": "19.8 Probability of Complementary Events",
+    "text": "19.8 Probability of Complementary Events\nThe complement of an event (A), denoted by (A^c), consists of all outcomes not in (A).\n[ P(A^c) = 1 - P(A)]\nExample:\nIf (P(A) = 0.7), then:\n[ P(A^c) = 0.3]",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#addition-law-of-probability",
+    "href": "chapters/17-probability.html#addition-law-of-probability",
+    "title": "19  Probability",
+    "section": "19.9 Addition Law of Probability",
+    "text": "19.9 Addition Law of Probability\nFor any two events (A) and (B):\n[ P(A B) = P(A) + P(B) - P(A B)]\nIf (A) and (B) are mutually exclusive:\n[ P(A B) = P(A) + P(B)]",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#conditional-probability",
+    "href": "chapters/17-probability.html#conditional-probability",
+    "title": "19  Probability",
+    "section": "19.10 Conditional Probability",
+    "text": "19.10 Conditional Probability\nThe conditional probability of event (A) given that event (B) has occurred is defined as:\n[ P(A B) = , P(B) &gt; 0]\nConditional probability allows us to update probabilities based on additional information.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#independence-of-events",
+    "href": "chapters/17-probability.html#independence-of-events",
+    "title": "19  Probability",
+    "section": "19.11 Independence of Events",
+    "text": "19.11 Independence of Events\nTwo events (A) and (B) are said to be independent if the occurrence of one does not affect the probability of the other.\n[ P(A B) = P(A)P(B)]\nIndependence is a strong assumption and must be justified carefully in practice.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#bayes-theorem",
+    "href": "chapters/17-probability.html#bayes-theorem",
+    "title": "19  Probability",
+    "section": "19.12 Bayes’ Theorem",
+    "text": "19.12 Bayes’ Theorem\nBayes’ theorem provides a way to reverse conditional probabilities.\n[ P(A B) = ]\nBayes’ theorem is fundamental in medical testing, machine learning, and decision theory.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#random-variables",
+    "href": "chapters/17-probability.html#random-variables",
+    "title": "19  Probability",
+    "section": "19.13 Random Variables",
+    "text": "19.13 Random Variables\nA random variable is a function that assigns a numerical value to each outcome in the sample space.\n\nDiscrete random variables take countable values\nContinuous random variables take values over an interval\n\nExamples include:\n\nNumber of heads in coin tosses\nHeight or weight of individuals",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#probability-distributions",
+    "href": "chapters/17-probability.html#probability-distributions",
+    "title": "19  Probability",
+    "section": "19.14 Probability Distributions",
+    "text": "19.14 Probability Distributions\nA probability distribution describes how probabilities are assigned to values of a random variable.\nExamples:\n\nDiscrete: Bernoulli, Binomial, Poisson\nContinuous: Uniform, Normal, Exponential\n\nDetailed study of distributions will appear in later chapters.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#expectation-and-variance",
+    "href": "chapters/17-probability.html#expectation-and-variance",
+    "title": "19  Probability",
+    "section": "19.15 Expectation and Variance",
+    "text": "19.15 Expectation and Variance\nFor a random variable (X):\n\nExpected value measures the long-run average\nVariance measures variability around the mean\n\nThese quantities play a central role in statistical modeling and inference.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#law-of-large-numbers-conceptual",
+    "href": "chapters/17-probability.html#law-of-large-numbers-conceptual",
+    "title": "19  Probability",
+    "section": "19.16 Law of Large Numbers (Conceptual)",
+    "text": "19.16 Law of Large Numbers (Conceptual)\nThe Law of Large Numbers states that as the number of trials increases, the sample mean converges to the expected value.\nThis principle explains why probabilities manifest as stable long-run frequencies.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#probability-and-simulation-in-r",
+    "href": "chapters/17-probability.html#probability-and-simulation-in-r",
+    "title": "19  Probability",
+    "section": "19.17 Probability and Simulation in R",
+    "text": "19.17 Probability and Simulation in R\nR can be used to simulate random experiments and illustrate probability concepts.\nset.seed(123)\ncoin_tosses &lt;- sample(c(\"H\", \"T\"), size = 1000, replace = TRUE)\nmean(coin_tosses == \"H\")\nSimulation provides intuition when analytical solutions are complex.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#common-misconceptions-in-probability",
+    "href": "chapters/17-probability.html#common-misconceptions-in-probability",
+    "title": "19  Probability",
+    "section": "19.18 Common Misconceptions in Probability",
+    "text": "19.18 Common Misconceptions in Probability\n\nConfusing independence with mutual exclusivity\nMisinterpreting conditional probabilities\nAssuming short-term frequencies must match probabilities\nIgnoring base rates in real-world problems\n\nAwareness of these pitfalls is essential for sound reasoning.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/17-probability.html#summary",
+    "href": "chapters/17-probability.html#summary",
+    "title": "19  Probability",
+    "section": "19.19 Summary",
+    "text": "19.19 Summary\nThis chapter introduced the fundamental ideas of probability theory. You learned about:\n\nRandom experiments, sample spaces, and events\nDefinitions and axioms of probability\nConditional probability and independence\nBayes’ theorem\nRandom variables and probability distributions\nThe role of simulation in understanding probability\n\nThese concepts form the mathematical backbone for statistical inference, which will be developed in the next chapter.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Probability</span>"
+    ]
   }
 ]

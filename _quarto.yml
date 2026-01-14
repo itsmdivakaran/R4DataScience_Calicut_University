@@ -23,6 +23,11 @@ book:
     - chapters/13-data-transformation.qmd
     - chapters/14-dates-times.qmd
     - chapters/15-functional-programming.qmd
+    - chapters/15.5-forcats.qmd
+    - chapters/16-statistics.qmd
+    - chapters/17-probability.qmd
+    - chapters/18-inference.qmd
+    - chapters/19-regression.qmd
     
 
 bibliography: references.bib

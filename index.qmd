@@ -2,7 +2,7 @@
 
 ## R for Data Analysis: From Fundamentals to Advanced Applications
 
-**A Course Offered by the Department of Statistics, University of Calicut**
+**A Course Offered by the Department of Statistics, University of Calicut.**
 
 ------------------------------------------------------------------------
 

@@ -1,0 +1,235 @@
+# Factors and Categorical Data with forcats
+
+## Introduction
+
+Categorical data plays a central role in statistics, representing **qualitative attributes** such as gender, treatment groups, education levels, disease status, or survey responses. In R, categorical variables are handled using a special data type called a **factor**. Correct handling of factors is essential for **statistical modeling, data summarization, and visualization**.
+
+While base R provides basic tools for working with factors, the **`forcats`** package (part of the tidyverse) offers a more intuitive, consistent, and powerful approach. This chapter focuses on understanding factors conceptually and using `forcats` to manage categorical data effectively in modern R workflows.
+
+------------------------------------------------------------------------
+
+\## Understanding Factors in R
+
+A factor is a data structure used to represent categorical data with a fixed set of possible values called **levels**.
+
+``` r
+gender <- factor(c("Male", "Female", "Female", "Male"))
+gender
+```
+
+Factors store data internally as integers with associated labels. This internal structure makes factors efficient and suitable for statistical modeling.
+
+------------------------------------------------------------------------
+
+\## Why Factors Matter in Statistics
+
+Factors are not just labels; they influence how R performs:
+
+-   Group-wise summaries
+-   Statistical tests
+-   Regression and ANOVA models
+-   Plot ordering and legends
+
+Incorrect factor handling can lead to misleading results, especially in modeling and interpretation.
+
+------------------------------------------------------------------------
+
+\## Creating Factors
+
+\### From Character Vectors
+
+``` r
+status <- c("Low", "Medium", "High", "Medium")
+status_factor <- factor(status)
+status_factor
+```
+
+### Specifying Levels Explicitly
+
+``` r
+status_factor <- factor(status, levels = c("Low", "Medium", "High"))
+```
+
+Explicit levels ensure correct ordering and interpretation.
+
+------------------------------------------------------------------------
+
+\## Ordered vs Unordered Factors
+
+Some categorical variables have a natural order.
+
+``` r
+rating <- factor(c("Poor", "Good", "Excellent"),
+                 levels = c("Poor", "Good", "Excellent"),
+                 ordered = TRUE)
+```
+
+Ordered factors are especially important in ordinal data analysis.
+
+------------------------------------------------------------------------
+
+\## Common Problems with Factors
+
+-   Automatic conversion from character to factor
+-   Unwanted level ordering
+-   Levels with no observations
+-   Inconsistent labels (e.g., spelling or case)
+
+The `forcats` package is designed to address these issues cleanly.
+
+------------------------------------------------------------------------
+
+\## Installing and Loading forcats
+
+``` r
+install.packages("forcats")
+library(forcats)
+```
+
+When using `library(tidyverse)`, `forcats` is loaded automatically.
+
+------------------------------------------------------------------------
+
+\## Changing the Order of Factor Levels
+
+\### Reordering by Frequency
+
+``` r
+responses <- factor(c("Yes", "No", "Yes", "Yes", "No"))
+fct_infreq(responses)
+```
+
+This is particularly useful for bar plots.
+
+------------------------------------------------------------------------
+
+\### Reordering by Another Variable
+
+``` r
+data <- data.frame(
+group = factor(c("A", "A", "B", "B")),
+score = c(10, 15, 20, 18)
+)
+
+data$group <- fct_reorder(data$group, data$score, .fun = mean)
+```
+
+This ensures meaningful ordering in summaries and plots.
+
+------------------------------------------------------------------------
+
+\## Renaming Factor Levels
+
+``` r
+levels(gender)
+
+gender <- fct_recode(gender,
+                   M = "Male",
+                   F = "Female"
+)
+```
+
+Renaming improves clarity without altering the underlying data.
+
+------------------------------------------------------------------------
+
+\## Combining and Collapsing Levels
+
+\### Collapsing Levels
+
+``` r
+region <- factor(c("North", "South", "East", "West"))
+
+region2 <- fct_collapse(region,
+                      Urban = c("North", "East"),
+                      Rural = c("South", "West")
+)
+```
+
+### Lump Infrequent Levels
+
+``` r
+categories <- factor(c("A", "B", "C", "A", "D", "E"))
+fct_lump(categories, n = 3)
+```
+
+This is useful when dealing with high-cardinality categorical variables.
+
+------------------------------------------------------------------------
+
+\## Dropping Unused Levels
+
+``` r
+f <- factor(c("A", "B"), levels = c("A", "B", "C"))
+fct_drop(f)
+```
+
+Unused levels can cause confusion in analysis and plots.
+
+------------------------------------------------------------------------
+
+\## Handling Missing Values in Factors
+
+``` r
+f <- factor(c("Yes", NA, "No"))
+fct_na_value_to_level(f, level = "Missing")
+```
+
+Explicitly labeling missing categories improves transparency.
+
+------------------------------------------------------------------------
+
+\## Factors in Data Analysis Workflows
+
+Factors are often manipulated within `dplyr` pipelines.
+
+``` r
+library(dplyr)
+
+data %>%
+  mutate(
+    group = fct_relevel(group, "B", "A"),
+    group = fct_recode(group, Control = "A", Treatment = "B")
+  )
+```
+
+This approach ensures consistency across analysis steps.
+
+------------------------------------------------------------------------
+
+\## Factors and Visualization
+
+Factor levels directly affect plot ordering.
+
+``` r
+library(ggplot2)
+
+ggplot(data, aes(x = group, y = score)) +
+  geom_boxplot()
+```
+
+Reordering factors before plotting leads to clearer and more interpretable graphics.
+
+------------------------------------------------------------------------
+
+\## Best Practices for Working with Factors
+
+-   Convert character variables to factors intentionally
+-   Always inspect levels using `levels()`
+-   Explicitly set reference levels in modeling
+-   Use `forcats` functions instead of manual recoding
+-   Drop unused levels regularly
+
+------------------------------------------------------------------------
+
+\## Summary
+
+This chapter introduced **factors and categorical data handling using `forcats`**. You learned how to:
+
+-   Understand factors and their role in statistics
+-   Create ordered and unordered factors
+-   Reorder, rename, and collapse levels
+-   Handle missing and infrequent categories
+-   Integrate factor handling into tidyverse workflows
+
+Mastering factors is essential for accurate statistical analysis, effective visualization, and meaningful interpretation of categorical data.

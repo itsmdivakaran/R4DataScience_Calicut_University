@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Data Transformation in R – R4DataScience</title>
+<title>16&nbsp; Functional Programming in R – R4DataScience</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/14-dates-times.html" rel="next">
-<link href="../chapters/12-stringr.html" rel="prev">
+<link href="../chapters/15.5-forcats.html" rel="next">
+<link href="../chapters/14-dates-times.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/13-data-transformation.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Transformation in R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/15-functional-programming.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Functional Programming in R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -225,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/13-data-transformation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/13-data-transformation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Transformation in R</span></span></a>
   </div>
 </li>
@@ -237,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/15-functional-programming.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/15-functional-programming.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Functional Programming in R</span></span></a>
   </div>
 </li>
@@ -281,28 +281,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">14.1</span> Introduction</a></li>
-  <li><a href="#why-data-transformation-is-necessary" id="toc-why-data-transformation-is-necessary" class="nav-link" data-scroll-target="#why-data-transformation-is-necessary"><span class="header-section-number">14.2</span> Why Data Transformation Is Necessary</a></li>
-  <li><a href="#creating-new-variables" id="toc-creating-new-variables" class="nav-link" data-scroll-target="#creating-new-variables"><span class="header-section-number">14.3</span> Creating New Variables</a></li>
-  <li><a href="#mathematical-transformations" id="toc-mathematical-transformations" class="nav-link" data-scroll-target="#mathematical-transformations"><span class="header-section-number">14.4</span> Mathematical Transformations</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">16.1</span> Introduction</a></li>
+  <li><a href="#functions-as-objects-in-r" id="toc-functions-as-objects-in-r" class="nav-link" data-scroll-target="#functions-as-objects-in-r"><span class="header-section-number">16.2</span> Functions as Objects in R</a></li>
+  <li><a href="#writing-your-own-functions" id="toc-writing-your-own-functions" class="nav-link" data-scroll-target="#writing-your-own-functions"><span class="header-section-number">16.3</span> Writing Your Own Functions</a></li>
+  <li><a href="#pure-functions-and-side-effects" id="toc-pure-functions-and-side-effects" class="nav-link" data-scroll-target="#pure-functions-and-side-effects"><span class="header-section-number">16.4</span> Pure Functions and Side Effects</a></li>
+  <li><a href="#avoiding-loops-with-vectorization" id="toc-avoiding-loops-with-vectorization" class="nav-link" data-scroll-target="#avoiding-loops-with-vectorization"><span class="header-section-number">16.5</span> Avoiding Loops with Vectorization</a></li>
+  <li><a href="#the-apply-family-of-functions" id="toc-the-apply-family-of-functions" class="nav-link" data-scroll-target="#the-apply-family-of-functions"><span class="header-section-number">16.6</span> The apply Family of Functions</a>
   <ul class="collapse">
-  <li><a href="#log-transformation" id="toc-log-transformation" class="nav-link" data-scroll-target="#log-transformation"><span class="header-section-number">14.4.1</span> Log Transformation</a></li>
-  <li><a href="#square-root-transformation" id="toc-square-root-transformation" class="nav-link" data-scroll-target="#square-root-transformation"><span class="header-section-number">14.4.2</span> Square Root Transformation</a></li>
+  <li><a href="#lapply" id="toc-lapply" class="nav-link" data-scroll-target="#lapply"><span class="header-section-number">16.6.1</span> <code>lapply()</code></a></li>
+  <li><a href="#sapply" id="toc-sapply" class="nav-link" data-scroll-target="#sapply"><span class="header-section-number">16.6.2</span> <code>sapply()</code></a></li>
+  <li><a href="#apply" id="toc-apply" class="nav-link" data-scroll-target="#apply"><span class="header-section-number">16.6.3</span> <code>apply()</code></a></li>
   </ul></li>
-  <li><a href="#standardization-and-scaling" id="toc-standardization-and-scaling" class="nav-link" data-scroll-target="#standardization-and-scaling"><span class="header-section-number">14.5</span> Standardization and Scaling</a>
-  <ul class="collapse">
-  <li><a href="#standardization-z-score" id="toc-standardization-z-score" class="nav-link" data-scroll-target="#standardization-z-score"><span class="header-section-number">14.5.1</span> Standardization (Z-score)</a></li>
-  <li><a href="#minmax-scaling" id="toc-minmax-scaling" class="nav-link" data-scroll-target="#minmax-scaling"><span class="header-section-number">14.5.2</span> Min–Max Scaling</a></li>
-  </ul></li>
-  <li><a href="#recoding-variables" id="toc-recoding-variables" class="nav-link" data-scroll-target="#recoding-variables"><span class="header-section-number">14.6</span> Recoding Variables</a></li>
-  <li><a href="#transforming-categorical-variables" id="toc-transforming-categorical-variables" class="nav-link" data-scroll-target="#transforming-categorical-variables"><span class="header-section-number">14.7</span> Transforming Categorical Variables</a></li>
-  <li><a href="#handling-outliers-through-transformation" id="toc-handling-outliers-through-transformation" class="nav-link" data-scroll-target="#handling-outliers-through-transformation"><span class="header-section-number">14.8</span> Handling Outliers Through Transformation</a></li>
-  <li><a href="#conditional-transformations" id="toc-conditional-transformations" class="nav-link" data-scroll-target="#conditional-transformations"><span class="header-section-number">14.9</span> Conditional Transformations</a></li>
-  <li><a href="#transformations-using-dplyr" id="toc-transformations-using-dplyr" class="nav-link" data-scroll-target="#transformations-using-dplyr"><span class="header-section-number">14.10</span> Transformations Using dplyr</a></li>
-  <li><a href="#transformations-for-visualization" id="toc-transformations-for-visualization" class="nav-link" data-scroll-target="#transformations-for-visualization"><span class="header-section-number">14.11</span> Transformations for Visualization</a></li>
-  <li><a href="#common-mistakes-in-data-transformation" id="toc-common-mistakes-in-data-transformation" class="nav-link" data-scroll-target="#common-mistakes-in-data-transformation"><span class="header-section-number">14.12</span> Common Mistakes in Data Transformation</a></li>
-  <li><a href="#best-practices-for-data-transformation" id="toc-best-practices-for-data-transformation" class="nav-link" data-scroll-target="#best-practices-for-data-transformation"><span class="header-section-number">14.13</span> Best Practices for Data Transformation</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">14.14</span> Summary</a></li>
+  <li><a href="#anonymous-functions" id="toc-anonymous-functions" class="nav-link" data-scroll-target="#anonymous-functions"><span class="header-section-number">16.7</span> Anonymous Functions</a></li>
+  <li><a href="#introduction-to-purrr" id="toc-introduction-to-purrr" class="nav-link" data-scroll-target="#introduction-to-purrr"><span class="header-section-number">16.8</span> Introduction to purrr</a></li>
+  <li><a href="#mapping-functions-with-map" id="toc-mapping-functions-with-map" class="nav-link" data-scroll-target="#mapping-functions-with-map"><span class="header-section-number">16.9</span> Mapping Functions with <code>map()</code></a></li>
+  <li><a href="#mapping-with-anonymous-functions" id="toc-mapping-with-anonymous-functions" class="nav-link" data-scroll-target="#mapping-with-anonymous-functions"><span class="header-section-number">16.10</span> Mapping with Anonymous Functions</a></li>
+  <li><a href="#mapping-over-multiple-inputs" id="toc-mapping-over-multiple-inputs" class="nav-link" data-scroll-target="#mapping-over-multiple-inputs"><span class="header-section-number">16.11</span> Mapping Over Multiple Inputs</a></li>
+  <li><a href="#iteration-with-side-effects-walk" id="toc-iteration-with-side-effects-walk" class="nav-link" data-scroll-target="#iteration-with-side-effects-walk"><span class="header-section-number">16.12</span> Iteration with Side Effects: <code>walk()</code></a></li>
+  <li><a href="#functional-programming-in-data-analysis-workflows" id="toc-functional-programming-in-data-analysis-workflows" class="nav-link" data-scroll-target="#functional-programming-in-data-analysis-workflows"><span class="header-section-number">16.13</span> Functional Programming in Data Analysis Workflows</a></li>
+  <li><a href="#error-handling-with-possibly-and-safely" id="toc-error-handling-with-possibly-and-safely" class="nav-link" data-scroll-target="#error-handling-with-possibly-and-safely"><span class="header-section-number">16.14</span> Error Handling with <code>possibly()</code> and <code>safely()</code></a></li>
+  <li><a href="#when-to-use-functional-programming" id="toc-when-to-use-functional-programming" class="nav-link" data-scroll-target="#when-to-use-functional-programming"><span class="header-section-number">16.15</span> When to Use Functional Programming</a></li>
+  <li><a href="#best-practices-for-functional-programming" id="toc-best-practices-for-functional-programming" class="nav-link" data-scroll-target="#best-practices-for-functional-programming"><span class="header-section-number">16.16</span> Best Practices for Functional Programming</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">16.17</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -311,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Transformation in R</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Functional Programming in R</span></h1>
 </div>
 
 
@@ -328,173 +328,182 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="introduction" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">14.1</span> Introduction</h2>
-<p>Data transformation is the process of <strong>modifying data to make it suitable for analysis, modeling, and interpretation</strong>. After importing, tidying, and manipulating data, analysts often need to transform variables to improve interpretability, meet statistical assumptions, or derive new insights.</p>
-<p>In statistics and data science, data transformation is not merely a technical step—it is an <strong>analytical decision</strong>. This chapter introduces the most common data transformation techniques in R, with an emphasis on understanding <em>why</em> transformations are applied, not just <em>how</em> they are implemented.</p>
+<section id="introduction" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">16.1</span> Introduction</h2>
+<p>Functional programming is a programming paradigm that treats <strong>functions as first-class objects</strong> and emphasizes writing code by composing functions rather than modifying state. In R, functional programming is especially powerful for writing <strong>concise, reusable, and reliable code</strong>, and it plays a central role in modern data analysis workflows.</p>
+<p>This chapter introduces the principles of functional programming in R, starting from base R concepts and extending to tidyverse-friendly tools such as <strong><code>purrr</code></strong>. The focus is on <em>why</em> functional programming is useful, <em>when</em> to use it, and <em>how</em> it improves clarity and correctness in data analysis.</p>
 <hr>
 </section>
-<section id="why-data-transformation-is-necessary" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="why-data-transformation-is-necessary"><span class="header-section-number">14.2</span> Why Data Transformation Is Necessary</h2>
-<p>Real-world data frequently exhibits issues such as:</p>
+<section id="functions-as-objects-in-r" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="functions-as-objects-in-r"><span class="header-section-number">16.2</span> Functions as Objects in R</h2>
+<p>In R, functions are objects just like vectors or data frames. They can be:</p>
 <ul>
-<li>Skewed distributions</li>
-<li>Outliers</li>
-<li>Inconsistent scales</li>
-<li>Categorical variables encoded numerically</li>
-<li>Variables measured in inconvenient units</li>
+<li>Assigned to variables</li>
+<li>Passed as arguments to other functions</li>
+<li>Returned as outputs from functions</li>
 </ul>
-<p>Data transformation helps to:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> mean</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This property allows R users to write highly flexible and expressive code.</p>
+<hr>
+</section>
+<section id="writing-your-own-functions" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="writing-your-own-functions"><span class="header-section-number">16.3</span> Writing Your Own Functions</h2>
+<p>Creating functions helps avoid repetition and improves code organization.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>add_percentage <span class="ot">&lt;-</span> <span class="cf">function</span>(x, p) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> (x <span class="sc">*</span> p <span class="sc">/</span> <span class="dv">100</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">add_percentage</span>(<span class="dv">100</span>, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A function typically consists of:</p>
 <ul>
-<li>Improve model performance</li>
-<li>Satisfy statistical assumptions</li>
-<li>Enhance interpretability</li>
-<li>Enable meaningful comparisons</li>
-<li>Prepare data for visualization and reporting</li>
-</ul>
-<hr>
-</section>
-<section id="creating-new-variables" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="creating-new-variables"><span class="header-section-number">14.3</span> Creating New Variables</h2>
-<p>One of the most common transformations is the creation of new variables from existing ones.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Salary =</span> <span class="fu">c</span>(<span class="dv">25000</span>, <span class="dv">40000</span>, <span class="dv">60000</span>),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Experience =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>AnnualSalary <span class="ot">&lt;-</span> data<span class="sc">$</span>Salary <span class="sc">*</span> <span class="dv">12</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Derived variables often carry more analytical meaning than raw measurements.</p>
-<hr>
-</section>
-<section id="mathematical-transformations" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="mathematical-transformations"><span class="header-section-number">14.4</span> Mathematical Transformations</h2>
-<section id="log-transformation" class="level3" data-number="14.4.1">
-<h3 data-number="14.4.1" class="anchored" data-anchor-id="log-transformation"><span class="header-section-number">14.4.1</span> Log Transformation</h3>
-<p>Logarithmic transformations are used to reduce skewness and stabilize variance.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>LogSalary <span class="ot">&lt;-</span> <span class="fu">log</span>(data<span class="sc">$</span>Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Log transformations are common in income, clinical, and biological data.</p>
-</section>
-<section id="square-root-transformation" class="level3" data-number="14.4.2">
-<h3 data-number="14.4.2" class="anchored" data-anchor-id="square-root-transformation"><span class="header-section-number">14.4.2</span> Square Root Transformation</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>SqrtSalary <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(data<span class="sc">$</span>Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Square root transformations are useful for count data and moderately skewed variables.</p>
-<hr>
-</section>
-</section>
-<section id="standardization-and-scaling" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="standardization-and-scaling"><span class="header-section-number">14.5</span> Standardization and Scaling</h2>
-<p>Variables measured on different scales often need to be standardized.</p>
-<section id="standardization-z-score" class="level3" data-number="14.5.1">
-<h3 data-number="14.5.1" class="anchored" data-anchor-id="standardization-z-score"><span class="header-section-number">14.5.1</span> Standardization (Z-score)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Salary_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(data<span class="sc">$</span>Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Standardized variables have mean 0 and standard deviation 1.</p>
-</section>
-<section id="minmax-scaling" class="level3" data-number="14.5.2">
-<h3 data-number="14.5.2" class="anchored" data-anchor-id="minmax-scaling"><span class="header-section-number">14.5.2</span> Min–Max Scaling</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>min_max <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">min</span>(x)) <span class="sc">/</span> (<span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Salary_scaled <span class="ot">&lt;-</span> <span class="fu">min_max</span>(data<span class="sc">$</span>Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Scaling is essential in machine learning and distance-based methods.</p>
-<hr>
-</section>
-</section>
-<section id="recoding-variables" class="level2" data-number="14.6">
-<h2 data-number="14.6" class="anchored" data-anchor-id="recoding-variables"><span class="header-section-number">14.6</span> Recoding Variables</h2>
-<p>Recoding replaces existing values with more meaningful or simplified categories.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Level <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data<span class="sc">$</span>Experience <span class="sc">&lt;</span> <span class="dv">3</span>, <span class="st">"Junior"</span>,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">ifelse</span>(data<span class="sc">$</span>Experience <span class="sc">&lt;</span> <span class="dv">8</span>, <span class="st">"Mid"</span>, <span class="st">"Senior"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Recoding is especially common in survey and categorical data.</p>
-<hr>
-</section>
-<section id="transforming-categorical-variables" class="level2" data-number="14.7">
-<h2 data-number="14.7" class="anchored" data-anchor-id="transforming-categorical-variables"><span class="header-section-number">14.7</span> Transforming Categorical Variables</h2>
-<p>Categorical variables often require transformation before analysis.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Level <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>Level,</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Junior"</span>, <span class="st">"Mid"</span>, <span class="st">"Senior"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Proper ordering of factor levels is important for modeling and visualization.</p>
-<hr>
-</section>
-<section id="handling-outliers-through-transformation" class="level2" data-number="14.8">
-<h2 data-number="14.8" class="anchored" data-anchor-id="handling-outliers-through-transformation"><span class="header-section-number">14.8</span> Handling Outliers Through Transformation</h2>
-<p>Transformations can reduce the influence of extreme values.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(data<span class="sc">$</span>Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Applying a log transformation:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">log</span>(data<span class="sc">$</span>Salary))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This often results in a more symmetric distribution.</p>
-<hr>
-</section>
-<section id="conditional-transformations" class="level2" data-number="14.9">
-<h2 data-number="14.9" class="anchored" data-anchor-id="conditional-transformations"><span class="header-section-number">14.9</span> Conditional Transformations</h2>
-<p>Conditional logic allows transformations based on rules.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Bonus <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data<span class="sc">$</span>Salary <span class="sc">&gt;</span> <span class="dv">50000</span>,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                     data<span class="sc">$</span>Salary <span class="sc">*</span> <span class="fl">0.10</span>,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                     data<span class="sc">$</span>Salary <span class="sc">*</span> <span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Such transformations are common in policy-based or business-rule-driven analyses.</p>
-<hr>
-</section>
-<section id="transformations-using-dplyr" class="level2" data-number="14.10">
-<h2 data-number="14.10" class="anchored" data-anchor-id="transformations-using-dplyr"><span class="header-section-number">14.10</span> Transformations Using dplyr</h2>
-<p>Most transformations are performed using <code>mutate()</code> in tidyverse workflows.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">AnnualSalary =</span> Salary <span class="sc">*</span> <span class="dv">12</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">LogSalary =</span> <span class="fu">log</span>(Salary),</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Level =</span> <span class="fu">case_when</span>(</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>      Experience <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Junior"</span>,</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>      Experience <span class="sc">&lt;</span> <span class="dv">8</span> <span class="sc">~</span> <span class="st">"Mid"</span>,</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Senior"</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This approach improves readability and reproducibility.</p>
-<hr>
-</section>
-<section id="transformations-for-visualization" class="level2" data-number="14.11">
-<h2 data-number="14.11" class="anchored" data-anchor-id="transformations-for-visualization"><span class="header-section-number">14.11</span> Transformations for Visualization</h2>
-<p>Transforming data before plotting can reveal hidden patterns.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>Salary)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log</span>(data<span class="sc">$</span>Salary))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Choosing appropriate transformations is a key part of exploratory data analysis.</p>
-<hr>
-</section>
-<section id="common-mistakes-in-data-transformation" class="level2" data-number="14.12">
-<h2 data-number="14.12" class="anchored" data-anchor-id="common-mistakes-in-data-transformation"><span class="header-section-number">14.12</span> Common Mistakes in Data Transformation</h2>
-<ul>
-<li>Applying transformations without justification</li>
-<li>Forgetting to handle zero or negative values in log transforms</li>
-<li>Overwriting original variables</li>
-<li>Ignoring interpretability after transformation</li>
-</ul>
-<p>Maintaining both original and transformed variables is often best practice.</p>
-<hr>
-</section>
-<section id="best-practices-for-data-transformation" class="level2" data-number="14.13">
-<h2 data-number="14.13" class="anchored" data-anchor-id="best-practices-for-data-transformation"><span class="header-section-number">14.13</span> Best Practices for Data Transformation</h2>
-<ul>
-<li>Understand the purpose of each transformation</li>
-<li>Keep transformations simple and interpretable</li>
-<li>Document transformations clearly</li>
-<li>Apply transformations consistently</li>
-<li>Validate results visually and numerically</li>
+<li>A name</li>
+<li>Input arguments</li>
+<li>A body containing expressions</li>
+<li>A return value (implicit or explicit)</li>
 </ul>
 <hr>
 </section>
-<section id="summary" class="level2" data-number="14.14">
-<h2 data-number="14.14" class="anchored" data-anchor-id="summary"><span class="header-section-number">14.14</span> Summary</h2>
-<p>This chapter introduced the concept and practice of <strong>data transformation in R</strong>. You learned how to:</p>
+<section id="pure-functions-and-side-effects" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="pure-functions-and-side-effects"><span class="header-section-number">16.4</span> Pure Functions and Side Effects</h2>
+<p>A <strong>pure function</strong> always produces the same output for the same input and does not modify external variables.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Pure functions are easier to test, debug, and reuse. Avoiding side effects is considered good practice in data analysis code.</p>
+<hr>
+</section>
+<section id="avoiding-loops-with-vectorization" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="avoiding-loops-with-vectorization"><span class="header-section-number">16.5</span> Avoiding Loops with Vectorization</h2>
+<p>R is designed for vectorized operations, which are faster and more readable than explicit loops.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Compare with a loop:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(x))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  result[i] <span class="ot">&lt;-</span> x[i]<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Vectorization is often the first step toward functional programming in R.</p>
+<hr>
+</section>
+<section id="the-apply-family-of-functions" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="the-apply-family-of-functions"><span class="header-section-number">16.6</span> The apply Family of Functions</h2>
+<p>Base R provides a family of functions for applying operations over data structures.</p>
+<section id="lapply" class="level3" data-number="16.6.1">
+<h3 data-number="16.6.1" class="anchored" data-anchor-id="lapply"><span class="header-section-number">16.6.1</span> <code>lapply()</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(numbers, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="sapply" class="level3" data-number="16.6.2">
+<h3 data-number="16.6.2" class="anchored" data-anchor-id="sapply"><span class="header-section-number">16.6.2</span> <code>sapply()</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(numbers, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="apply" class="level3" data-number="16.6.3">
+<h3 data-number="16.6.3" class="anchored" data-anchor-id="apply"><span class="header-section-number">16.6.3</span> <code>apply()</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mat, <span class="dv">1</span>, sum)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>These functions reduce the need for explicit loops and improve clarity.</p>
+<hr>
+</section>
+</section>
+<section id="anonymous-functions" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="anonymous-functions"><span class="header-section-number">16.7</span> Anonymous Functions</h2>
+<p>Anonymous (or lambda) functions are functions without names, often used for short operations.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(numbers, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>They are useful when a function is needed only once.</p>
+<hr>
+</section>
+<section id="introduction-to-purrr" class="level2" data-number="16.8">
+<h2 data-number="16.8" class="anchored" data-anchor-id="introduction-to-purrr"><span class="header-section-number">16.8</span> Introduction to purrr</h2>
+<p>The <strong><code>purrr</code></strong> package provides a modern, consistent alternative to the <code>apply</code> family. It is part of the tidyverse and is designed to work seamlessly with pipelines.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"purrr"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="mapping-functions-with-map" class="level2" data-number="16.9">
+<h2 data-number="16.9" class="anchored" data-anchor-id="mapping-functions-with-map"><span class="header-section-number">16.9</span> Mapping Functions with <code>map()</code></h2>
+<p>The core idea of <code>purrr</code> is <strong>mapping a function over a vector or list</strong>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(numbers, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Typed variants ensure predictable output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dbl</span>(numbers, mean)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">map_int</span>(numbers, length)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="mapping-with-anonymous-functions" class="level2" data-number="16.10">
+<h2 data-number="16.10" class="anchored" data-anchor-id="mapping-with-anonymous-functions"><span class="header-section-number">16.10</span> Mapping with Anonymous Functions</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(numbers, <span class="sc">~</span> .x <span class="sc">*</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>.x</code> syntax provides a concise way to define anonymous functions.</p>
+<hr>
+</section>
+<section id="mapping-over-multiple-inputs" class="level2" data-number="16.11">
+<h2 data-number="16.11" class="anchored" data-anchor-id="mapping-over-multiple-inputs"><span class="header-section-number">16.11</span> Mapping Over Multiple Inputs</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">map2</span>(x, y, <span class="sc">~</span> .x <span class="sc">+</span> .y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is useful when combining multiple vectors element-wise.</p>
+<hr>
+</section>
+<section id="iteration-with-side-effects-walk" class="level2" data-number="16.12">
+<h2 data-number="16.12" class="anchored" data-anchor-id="iteration-with-side-effects-walk"><span class="header-section-number">16.12</span> Iteration with Side Effects: <code>walk()</code></h2>
+<p>Sometimes iteration is needed for side effects, such as printing or saving files.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">walk</span>(x, print)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Unlike <code>map()</code>, <code>walk()</code> returns no output.</p>
+<hr>
+</section>
+<section id="functional-programming-in-data-analysis-workflows" class="level2" data-number="16.13">
+<h2 data-number="16.13" class="anchored" data-anchor-id="functional-programming-in-data-analysis-workflows"><span class="header-section-number">16.13</span> Functional Programming in Data Analysis Workflows</h2>
+<p>Functional programming is often used to apply the same operation to multiple variables or datasets.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">A =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">B =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(df, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This approach avoids repetitive code and scales well as data grows.</p>
+<hr>
+</section>
+<section id="error-handling-with-possibly-and-safely" class="level2" data-number="16.14">
+<h2 data-number="16.14" class="anchored" data-anchor-id="error-handling-with-possibly-and-safely"><span class="header-section-number">16.14</span> Error Handling with <code>possibly()</code> and <code>safely()</code></h2>
+<p>Functional programming also supports robust error handling.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>safe_log <span class="ot">&lt;-</span> <span class="fu">possibly</span>(log, <span class="cn">NA</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">safe_log</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This prevents entire workflows from failing due to a single error.</p>
+<hr>
+</section>
+<section id="when-to-use-functional-programming" class="level2" data-number="16.15">
+<h2 data-number="16.15" class="anchored" data-anchor-id="when-to-use-functional-programming"><span class="header-section-number">16.15</span> When to Use Functional Programming</h2>
+<p>Functional programming is particularly useful when:</p>
 <ul>
-<li>Create derived variables</li>
-<li>Apply mathematical transformations</li>
-<li>Standardize and scale data</li>
-<li>Recode and transform categorical variables</li>
-<li>Handle outliers through transformation</li>
-<li>Perform transformations using tidyverse workflows</li>
+<li>Repeating the same operation many times</li>
+<li>Working with lists or nested data</li>
+<li>Writing reusable and modular code</li>
+<li>Building reproducible data analysis pipelines</li>
 </ul>
-<p>Data transformation is a critical step that connects raw data to meaningful statistical analysis and modeling.</p>
+<hr>
+</section>
+<section id="best-practices-for-functional-programming" class="level2" data-number="16.16">
+<h2 data-number="16.16" class="anchored" data-anchor-id="best-practices-for-functional-programming"><span class="header-section-number">16.16</span> Best Practices for Functional Programming</h2>
+<ul>
+<li>Prefer vectorization over loops</li>
+<li>Write small, single-purpose functions</li>
+<li>Use <code>map()</code> instead of <code>lapply()</code> in tidyverse workflows</li>
+<li>Avoid side effects when possible</li>
+<li>Name functions clearly and document them</li>
+</ul>
+<hr>
+</section>
+<section id="summary" class="level2" data-number="16.17">
+<h2 data-number="16.17" class="anchored" data-anchor-id="summary"><span class="header-section-number">16.17</span> Summary</h2>
+<p>This chapter introduced the principles of <strong>functional programming in R</strong>. You learned how to:</p>
+<ul>
+<li>Treat functions as objects</li>
+<li>Write and use custom functions</li>
+<li>Replace loops with vectorized and functional approaches</li>
+<li>Use the <code>apply</code> family and <code>purrr</code> mapping functions</li>
+<li>Build robust, reusable data analysis code</li>
+</ul>
+<p>Functional programming is a powerful mindset that improves code quality, readability, and scalability in R-based data analysis.</p>
 
 
 </section>
@@ -902,13 +911,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/12-stringr.html" class="pagination-link" aria-label="String Manipulation with stringr">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">String Manipulation with stringr</span></span>
+      <a href="../chapters/14-dates-times.html" class="pagination-link" aria-label="Working with Dates and Times in R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Working with Dates and Times in R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/14-dates-times.html" class="pagination-link" aria-label="Working with Dates and Times in R">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Working with Dates and Times in R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/15.5-forcats.html" class="pagination-link" aria-label="Factors and Categorical Data with forcats">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Factors and Categorical Data with forcats</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
