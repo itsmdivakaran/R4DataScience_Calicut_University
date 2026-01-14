@@ -1,0 +1,1782 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R4DataScience",
+    "section": "",
+    "text": "1 Introduction",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#r-for-data-analysis-from-fundamentals-to-advanced-applications",
+    "href": "index.html#r-for-data-analysis-from-fundamentals-to-advanced-applications",
+    "title": "R4DataScience",
+    "section": "1.1 R for Data Analysis: From Fundamentals to Advanced Applications",
+    "text": "1.1 R for Data Analysis: From Fundamentals to Advanced Applications\nA Course Offered by the Department of Statistics, University of Calicut",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#about-this-book",
+    "href": "index.html#about-this-book",
+    "title": "R4DataScience",
+    "section": "1.2 About This Book",
+    "text": "1.2 About This Book\nThis book, R for Data Analysis: From Fundamentals to Advanced Applications, has been developed by Mahesh Divakaran as part of an certificate course offered by the Department of Statistics, University of Calicut. It is designed to serve as a comprehensive learning resource for students who wish to build strong practical and theoretical skills in data analysis using the R programming language.\nThe material is written in the form of a Quarto book, enabling seamless integration of explanations, executable R code, figures, and outputs in a single reproducible document. This approach reflects modern statistical practice, where analysis, interpretation, and reporting are inseparable.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#motivation-for-the-course",
+    "href": "index.html#motivation-for-the-course",
+    "title": "R4DataScience",
+    "section": "1.3 Motivation for the Course",
+    "text": "1.3 Motivation for the Course\nIn today’s data-driven world, statistics is no longer confined to theory alone. Statisticians are expected to:\n\nHandle real-world datasets\nPerform exploratory and confirmatory data analysis\nApply appropriate statistical models\nCommunicate results clearly and reproducibly\n\nR has emerged as one of the most powerful and widely used tools to meet these demands. This course is motivated by the need to bridge the gap between statistical theory and practical data analysis, enabling students to translate classroom concepts into real analytical workflows.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#why-r-for-data-analysis",
+    "href": "index.html#why-r-for-data-analysis",
+    "title": "R4DataScience",
+    "section": "1.4 Why R for Data Analysis?",
+    "text": "1.4 Why R for Data Analysis?\nR is a language developed by statisticians, for statisticians. Its design philosophy aligns closely with statistical thinking and data-centric problem solving.\nKey reasons for choosing R as the primary tool in this course include:\n\nA rich ecosystem for statistical methods and modeling\nStrong support for data visualization and exploratory analysis\nOpen-source nature and global community support\nIntegration of computation, graphics, and reporting\nWide acceptance in academia, research, and industry\n\nBy learning R, students gain a transferable skill that is relevant across disciplines such as economics, health sciences, social sciences, environmental studies, and machine learning.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#course-philosophy-and-learning-approach",
+    "href": "index.html#course-philosophy-and-learning-approach",
+    "title": "R4DataScience",
+    "section": "1.5 Course Philosophy and Learning Approach",
+    "text": "1.5 Course Philosophy and Learning Approach\nThis course adopts a hands-on, example-driven learning approach. Rather than treating R as a collection of commands to memorize, the emphasis is on:\n\nUnderstanding data structures and workflows\nWriting clear, readable, and reusable code\nInterpreting results in a statistical context\nDeveloping reproducible analysis habits\n\nEach concept is introduced with intuition, followed by practical examples and gradually extended to more complex applications. Errors, warnings, and unexpected outputs are treated as learning opportunities rather than obstacles.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#intended-audience",
+    "href": "index.html#intended-audience",
+    "title": "R4DataScience",
+    "section": "1.6 Intended Audience",
+    "text": "1.6 Intended Audience\nThis book is primarily intended for:\n\nUndergraduate and postgraduate students of Statistics\nStudents from allied disciplines with a quantitative background\nBeginners with little or no prior programming experience\n\nA basic understanding of statistics will be helpful, but no prior knowledge of R or programming is assumed. The material progresses from fundamental concepts to advanced analytical techniques in a structured manner.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#course-structure-and-progression",
+    "href": "index.html#course-structure-and-progression",
+    "title": "R4DataScience",
+    "section": "1.7 Course Structure and Progression",
+    "text": "1.7 Course Structure and Progression\nThe book is organized to support progressive learning, moving from foundational concepts to advanced applications.\nBroadly, the course covers:\n\nIntroduction to R, RStudio, and the computing environment\nCore data structures and data handling in R\nData import, cleaning, and transformation\nExploratory data analysis and visualization\nStatistical modeling and inference\nAdvanced topics and applied case studies\nReproducible reporting using Quarto\n\nEach chapter builds on previous knowledge, ensuring continuity and conceptual clarity.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#reproducible-data-analysis-with-quarto",
+    "href": "index.html#reproducible-data-analysis-with-quarto",
+    "title": "R4DataScience",
+    "section": "1.8 Reproducible Data Analysis with Quarto",
+    "text": "1.8 Reproducible Data Analysis with Quarto\nA defining feature of this course is the emphasis on reproducible research. All analyses in this book are written using Quarto, allowing:\n\nCode and results to coexist in one document\nAutomatic generation of tables and figures\nEasy export to PDF, HTML, and Word formats\n\nThis practice encourages transparency, accuracy, and professional documentation—skills essential for academic research and industry projects alike.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#learning-outcomes",
+    "href": "index.html#learning-outcomes",
+    "title": "R4DataScience",
+    "section": "1.9 Learning Outcomes",
+    "text": "1.9 Learning Outcomes\nBy the end of this course, students will be able to:\n\nUse R confidently for data analysis tasks\nUnderstand and manipulate different data structures\nPerform exploratory and inferential statistical analysis\nVisualize data effectively\nWrite reproducible and well-documented analysis reports\nApply R to real-world datasets and research problems",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use-this-book",
+    "href": "index.html#how-to-use-this-book",
+    "title": "R4DataScience",
+    "section": "1.10 How to Use This Book",
+    "text": "1.10 How to Use This Book\nTo get the most out of this book:\n\nRead the explanations carefully and run the code yourself\nModify examples and observe how results change\nPractice regularly using the exercises provided\nFocus on understanding workflows rather than isolated commands\n\nActive engagement is essential for mastering data analysis with R.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#concluding-remarks",
+    "href": "index.html#concluding-remarks",
+    "title": "R4DataScience",
+    "section": "1.11 Concluding Remarks",
+    "text": "1.11 Concluding Remarks\nR for Data Analysis: From Fundamentals to Advanced Applications is more than a programming guide—it is an introduction to modern statistical practice. Through this course, students will develop the skills needed to analyze data rigorously, think statistically, and communicate findings effectively using R.\nThe chapters that follow begin with the basics of R and RStudio, laying the foundation for advanced analytical techniques explored later in the book.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Author.html",
+    "href": "Author.html",
+    "title": "2  About",
+    "section": "",
+    "text": "2.1 About the Author\nMahesh Divakaran is a Data Scientist, Statistical Programmer, Trainer, and Public Speaker with over eight years of professional experience in statistics, data science, and clinical research. He is the author of this course material R for Data Analysis: From Fundamentals to Advanced Applications, offered by the Department of Statistics, University of Calicut.\nHe specializes in clinical data analysis using R, supported by a strong foundation in statistical theory and applied analytics. He is currently pursuing a Ph.D. in Statistics at Amity University, with a research focus on advanced data analysis techniques.\nMahesh has worked extensively in the clinical research and healthcare analytics domain. He is currently a Senior Statistical Programmer at IQVIA, where he leads the development and validation of R packages for clinical studies. Previously, he served as Associate Lead – Clinical Data Analytics at Genpro Research, contributing to the development of R Shiny dashboards and automated reporting systems for clinical trials.\nHis technical expertise includes R, Python, SAS, R Shiny, Tableau, and Power BI, with particular strength in ADaM dataset creation, statistical reporting, and data visualization. Alongside industry work, he is deeply committed to teaching and capacity building in Statistics, Data Science, and Clinical Data Analytics, and has delivered invited talks and presentations at national and international conferences.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "Author.html#about-the-department-of-statistics-university-of-calicut",
+    "href": "Author.html#about-the-department-of-statistics-university-of-calicut",
+    "title": "2  About",
+    "section": "2.2 About the Department of Statistics, University of Calicut",
+    "text": "2.2 About the Department of Statistics, University of Calicut\nThe Department of Statistics, University of Calicut, was established in 1988 with the objective of developing into a centre of excellence in statistics and its applications in the region. The department was founded under the leadership of Dr. K. Kumaranakutty, the founder professor, and is rooted in a philosophy that emphasizes the close relationship between the University and the community, promoting a scientifically motivated society.\nSince its inception, the department has been actively involved in teaching, training, and research, with a strong emphasis on modeling real-life problems using rigorous statistical methods. The faculty members engage in collaborative research with scientists and institutions within India and abroad. Several faculty members have been recipients of Commonwealth Scholarships and Fellowships tenable in the United Kingdom.\nThe department also plays a vital service role within the University by advising and assisting faculty members and research scholars from other departments in the statistical analysis of research data.\nAs of 2010, 27 research scholars from the department have been awarded the Ph.D. degree. Research output from the department is nationally and internationally recognized, as reflected in peer-reviewed publications, funded projects, and invited lectures at academic conferences.\n\n2.2.1 Thrust Areas\nThe major thrust areas of the department include:\n\nStochastic Processes and Applications\nReliability and Survival Analysis\nExtreme Value Theory\nTime Series Analysis and Modelling\nApplied Probability\nDistribution Theory\nSampling Theory\nNovelty Detection and Neural Networks\n\n\n\n2.2.2 Courses Offered\nThe department offers the following academic programmes:\n\nM.Sc. Statistics – 4 Semesters (Choice Based Credit Semester System – CCSS)\nM.Phil. – 2 Semesters\nPh.D. Programme\n\n\n2.2.2.1 M.Sc. Statistics Programme\nThe M.Sc. Statistics programme is designed to provide intensive training covering the core and applied areas of statistics. The curriculum equips students with technical and analytical skills required for immediate employment as statisticians, while also preparing them for advanced research.\n\nCurrent Specialization Module: Advanced Statistical Analysis\nTotal Intake: 25 students\nAdmission Criteria: Candidates with a B.Sc. degree securing at least 50% marks, with either (i) Statistics as the main subject, or (ii) Mathematics as the main subject with Statistics as a subsidiary. Admission is based on performance in the common university entrance examination.\n\nGraduates of the programme find employment opportunities in research organizations, government agencies, industry, healthcare, analytics, and education.\n\n\n\n2.2.3 Faculty\n\nDr. K. Jayakumar – Senior Professor\nDr. Krishnarani S. D. – Associate Professor & Head\nDr. Dileepkumar M. – Assistant Professor\n\nFormer Faculty Members:\n\nDr. C. Chandran\nDr. M. Manoharan\nDr. N. Raju\nDr. K. Kumaranakutty\n\n\n\n2.2.4 Infrastructure and Facilities\nThe department is well-equipped with academic and research infrastructure. It has its own departmental library, housing over 2,100 books and several volumes of classical statistical journals. The computer laboratory is equipped with more than twenty personal computers and statistical software such as SPSS and SYSTAT, along with teaching aids including OHP and LCD projectors. The department also maintains an active Alumni Association.\n\n\n2.2.5 Research and Collaborations\nResearch in the department is held in high regard at national and international levels. Faculty members have received prestigious fellowships, including Commonwealth Scholarships and research fellowships in Canada. The department maintains active research collaborations with academic institutions, industry partners, and government organizations.\nMajor research interests include Stochastic Processes, Reliability and Survival Analysis, Distribution Theory, Time Series Modelling, Applied Probability, Extreme Value Theory, Novelty Detection, and Neural Networks.\nFurther details about the department and its academic programmes are available at http://www.cuonline.ac.in/.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html",
+    "href": "chapters/01-introduction.html",
+    "title": "3  Introduction to R and RStudio",
+    "section": "",
+    "text": "3.1 What is R?\nR is aprogramming language and software environmentdesigned primarily forstatistical computing, data analysis, and visualization. It is widely used in academia, research institutions, government organizations, and industry for tasks ranging from simple data summaries to advanced machine learning and reproducible research.\nKey characteristics of R include:\nIn this workshop, R will be used as atool for thinking with data, not just a calculator. You will learn how to write clear, reusable code that performs data analysis systematically.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#what-is-r",
+    "href": "chapters/01-introduction.html#what-is-r",
+    "title": "3  Introduction to R and RStudio",
+    "section": "",
+    "text": "Open-source and free: Anyone can use, modify, and distribute R.\nStrong statistical foundation: Built by statisticians for statistical work.\nExtensive package ecosystem: Thousands of user-contributed packages extend R’s capabilities.\nExcellent graphics: R is known for high-quality, publication-ready visualizations.\nReproducibility: Scripts and documents ensure analyses can be repeated and verified.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#why-use-r-for-data-analysis",
+    "href": "chapters/01-introduction.html#why-use-r-for-data-analysis",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.2 Why Use R for Data Analysis?",
+    "text": "3.2 Why Use R for Data Analysis?\nR is especially well-suited for data analysis because it combinesdata manipulation, statistical modeling, and visualizationin one environment.\n\n3.2.1 Advantages of R\n\nHandlessmall to very large datasetsefficiently\nSupportsclassical statistics, modern data science, and machine learning\nEncouragesscript-based analysis, reducing manual errors\nIntegrates well with reports (PDF, Word, HTML) throughQuarto and R Markdown\nStrong community support and documentation\n\n\n\n3.2.2 Typical Use Cases\n\nExploratory Data Analysis (EDA)\nStatistical inference and hypothesis testing\nRegression and multivariate analysis\nTime series and forecasting\nData visualization and dashboards\nAcademic research and thesis work",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#installing-r",
+    "href": "chapters/01-introduction.html#installing-r",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.3 Installing R",
+    "text": "3.3 Installing R\nR itself is thecore enginethat performs computations.\n\n3.3.1 Steps to Install R\n\nVisit the official Comprehensive R Archive Network (CRAN):https://cran.r-project.org\nChoose your operating system (Windows / macOS / Linux)\nDownload and install the latest stable version\n\nAfter installation, R can be run from the system console. However, working directly in the R console is not ideal for beginners or large projects. This is whereRStudiobecomes essential.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#what-is-rstudio",
+    "href": "chapters/01-introduction.html#what-is-rstudio",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.4 What is RStudio?",
+    "text": "3.4 What is RStudio?\nRStudio is anIntegrated Development Environment (IDE)for R. It makes working with R easier, faster, and more organized.\nRStudio doesnot replace R. Instead:\n\nR does the computation, and RStudio provides a user-friendly interface to work with R.\n\n\n3.4.1 Why Use RStudio?\n\nCode editor with syntax highlighting\nEasy file and project management\nBuilt-in help and documentation\nIntegrated plotting and visualization\nSeamless support for Quarto documents",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#understanding-the-rstudio-interface",
+    "href": "chapters/01-introduction.html#understanding-the-rstudio-interface",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.5 Understanding the RStudio Interface",
+    "text": "3.5 Understanding the RStudio Interface\nWhen you open RStudio, you typically seefour panes:\n\n3.5.1 1. Script Editor (Top-Left)\n\nWhere you write and save R code\nSupports.Rscripts and.qmdQuarto files\nCode is written once and executed many times\n\n\n\n3.5.2 2. Console (Bottom-Left)\n\nWhere R executes commands\nDisplays output, messages, and errors\nUseful for quick calculations and testing code\n\n\n\n3.5.3 3. Environment / History (Top-Right)\n\nShows objects currently in memory\nDisplays datasets, variables, and functions\nHelps track what data is loaded\n\n\n\n3.5.4 4. Files / Plots / Help / Viewer (Bottom-Right)\n\nFile browser for project files\nPlot display window\nHelp documentation for functions\nViewer for Quarto and HTML outputs\n\nUnderstanding these panes is crucial for efficient workflow in R.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#your-first-interaction-with-r",
+    "href": "chapters/01-introduction.html#your-first-interaction-with-r",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.6 Your First Interaction with R",
+    "text": "3.6 Your First Interaction with R\nLet us start with very simple commands.\n\n3.6.1 Using R as a Calculator\n\n2 + 3\n\n[1] 5\n\n10 / 2\n\n[1] 5\n\n5^2\n\n[1] 25\n\n\nR immediately evaluates expressions and returns results.\n\n\n3.6.2 Assigning Values to Objects\n\nx &lt;- 10\ny &lt;- 5\nx + y\n\n[1] 15\n\n\nHere:\n\n&lt;-is theassignment operator\nxandyare objects stored in memory\n\nObject-based thinking is fundamental in R.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#basic-data-types-in-r",
+    "href": "chapters/01-introduction.html#basic-data-types-in-r",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.7 Basic Data Types in R",
+    "text": "3.7 Basic Data Types in R\nR works with different types of data. The most common ones are:\n\nNumeric: Numbers (e.g., 10, 3.5)\nCharacter: Text (e.g., “Statistics”)\nLogical: TRUE or FALSE\n\nExamples:\n\nage &lt;- 21\nname &lt;- \"Anita\"\npassed &lt;- TRUE\n\nYou can check the type of an object using:\n\nclass(age)\n\n[1] \"numeric\"\n\nclass(name)\n\n[1] \"character\"\n\nclass(passed)\n\n[1] \"logical\"",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#vectors-the-core-data-structure",
+    "href": "chapters/01-introduction.html#vectors-the-core-data-structure",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.8 Vectors: The Core Data Structure",
+    "text": "3.8 Vectors: The Core Data Structure\nA vector is acollection of values of the same type.\n\nmarks &lt;- c(78, 85, 90, 88)\nnames &lt;- c(\"A\", \"B\", \"C\")\n\nKey points:\n\nc()stands forcombine\nAll elements in a vector must be of the same type\nVectors are the building blocks of most R data structures",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#working-directory-and-projects",
+    "href": "chapters/01-introduction.html#working-directory-and-projects",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.9 Working Directory and Projects",
+    "text": "3.9 Working Directory and Projects\nTheworking directoryis the default location where R reads and saves files.\ngetwd()\nsetwd(\"path/to/your/folder\")\nHowever, changing directories manually is discouraged.\n\n3.9.1 RStudio Projects (Recommended)\n\nCreate a project for each workshop, assignment, or research work\nKeeps scripts, data, and outputs organized\nEnsures reproducibility across systems",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#introduction-to-quarto",
+    "href": "chapters/01-introduction.html#introduction-to-quarto",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.10 Introduction to Quarto",
+    "text": "3.10 Introduction to Quarto\nQuarto is anext-generation scientific and technical publishing systemthat allows you to combine:\n\nR code\nText explanation\nTables and figures\n\ninto asingle, reproducible document.\n\n3.10.1 Why Quarto for This Workshop?\n\nGeneratesPDF, HTML, and Wordoutputs\nIdeal for teaching, reports, and books\nSupports executable R code chunks\n\nExample of an R code chunk in Quarto:\nsummary(c(10, 20, 30, 40))",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#how-this-book-is-structured",
+    "href": "chapters/01-introduction.html#how-this-book-is-structured",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.11 How This Book Is Structured",
+    "text": "3.11 How This Book Is Structured\nThis Quarto book is designed forbeginnersand progresses gradually:\n\nBasics of R and RStudio\nData structures and data import\nData manipulation and visualization\nStatistical analysis\nReproducible reporting with Quarto\n\nEach chapter includes:\n\nClear explanations\nAnnotated examples\nPractice exercises",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#best-practices-for-learning-r",
+    "href": "chapters/01-introduction.html#best-practices-for-learning-r",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.12 Best Practices for Learning R",
+    "text": "3.12 Best Practices for Learning R\n\nType the code yourself instead of copy–paste\nRead error messages carefully\nExperiment with small examples\nSave scripts regularly\nAskwhya result occurs, not justwhatit is\n\nLearning R is not about memorizing commands, but about developingdata analysis thinking.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/01-introduction.html#getting-help",
+    "href": "chapters/01-introduction.html#getting-help",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.13 Getting Help",
+    "text": "3.13 Getting Help\nR has extensive built-in help and a supportive community. Here are some ways to get help: - Help files: Use ?function_name or help(function_name) to access documentation for any function. For example:\n\n?mean\n\n\nRStudio Help Pane: Use the Help pane in RStudio to search for functions and topics.\nOnline Resources: Websites like Stack Overflow, R-bloggers, and the RStudio Community are great places to ask questions and find solutions.\nBooks and Tutorials: There are many free and paid resources available for learning R. Remember, seeking help is a normal part of learning programming!",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-environment.html",
+    "href": "chapters/04-environment.html",
+    "title": "4  R Environment, Syntax, and Operators",
+    "section": "",
+    "text": "4.1 Introduction\nBefore performing any data analysis, it is essential to ensure that the R environment is correctly installed and functioning. This chapter introduces the basic diagnostics for the R environment, followed by a detailed discussion of R syntax, assignment operators, variable naming conventions, and arithmetic operations. These concepts form the foundation for writing clear and correct R programs.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>R Environment, Syntax, and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-environment.html#r-environment-diagnostic-checks",
+    "href": "chapters/04-environment.html#r-environment-diagnostic-checks",
+    "title": "4  R Environment, Syntax, and Operators",
+    "section": "4.2 R Environment Diagnostic Checks",
+    "text": "4.2 R Environment Diagnostic Checks\nA properly configured R environment ensures smooth execution of scripts and reproducible results.\n\n4.2.1 Checking the R Version\n\nR.version.string\n\n[1] \"R version 4.5.2 (2025-10-31)\"\n\n\nThis command displays the installed R version. Using an up-to-date version of R is recommended for compatibility with modern packages.\n\n\n4.2.2 Testing Package Installation\n\ninstall.packages(\"ggplot2\")\n\nThe following package(s) will be installed:\n- ggplot2 [4.0.1]\nThese packages will be installed into \"~/Documents/Personal/R/R4Data Science_CU/R4DataScience_Calicut_University/renv/library/macos/R-4.5/aarch64-apple-darwin20\".\n\n# Installing packages --------------------------------------------------------\n- Installing ggplot2 ...                        OK [linked from cache]\nSuccessfully installed 1 package in 3.5 milliseconds.\n\n\nSuccessful installation confirms that R can access CRAN repositories and install external packages.\n\n\n4.2.3 Verifying Basic Computation\n\n(50 + 50) / 2\n\n[1] 50\n\n\nThis simple arithmetic check confirms that the R interpreter is functioning correctly.\n\n\n4.2.4 Checking TinyTeX Installation\n\ntinytex::is_tinytex()\n\n[1] TRUE\n\n\nTinyTeX is required for generating PDF outputs from Quarto documents. This command verifies its availability.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>R Environment, Syntax, and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-environment.html#assignment-operators-in-r",
+    "href": "chapters/04-environment.html#assignment-operators-in-r",
+    "title": "4  R Environment, Syntax, and Operators",
+    "section": "4.3 Assignment Operators in R",
+    "text": "4.3 Assignment Operators in R\nR provides multiple ways to assign values to objects.\n\nx &lt;- 5\ny = 10\n11 -&gt; z\n\n\n&lt;-is therecommended assignment operatorin R\n=is commonly used but should be avoided in complex expressions\n-&gt;assigns values from right to left\n\n\n4.3.1 Global Assignment Operator\n\nz &lt;&lt;- 15\n\nThe&lt;&lt;-operator assigns a value to a variable in the global environment. Its use should be limited, as it can make code harder to debug.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>R Environment, Syntax, and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-environment.html#variable-naming-conventions",
+    "href": "chapters/04-environment.html#variable-naming-conventions",
+    "title": "4  R Environment, Syntax, and Operators",
+    "section": "4.4 Variable Naming Conventions",
+    "text": "4.4 Variable Naming Conventions\nValid variable names in R:\n\nvar1 &lt;- 10\nvar_2 &lt;- 20\nvar.3 &lt;- 30\nVar4 &lt;- 40\nvarFive &lt;- 50\n\nKey rules:\n\nVariable names arecase-sensitive\nThey may contain letters, numbers, dots (.), and underscores (_)\nThey must not begin with a number\n\nInvalid variable names contain spaces or special characters and will produce errors.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>R Environment, Syntax, and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-environment.html#fundamental-r-syntax",
+    "href": "chapters/04-environment.html#fundamental-r-syntax",
+    "title": "4  R Environment, Syntax, and Operators",
+    "section": "4.5 Fundamental R Syntax",
+    "text": "4.5 Fundamental R Syntax\nR syntax is flexible and generally ignores whitespace.\n\nx &lt;- 10\ny &lt;- 20\nz &lt;- x + y\n\na = 5; b = 15; c = a * b\nd=x-y\ne = x * y; f = x / y\n\nAlthough whitespace is optional,consistent formattingimproves readability and maintainability.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>R Environment, Syntax, and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-environment.html#basic-arithmetic-operations",
+    "href": "chapters/04-environment.html#basic-arithmetic-operations",
+    "title": "4  R Environment, Syntax, and Operators",
+    "section": "4.6 Basic Arithmetic Operations",
+    "text": "4.6 Basic Arithmetic Operations\nR supports all standard arithmetic operations.\n\n5 + 3      # Addition\n\n[1] 8\n\n10 - 4     # Subtraction\n\n[1] 6\n\n6 * 7      # Multiplication\n\n[1] 42\n\n20 / 5     # Division\n\n[1] 4\n\n2 ^ 3      # Exponentiation\n\n[1] 8\n\n10 %% 3    # Modulus\n\n[1] 1\n\n10 %/% 3   # Integer division\n\n[1] 3\n\n\nThese operations are frequently used in data transformation and statistical computation.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>R Environment, Syntax, and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-environment.html#summary",
+    "href": "chapters/04-environment.html#summary",
+    "title": "4  R Environment, Syntax, and Operators",
+    "section": "4.7 Summary",
+    "text": "4.7 Summary\nIn this chapter, you learned how to:\n\nVerify and diagnose the R environment\nUse different assignment operators\nApply valid variable naming conventions\nUnderstand fundamental R syntax\nPerform arithmetic operations in R\n\nThese basics are essential for writing correct and efficient R programs. The next chapter exploresdata types and type conversion, which are crucial for understanding how R stores and processes data.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>R Environment, Syntax, and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html",
+    "href": "chapters/05-datatypes.html",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "",
+    "text": "5.1 Introduction\nUnderstanding data types is fundamental to effective data analysis in R. This chapter introduces the core data types supported by R, explains how R stores and interprets data, and demonstrates type conversion and commonly used built-in functions.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html#numeric-and-integer-data-types",
+    "href": "chapters/05-datatypes.html#numeric-and-integer-data-types",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "5.2 Numeric and Integer Data Types",
+    "text": "5.2 Numeric and Integer Data Types\n\n5.2.1 Numeric\nnum_var &lt;- 42.5\nclass(num_var)\ntypeof(num_var)\nBy default, numeric values in R are stored as double-precision numbers.\n\n\n5.2.2 Integer\nint_var &lt;- 42L\nclass(int_var)\ntypeof(int_var)\nAppending L explicitly creates an integer. Although integers and numerics behave similarly, they differ in memory representation.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html#character-data-type",
+    "href": "chapters/05-datatypes.html#character-data-type",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "5.3 Character Data Type",
+    "text": "5.3 Character Data Type\nchar_var &lt;- \"Hello, R!\"\nclass(char_var)\ntypeof(char_var)\nR supports both single and double quotes for character strings. Escape characters allow quotes to be included within strings.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html#logical-data-type",
+    "href": "chapters/05-datatypes.html#logical-data-type",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "5.4 Logical Data Type",
+    "text": "5.4 Logical Data Type\nlog_var &lt;- TRUE\nlog_var2 &lt;- FALSE\nLogical values are essential for conditional operations and filtering data. Shorthand forms T and F exist but are not recommended in professional code.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html#complex-and-raw-data-types",
+    "href": "chapters/05-datatypes.html#complex-and-raw-data-types",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "5.5 Complex and Raw Data Types",
+    "text": "5.5 Complex and Raw Data Types\n\n5.5.1 Complex\ncomp_var &lt;- 3 + 4i\nclass(comp_var)\ntypeof(comp_var)\nComplex numbers include an imaginary component and are mainly used in specialized mathematical computations.\n\n\n5.5.2 Raw\nraw_var &lt;- charToRaw(\"Hello\")\nrawToChar(raw_var)\nRaw data represents bytes and is rarely used in routine data analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html#type-conversion-in-r",
+    "href": "chapters/05-datatypes.html#type-conversion-in-r",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "5.6 Type Conversion in R",
+    "text": "5.6 Type Conversion in R\nR provides explicit functions for converting between data types.\nas.character(123.45)\nas.numeric(\"678.90\")\nas.integer(99.99)\nas.logical(1)\nType conversion is common when importing data from external sources.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html#date-factor-and-null",
+    "href": "chapters/05-datatypes.html#date-factor-and-null",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "5.7 Date, Factor, and NULL",
+    "text": "5.7 Date, Factor, and NULL\n\n5.7.1 Date\ndate_var &lt;- as.Date(\"2024-01-01\")\nclass(date_var)\nDates are crucial for time-based analysis.\n\n\n5.7.2 Factor\nfactor_var &lt;- factor(c(\"Red\", \"Blue\", \"Green\"))\nlevels(factor_var)\nFactors are used to represent categorical variables and play an important role in statistical modeling.\n\n\n5.7.3 NULL\nnull_var &lt;- NULL\nis.null(null_var)\nNULL represents the absence of a value and is commonly used in programming logic.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html#special-numeric-values",
+    "href": "chapters/05-datatypes.html#special-numeric-values",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "5.8 Special Numeric Values",
+    "text": "5.8 Special Numeric Values\nInf\n-Inf\nNaN\nThese values represent infinity and undefined numerical results. Functions such as is.nan() and is.infinite() help identify them.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html#basic-functions-in-r",
+    "href": "chapters/05-datatypes.html#basic-functions-in-r",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "5.9 Basic Functions in R",
+    "text": "5.9 Basic Functions in R\nFrequently used built-in functions include:\nlength(vec)\nclass(vec)\nsummary(vec)\nstr(vec)\nmean(vec)\nsum(vec)\nsd(vec)\nThese functions are essential for exploratory data analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html#sequences-and-repetition",
+    "href": "chapters/05-datatypes.html#sequences-and-repetition",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "5.10 Sequences and Repetition",
+    "text": "5.10 Sequences and Repetition\nseq(1, 10, by = 2)\nrep(1:3, times = 2)\nSequences and repetition are commonly used for simulations and indexing.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html#accessing-help-and-documentation",
+    "href": "chapters/05-datatypes.html#accessing-help-and-documentation",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "5.11 Accessing Help and Documentation",
+    "text": "5.11 Accessing Help and Documentation\n?mean\nhelp.search(\"regression\")\nvignette()\nR provides extensive documentation that should be consulted regularly.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html#working-directory-management",
+    "href": "chapters/05-datatypes.html#working-directory-management",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "5.12 Working Directory Management",
+    "text": "5.12 Working Directory Management\ngetwd()\nlist.files()\nManaging the working directory ensures that data files and outputs are correctly located.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-datatypes.html#summary",
+    "href": "chapters/05-datatypes.html#summary",
+    "title": "5  Data Types, Type Conversion, and Basic Functions",
+    "section": "5.13 Summary",
+    "text": "5.13 Summary\nIn this chapter, you learned about:\n\nCore data types in R\nDifferences between class() and typeof()\nExplicit type conversion\nSpecial numeric values\nEssential built-in functions\nHelp and file management utilities\n\nThese concepts are critical for data handling and analysis. The next chapter will focus on data structures such as vectors, lists, and data frames, which build upon the data types introduced here.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types, Type Conversion, and Basic Functions</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-datastructures.html",
+    "href": "chapters/06-datastructures.html",
+    "title": "6  Vectors, Lists, Matrices, and Data Frames",
+    "section": "",
+    "text": "6.1 Introduction\nData structures are the backbone of data analysis in R. While Chapter 5 introduced basic data types, this chapter focuses on how data is organized and stored using R’s fundamental data structures: vectors, lists, matrices, and data frames. Understanding these structures is essential for efficient data manipulation, analysis, and modeling.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vectors, Lists, Matrices, and Data Frames</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-datastructures.html#vectors",
+    "href": "chapters/06-datastructures.html#vectors",
+    "title": "6  Vectors, Lists, Matrices, and Data Frames",
+    "section": "6.2 Vectors",
+    "text": "6.2 Vectors\nA vector is the most basic data structure in R. It is a collection of elements of the same data type.\n\n6.2.1 Creating Vectors\nnum_vec &lt;- c(10, 20, 30, 40)\nchar_vec &lt;- c(\"A\", \"B\", \"C\")\nlog_vec &lt;- c(TRUE, FALSE, TRUE)\nThe function c() stands for combine.\n\n\n6.2.2 Properties of Vectors\n\nAll elements must be of the same type\nVectors are one-dimensional\nR performs type coercion if mixed types are used\n\nmix_vec &lt;- c(1, \"A\", TRUE)\nclass(mix_vec)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vectors, Lists, Matrices, and Data Frames</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-datastructures.html#accessing-vector-elements",
+    "href": "chapters/06-datastructures.html#accessing-vector-elements",
+    "title": "6  Vectors, Lists, Matrices, and Data Frames",
+    "section": "6.3 Accessing Vector Elements",
+    "text": "6.3 Accessing Vector Elements\nElements in a vector are accessed using indexing, which starts at 1 in R.\nnum_vec[1]\nnum_vec[2:4]\nnum_vec[c(1, 3)]\n\n6.3.1 Logical Indexing\nnum_vec[num_vec &gt; 20]",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vectors, Lists, Matrices, and Data Frames</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-datastructures.html#vector-operations",
+    "href": "chapters/06-datastructures.html#vector-operations",
+    "title": "6  Vectors, Lists, Matrices, and Data Frames",
+    "section": "6.4 Vector Operations",
+    "text": "6.4 Vector Operations\nVectors support element-wise operations.\nx &lt;- c(1, 2, 3)\ny &lt;- c(4, 5, 6)\n\nx + y\nx * y\n\n6.4.1 Recycling Rule\nx &lt;- c(1, 2, 3, 4)\ny &lt;- c(10, 20)\nx + y\nR recycles the shorter vector. A warning appears if lengths are incompatible.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vectors, Lists, Matrices, and Data Frames</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-datastructures.html#lists",
+    "href": "chapters/06-datastructures.html#lists",
+    "title": "6  Vectors, Lists, Matrices, and Data Frames",
+    "section": "6.5 Lists",
+    "text": "6.5 Lists\nA list is a flexible data structure that can contain elements of different types and lengths.\n\n6.5.1 Creating Lists\nmy_list &lt;- list(\n  numbers = c(1, 2, 3),\n  text = \"Statistics\",\n  logical = TRUE,\n  data = c(\"A\", \"B\")\n)\n\n\n6.5.2 Accessing List Elements\nmy_list[[1]]\nmy_list$numbers\n\n[[ ]] extracts a single element\n$ accesses elements by name",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vectors, Lists, Matrices, and Data Frames</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-datastructures.html#matrices",
+    "href": "chapters/06-datastructures.html#matrices",
+    "title": "6  Vectors, Lists, Matrices, and Data Frames",
+    "section": "6.6 Matrices",
+    "text": "6.6 Matrices\nA matrix is a two-dimensional data structure where all elements are of the same type.\n\n6.6.1 Creating a Matrix\nmat &lt;- matrix(1:6, nrow = 2, ncol = 3)\nmat\n\n\n6.6.2 Matrix by Row\nmat_row &lt;- matrix(1:6, nrow = 2, byrow = TRUE)\nmat_row\n\n\n6.6.3 Accessing Matrix Elements\nmat[1, 2]\nmat[, 1]\nmat[2, ]",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vectors, Lists, Matrices, and Data Frames</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-datastructures.html#matrix-operations",
+    "href": "chapters/06-datastructures.html#matrix-operations",
+    "title": "6  Vectors, Lists, Matrices, and Data Frames",
+    "section": "6.7 Matrix Operations",
+    "text": "6.7 Matrix Operations\nMatrices support mathematical operations.\nA &lt;- matrix(1:4, nrow = 2)\nB &lt;- matrix(5:8, nrow = 2)\n\nA + B\nA * B        # Element-wise multiplication\nA %*% B     # Matrix multiplication",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vectors, Lists, Matrices, and Data Frames</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-datastructures.html#data-frames",
+    "href": "chapters/06-datastructures.html#data-frames",
+    "title": "6  Vectors, Lists, Matrices, and Data Frames",
+    "section": "6.8 Data Frames",
+    "text": "6.8 Data Frames\nA data frame is the most commonly used data structure in data analysis. It is a table-like structure where:\n\nColumns can have different data types\nAll columns must have the same length\n\n\n6.8.1 Creating a Data Frame\ndf &lt;- data.frame(\n  ID = 1:4,\n  Name = c(\"A\", \"B\", \"C\", \"D\"),\n  Marks = c(78, 85, 90, 88),\n  Passed = c(TRUE, TRUE, TRUE, FALSE)\n)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vectors, Lists, Matrices, and Data Frames</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-datastructures.html#accessing-data-frame-elements",
+    "href": "chapters/06-datastructures.html#accessing-data-frame-elements",
+    "title": "6  Vectors, Lists, Matrices, and Data Frames",
+    "section": "6.9 Accessing Data Frame Elements",
+    "text": "6.9 Accessing Data Frame Elements\ndf$Marks\ndf[1, ]\ndf[, 2]\ndf[ , \"Name\"]\n\n6.9.1 Structure of a Data Frame\nstr(df)\nsummary(df)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vectors, Lists, Matrices, and Data Frames</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-datastructures.html#adding-and-removing-columns",
+    "href": "chapters/06-datastructures.html#adding-and-removing-columns",
+    "title": "6  Vectors, Lists, Matrices, and Data Frames",
+    "section": "6.10 Adding and Removing Columns",
+    "text": "6.10 Adding and Removing Columns\ndf$Grade &lt;- c(\"B\", \"B\", \"A\", \"B\")\ndf$Passed &lt;- NULL",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vectors, Lists, Matrices, and Data Frames</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-datastructures.html#converting-between-data-structures",
+    "href": "chapters/06-datastructures.html#converting-between-data-structures",
+    "title": "6  Vectors, Lists, Matrices, and Data Frames",
+    "section": "6.11 Converting Between Data Structures",
+    "text": "6.11 Converting Between Data Structures\nas.list(num_vec)\nas.matrix(df)\nas.data.frame(mat)\nUnderstanding conversions helps avoid common errors in analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vectors, Lists, Matrices, and Data Frames</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-datastructures.html#summary",
+    "href": "chapters/06-datastructures.html#summary",
+    "title": "6  Vectors, Lists, Matrices, and Data Frames",
+    "section": "6.12 Summary",
+    "text": "6.12 Summary\nIn this chapter, you learned:\n\nHow vectors store homogeneous data\nHow lists store heterogeneous data\nHow matrices represent two-dimensional numeric data\nHow data frames organize real-world datasets\nMethods to access, modify, and convert data structures\n\nThese data structures form the foundation for data manipulation and analysis in R. In the next chapter, we will focus on importing external data and preparing it for analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vectors, Lists, Matrices, and Data Frames</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-data-import.html",
+    "href": "chapters/07-data-import.html",
+    "title": "7  Data Import in R (CSV, Excel, SPSS, SAS)",
+    "section": "",
+    "text": "7.1 Introduction\nIn real-world data analysis, data rarely originates inside R. Instead, datasets are typically stored in external files such as spreadsheets, text files, or statistical software formats. This chapter introduces the most common methods for importing data into R, with a focus on formats widely used in statistics, research, and industry: CSV, Excel, SPSS, and SAS.\nThe ability to correctly import data is a critical skill, as errors at this stage can propagate throughout the analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Import in R (CSV, Excel, SPSS, SAS)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-data-import.html#working-directory-and-file-paths",
+    "href": "chapters/07-data-import.html#working-directory-and-file-paths",
+    "title": "7  Data Import in R (CSV, Excel, SPSS, SAS)",
+    "section": "7.2 Working Directory and File Paths",
+    "text": "7.2 Working Directory and File Paths\nBefore importing data, it is important to understand where R looks for files.\ngetwd()\nThe working directory is the default location from which R reads files and saves outputs. Using RStudio Projects is strongly recommended to manage file paths consistently.\nFiles can be referenced using:\n\nRelative paths (recommended)\nAbsolute paths (system-specific, less portable)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Import in R (CSV, Excel, SPSS, SAS)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-data-import.html#importing-csv-files",
+    "href": "chapters/07-data-import.html#importing-csv-files",
+    "title": "7  Data Import in R (CSV, Excel, SPSS, SAS)",
+    "section": "7.3 Importing CSV Files",
+    "text": "7.3 Importing CSV Files\nComma-Separated Values (CSV) files are one of the most common data formats.\n\n7.3.1 Using Base R\ndata_csv &lt;- read.csv(\"data/sample.csv\")\nhead(data_csv)\nImportant arguments:\n\nheader = TRUE – first row contains column names\nstringsAsFactors = FALSE – prevents automatic factor conversion\n\ndata_csv &lt;- read.csv(\"data/sample.csv\", stringsAsFactors = FALSE)\n\n\n7.3.2 Using readr Package (Recommended)\nlibrary(readr)\ndata_csv &lt;- read_csv(\"data/sample.csv\")\nAdvantages of readr:\n\nFaster for large datasets\nBetter handling of column types\nClearer warnings and messages",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Import in R (CSV, Excel, SPSS, SAS)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-data-import.html#importing-excel-files",
+    "href": "chapters/07-data-import.html#importing-excel-files",
+    "title": "7  Data Import in R (CSV, Excel, SPSS, SAS)",
+    "section": "7.4 Importing Excel Files",
+    "text": "7.4 Importing Excel Files\nExcel files are widely used in academic and administrative settings.\n\n7.4.1 Using readxl\nlibrary(readxl)\ndata_excel &lt;- read_excel(\"data/sample.xlsx\")\nTo read a specific sheet:\ndata_excel &lt;- read_excel(\"data/sample.xlsx\", sheet = \"Sheet1\")\nTo view available sheets:\nexcel_sheets(\"data/sample.xlsx\")\nExcel files do not require external dependencies, making readxl suitable for most systems.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Import in R (CSV, Excel, SPSS, SAS)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-data-import.html#importing-spss-files",
+    "href": "chapters/07-data-import.html#importing-spss-files",
+    "title": "7  Data Import in R (CSV, Excel, SPSS, SAS)",
+    "section": "7.5 Importing SPSS Files",
+    "text": "7.5 Importing SPSS Files\nSPSS files (.sav) are commonly used in social sciences and health research.\n\n7.5.1 Using haven\nlibrary(haven)\ndata_spss &lt;- read_sav(\"data/sample.sav\")\nSPSS value labels are preserved and imported as labelled variables.\nstr(data_spss)\nTo convert labelled variables to factors:\ndata_spss[] &lt;- lapply(data_spss, as_factor)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Import in R (CSV, Excel, SPSS, SAS)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-data-import.html#importing-sas-files",
+    "href": "chapters/07-data-import.html#importing-sas-files",
+    "title": "7  Data Import in R (CSV, Excel, SPSS, SAS)",
+    "section": "7.6 Importing SAS Files",
+    "text": "7.6 Importing SAS Files\nSAS datasets are widely used in clinical research and regulatory environments.\n\n7.6.1 Using haven\ndata_sas &lt;- read_sas(\"data/sample.sas7bdat\")\nSAS transport files (.xpt) can also be imported:\ndata_sas_xpt &lt;- read_xpt(\"data/sample.xpt\")\nMetadata such as variable labels and formats are preserved during import.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Import in R (CSV, Excel, SPSS, SAS)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-data-import.html#checking-imported-data",
+    "href": "chapters/07-data-import.html#checking-imported-data",
+    "title": "7  Data Import in R (CSV, Excel, SPSS, SAS)",
+    "section": "7.7 Checking Imported Data",
+    "text": "7.7 Checking Imported Data\nAfter importing data, it is essential to inspect its structure and content.\nstr(data_csv)\nsummary(data_csv)\nhead(data_csv)\nKey checks include:\n\nCorrect variable types\nMissing values\nUnexpected factor levels\nColumn names and labels",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Import in R (CSV, Excel, SPSS, SAS)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-data-import.html#common-data-import-issues",
+    "href": "chapters/07-data-import.html#common-data-import-issues",
+    "title": "7  Data Import in R (CSV, Excel, SPSS, SAS)",
+    "section": "7.8 Common Data Import Issues",
+    "text": "7.8 Common Data Import Issues\nSome common problems encountered during data import include:\n\nIncorrect file paths\nEncoding issues\nAutomatic type conversion\nMissing or malformed values\n\nCareful inspection and cleaning immediately after import is considered best practice.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Import in R (CSV, Excel, SPSS, SAS)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-data-import.html#saving-imported-data-in-r-format",
+    "href": "chapters/07-data-import.html#saving-imported-data-in-r-format",
+    "title": "7  Data Import in R (CSV, Excel, SPSS, SAS)",
+    "section": "7.9 Saving Imported Data in R Format",
+    "text": "7.9 Saving Imported Data in R Format\nOnce data is imported and cleaned, it can be saved in R’s native formats.\nsave(data_csv, file = \"data/sample.RData\")\nsaveRDS(data_csv, \"data/sample.rds\")\nR-specific formats load faster and preserve object structure.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Import in R (CSV, Excel, SPSS, SAS)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-data-import.html#summary",
+    "href": "chapters/07-data-import.html#summary",
+    "title": "7  Data Import in R (CSV, Excel, SPSS, SAS)",
+    "section": "7.10 Summary",
+    "text": "7.10 Summary\nIn this chapter, you learned how to:\n\nSet and manage file paths\nImport CSV and Excel files\nRead SPSS and SAS datasets using haven\nInspect and validate imported data\nSave datasets in R-native formats\n\nAccurate data import is the foundation of reliable analysis. The next chapter will focus on data cleaning and transformation, preparing imported datasets for statistical analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Import in R (CSV, Excel, SPSS, SAS)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html",
+    "href": "chapters/09-dplyr.html",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "",
+    "text": "8.1 Introduction\nOnce data has been imported into R, the next crucial step is data manipulation. Real-world datasets are rarely analysis-ready. They often contain unnecessary variables, missing values, inconsistent coding, or require transformation before statistical analysis can be performed.\nThe dplyr package provides a powerful, consistent, and readable set of tools for data manipulation. It is part of the tidyverse, a collection of R packages designed to make data science tasks intuitive and efficient. This chapter focuses on understanding the philosophy of dplyr, its core verbs, and their practical application through extensive examples.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#why-use-dplyr",
+    "href": "chapters/09-dplyr.html#why-use-dplyr",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.2 Why Use dplyr?",
+    "text": "8.2 Why Use dplyr?\nTraditional base R functions are powerful but can become complex and difficult to read when performing multiple operations. dplyr improves clarity by:\n\nUsing simple, consistent verbs\nAllowing operations to be expressed as a sequence of steps\nProducing readable and maintainable code\nIntegrating seamlessly with data frames and tibbles\n\nThe guiding idea behind dplyr is:\n\nEach function performs one clear data manipulation task.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#installing-and-loading-dplyr",
+    "href": "chapters/09-dplyr.html#installing-and-loading-dplyr",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.3 Installing and Loading dplyr",
+    "text": "8.3 Installing and Loading dplyr\ninstall.packages(\"dplyr\")\nlibrary(dplyr)\nMost modern R installations already include dplyr as part of the tidyverse.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#the-pipe-operator",
+    "href": "chapters/09-dplyr.html#the-pipe-operator",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.4 The Pipe Operator %>%",
+    "text": "8.4 The Pipe Operator %&gt;%\nOne of the defining features of dplyr is the pipe operator %&gt;%. It allows the output of one function to be passed directly as the input to the next.\n\n8.4.1 Without Pipe\nsummary(head(data))\n\n\n8.4.2 With Pipe\ndata %&gt;%\n  head() %&gt;%\n  summary()\nThe pipe makes code easier to read by expressing operations from left to right, similar to how we describe analysis steps in words.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#selecting-variables-with-select",
+    "href": "chapters/09-dplyr.html#selecting-variables-with-select",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.5 Selecting Variables with select()",
+    "text": "8.5 Selecting Variables with select()\nThe select() function is used to choose specific columns from a data frame.\ndata %&gt;%\n  select(Name, Age, Salary)\n\n8.5.1 Selecting by Position\ndata %&gt;%\n  select(1:3)\n\n\n8.5.2 Excluding Variables\ndata %&gt;%\n  select(-Salary)\n\n\n8.5.3 Helper Functions\ndata %&gt;%\n  select(starts_with(\"Age\"))\nCommon helpers include starts_with(), ends_with(), contains(), and matches().",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#filtering-observations-with-filter",
+    "href": "chapters/09-dplyr.html#filtering-observations-with-filter",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.6 Filtering Observations with filter()",
+    "text": "8.6 Filtering Observations with filter()\nThe filter() function extracts rows that satisfy logical conditions.\ndata %&gt;%\n  filter(Age &gt; 30)\n\n8.6.1 Multiple Conditions\ndata %&gt;%\n  filter(Age &gt; 30 & Gender == \"Male\")\n\n\n8.6.2 Using Logical OR\ndata %&gt;%\n  filter(Department == \"HR\" | Department == \"Finance\")\n\n\n8.6.3 Handling Missing Values\ndata %&gt;%\n  filter(!is.na(Salary))",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#creating-and-transforming-variables-with-mutate",
+    "href": "chapters/09-dplyr.html#creating-and-transforming-variables-with-mutate",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.7 Creating and Transforming Variables with mutate()",
+    "text": "8.7 Creating and Transforming Variables with mutate()\nThe mutate() function creates new variables or modifies existing ones.\ndata %&gt;%\n  mutate(Bonus = Salary * 0.10)\n\n8.7.1 Multiple Transformations\ndata %&gt;%\n  mutate(\n    Bonus = Salary * 0.10,\n    AnnualSalary = Salary * 12\n  )\n\n\n8.7.2 Conditional Variables with ifelse()\ndata %&gt;%\n  mutate(Performance = ifelse(Salary &gt; 50000, \"High\", \"Average\"))",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#arranging-rows-with-arrange",
+    "href": "chapters/09-dplyr.html#arranging-rows-with-arrange",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.8 Arranging Rows with arrange()",
+    "text": "8.8 Arranging Rows with arrange()\nThe arrange() function sorts data.\ndata %&gt;%\n  arrange(Salary)\n\n8.8.1 Descending Order\ndata %&gt;%\n  arrange(desc(Salary))",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#summarising-data-with-summarise",
+    "href": "chapters/09-dplyr.html#summarising-data-with-summarise",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.9 Summarising Data with summarise()",
+    "text": "8.9 Summarising Data with summarise()\nThe summarise() function reduces multiple values into summary statistics.\ndata %&gt;%\n  summarise(\n    AverageSalary = mean(Salary, na.rm = TRUE),\n    MaxSalary = max(Salary, na.rm = TRUE)\n  )",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#grouped-operations-with-group_by",
+    "href": "chapters/09-dplyr.html#grouped-operations-with-group_by",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.10 Grouped Operations with group_by()",
+    "text": "8.10 Grouped Operations with group_by()\nThe true power of dplyr lies in grouped analysis.\ndata %&gt;%\n  group_by(Department) %&gt;%\n  summarise(\n    AvgSalary = mean(Salary, na.rm = TRUE),\n    Count = n()\n  )\nGrouped operations are fundamental in statistical reporting and exploratory analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#counting-observations",
+    "href": "chapters/09-dplyr.html#counting-observations",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.11 Counting Observations",
+    "text": "8.11 Counting Observations\ndata %&gt;%\n  count(Gender)\nEquivalent to grouping and counting in one step.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#renaming-variables-with-rename",
+    "href": "chapters/09-dplyr.html#renaming-variables-with-rename",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.12 Renaming Variables with rename()",
+    "text": "8.12 Renaming Variables with rename()\ndata %&gt;%\n  rename(\n    MonthlySalary = Salary,\n    EmployeeAge = Age\n  )",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#removing-duplicate-rows-with-distinct",
+    "href": "chapters/09-dplyr.html#removing-duplicate-rows-with-distinct",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.13 Removing Duplicate Rows with distinct()",
+    "text": "8.13 Removing Duplicate Rows with distinct()\ndata %&gt;%\n  distinct(EmployeeID, .keep_all = TRUE)",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#combining-multiple-dplyr-verbs",
+    "href": "chapters/09-dplyr.html#combining-multiple-dplyr-verbs",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.14 Combining Multiple dplyr Verbs",
+    "text": "8.14 Combining Multiple dplyr Verbs\nA typical real-world workflow:\ndata %&gt;%\n  filter(!is.na(Salary)) %&gt;%\n  mutate(AnnualSalary = Salary * 12) %&gt;%\n  group_by(Department) %&gt;%\n  summarise(\n    AvgAnnualSalary = mean(AnnualSalary),\n    Employees = n()\n  ) %&gt;%\n  arrange(desc(AvgAnnualSalary))\nThis example demonstrates how complex analysis can be expressed in a clear, step-by-step pipeline.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#working-with-missing-values",
+    "href": "chapters/09-dplyr.html#working-with-missing-values",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.15 Working with Missing Values",
+    "text": "8.15 Working with Missing Values\ndata %&gt;%\n  summarise(MissingSalary = sum(is.na(Salary)))\nHandling missing data explicitly is a critical step before any statistical modeling.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#converting-to-tibble",
+    "href": "chapters/09-dplyr.html#converting-to-tibble",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.16 Converting to Tibble",
+    "text": "8.16 Converting to Tibble\ndata_tbl &lt;- as_tibble(data)\nTibbles provide improved printing and stricter behavior compared to base data frames.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#best-practices-for-data-manipulation",
+    "href": "chapters/09-dplyr.html#best-practices-for-data-manipulation",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.17 Best Practices for Data Manipulation",
+    "text": "8.17 Best Practices for Data Manipulation\n\nAlways inspect data before and after manipulation\nAvoid overwriting original datasets\nUse clear variable names\nBreak complex pipelines into readable steps\nComment your code when logic is not obvious",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09-dplyr.html#summary",
+    "href": "chapters/09-dplyr.html#summary",
+    "title": "8  Data Manipulation with dplyr",
+    "section": "8.18 Summary",
+    "text": "8.18 Summary\nThis chapter introduced the principles and practical usage of dplyr for data manipulation. You learned how to:\n\nSelect and filter data\nCreate and transform variables\nSummarise and group data\nCombine multiple operations using pipes\n\nMastering dplyr is essential for efficient data analysis in R. The next chapter will focus on data visualization using ggplot2, where manipulated data is transformed into meaningful graphical representations.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Manipulation with dplyr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html",
+    "href": "chapters/03-introduction.html",
+    "title": "3  Introduction to R and RStudio",
+    "section": "",
+    "text": "3.1 What is R?\nR is aprogramming language and software environmentdesigned primarily forstatistical computing, data analysis, and visualization. It is widely used in academia, research institutions, government organizations, and industry for tasks ranging from simple data summaries to advanced machine learning and reproducible research.\nKey characteristics of R include:\nIn this workshop, R will be used as atool for thinking with data, not just a calculator. You will learn how to write clear, reusable code that performs data analysis systematically.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#what-is-r",
+    "href": "chapters/03-introduction.html#what-is-r",
+    "title": "3  Introduction to R and RStudio",
+    "section": "",
+    "text": "Open-source and free: Anyone can use, modify, and distribute R.\nStrong statistical foundation: Built by statisticians for statistical work.\nExtensive package ecosystem: Thousands of user-contributed packages extend R’s capabilities.\nExcellent graphics: R is known for high-quality, publication-ready visualizations.\nReproducibility: Scripts and documents ensure analyses can be repeated and verified.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#why-use-r-for-data-analysis",
+    "href": "chapters/03-introduction.html#why-use-r-for-data-analysis",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.2 Why Use R for Data Analysis?",
+    "text": "3.2 Why Use R for Data Analysis?\nR is especially well-suited for data analysis because it combinesdata manipulation, statistical modeling, and visualizationin one environment.\n\n3.2.1 Advantages of R\n\nHandlessmall to very large datasetsefficiently\nSupportsclassical statistics, modern data science, and machine learning\nEncouragesscript-based analysis, reducing manual errors\nIntegrates well with reports (PDF, Word, HTML) throughQuarto and R Markdown\nStrong community support and documentation\n\n\n\n3.2.2 Typical Use Cases\n\nExploratory Data Analysis (EDA)\nStatistical inference and hypothesis testing\nRegression and multivariate analysis\nTime series and forecasting\nData visualization and dashboards\nAcademic research and thesis work",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#installing-r",
+    "href": "chapters/03-introduction.html#installing-r",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.3 Installing R",
+    "text": "3.3 Installing R\nR itself is thecore enginethat performs computations.\n\n3.3.1 Steps to Install R\n\nVisit the official Comprehensive R Archive Network (CRAN):https://cran.r-project.org\nChoose your operating system (Windows / macOS / Linux)\nDownload and install the latest stable version\n\nAfter installation, R can be run from the system console. However, working directly in the R console is not ideal for beginners or large projects. This is whereRStudiobecomes essential.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#what-is-rstudio",
+    "href": "chapters/03-introduction.html#what-is-rstudio",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.4 What is RStudio?",
+    "text": "3.4 What is RStudio?\nRStudio is anIntegrated Development Environment (IDE)for R. It makes working with R easier, faster, and more organized.\nRStudio doesnot replace R. Instead:\n\nR does the computation, and RStudio provides a user-friendly interface to work with R.\n\n\n3.4.1 Why Use RStudio?\n\nCode editor with syntax highlighting\nEasy file and project management\nBuilt-in help and documentation\nIntegrated plotting and visualization\nSeamless support for Quarto documents",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#understanding-the-rstudio-interface",
+    "href": "chapters/03-introduction.html#understanding-the-rstudio-interface",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.5 Understanding the RStudio Interface",
+    "text": "3.5 Understanding the RStudio Interface\nWhen you open RStudio, you typically seefour panes:\n\n3.5.1 1. Script Editor (Top-Left)\n\nWhere you write and save R code\nSupports.Rscripts and.qmdQuarto files\nCode is written once and executed many times\n\n\n\n3.5.2 2. Console (Bottom-Left)\n\nWhere R executes commands\nDisplays output, messages, and errors\nUseful for quick calculations and testing code\n\n\n\n3.5.3 3. Environment / History (Top-Right)\n\nShows objects currently in memory\nDisplays datasets, variables, and functions\nHelps track what data is loaded\n\n\n\n3.5.4 4. Files / Plots / Help / Viewer (Bottom-Right)\n\nFile browser for project files\nPlot display window\nHelp documentation for functions\nViewer for Quarto and HTML outputs\n\nUnderstanding these panes is crucial for efficient workflow in R.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#your-first-interaction-with-r",
+    "href": "chapters/03-introduction.html#your-first-interaction-with-r",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.6 Your First Interaction with R",
+    "text": "3.6 Your First Interaction with R\nLet us start with very simple commands.\n\n3.6.1 Using R as a Calculator\n\n2 + 3\n\n[1] 5\n\n10 / 2\n\n[1] 5\n\n5^2\n\n[1] 25\n\n\nR immediately evaluates expressions and returns results.\n\n\n3.6.2 Assigning Values to Objects\n\nx &lt;- 10\ny &lt;- 5\nx + y\n\n[1] 15\n\n\nHere:\n\n&lt;-is theassignment operator\nxandyare objects stored in memory\n\nObject-based thinking is fundamental in R.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#basic-data-types-in-r",
+    "href": "chapters/03-introduction.html#basic-data-types-in-r",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.7 Basic Data Types in R",
+    "text": "3.7 Basic Data Types in R\nR works with different types of data. The most common ones are:\n\nNumeric: Numbers (e.g., 10, 3.5)\nCharacter: Text (e.g., “Statistics”)\nLogical: TRUE or FALSE\n\nExamples:\n\nage &lt;- 21\nname &lt;- \"Anita\"\npassed &lt;- TRUE\n\nYou can check the type of an object using:\n\nclass(age)\n\n[1] \"numeric\"\n\nclass(name)\n\n[1] \"character\"\n\nclass(passed)\n\n[1] \"logical\"",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#vectors-the-core-data-structure",
+    "href": "chapters/03-introduction.html#vectors-the-core-data-structure",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.8 Vectors: The Core Data Structure",
+    "text": "3.8 Vectors: The Core Data Structure\nA vector is acollection of values of the same type.\n\nmarks &lt;- c(78, 85, 90, 88)\nnames &lt;- c(\"A\", \"B\", \"C\")\n\nKey points:\n\nc()stands forcombine\nAll elements in a vector must be of the same type\nVectors are the building blocks of most R data structures",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#working-directory-and-projects",
+    "href": "chapters/03-introduction.html#working-directory-and-projects",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.9 Working Directory and Projects",
+    "text": "3.9 Working Directory and Projects\nTheworking directoryis the default location where R reads and saves files.\ngetwd()\nsetwd(\"path/to/your/folder\")\nHowever, changing directories manually is discouraged.\n\n3.9.1 RStudio Projects (Recommended)\n\nCreate a project for each workshop, assignment, or research work\nKeeps scripts, data, and outputs organized\nEnsures reproducibility across systems",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#introduction-to-quarto",
+    "href": "chapters/03-introduction.html#introduction-to-quarto",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.10 Introduction to Quarto",
+    "text": "3.10 Introduction to Quarto\nQuarto is anext-generation scientific and technical publishing systemthat allows you to combine:\n\nR code\nText explanation\nTables and figures\n\ninto asingle, reproducible document.\n\n3.10.1 Why Quarto for This Workshop?\n\nGeneratesPDF, HTML, and Wordoutputs\nIdeal for teaching, reports, and books\nSupports executable R code chunks\n\nExample of an R code chunk in Quarto:\nsummary(c(10, 20, 30, 40))",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#how-this-book-is-structured",
+    "href": "chapters/03-introduction.html#how-this-book-is-structured",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.11 How This Book Is Structured",
+    "text": "3.11 How This Book Is Structured\nThis Quarto book is designed forbeginnersand progresses gradually:\n\nBasics of R and RStudio\nData structures and data import\nData manipulation and visualization\nStatistical analysis\nReproducible reporting with Quarto\n\nEach chapter includes:\n\nClear explanations\nAnnotated examples\nPractice exercises",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#best-practices-for-learning-r",
+    "href": "chapters/03-introduction.html#best-practices-for-learning-r",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.12 Best Practices for Learning R",
+    "text": "3.12 Best Practices for Learning R\n\nType the code yourself instead of copy–paste\nRead error messages carefully\nExperiment with small examples\nSave scripts regularly\nAskwhya result occurs, not justwhatit is\n\nLearning R is not about memorizing commands, but about developingdata analysis thinking.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-introduction.html#getting-help",
+    "href": "chapters/03-introduction.html#getting-help",
+    "title": "3  Introduction to R and RStudio",
+    "section": "3.13 Getting Help",
+    "text": "3.13 Getting Help\nR has extensive built-in help and a supportive community. Here are some ways to get help: - Help files: Use ?function_name or help(function_name) to access documentation for any function. For example:\n\n?mean\n\n\nRStudio Help Pane: Use the Help pane in RStudio to search for functions and topics.\nOnline Resources: Websites like Stack Overflow, R-bloggers, and the RStudio Community are great places to ask questions and find solutions.\nBooks and Tutorials: There are many free and paid resources available for learning R. Remember, seeking help is a normal part of learning programming!",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-tidyverse.html",
+    "href": "chapters/08-tidyverse.html",
+    "title": "8  Introduction to the Tidyverse",
+    "section": "",
+    "text": "8.1 Introduction\nModern data analysis in R is increasingly shaped by a collection of packages known as the tidyverse. The tidyverse is not a single package, but a coherent ecosystem of R packages designed for data science. These packages share a common philosophy, consistent syntax, and are built to work seamlessly together.\nThis chapter introduces the tidyverse conceptually and practically. It prepares the foundation for the next chapter on data manipulation with dplyr, ensuring that learners understand the broader framework before diving into individual tools.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to the Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-tidyverse.html#what-is-the-tidyverse",
+    "href": "chapters/08-tidyverse.html#what-is-the-tidyverse",
+    "title": "8  Introduction to the Tidyverse",
+    "section": "8.2 What Is the Tidyverse?",
+    "text": "8.2 What Is the Tidyverse?\nThe tidyverse is a set of R packages developed primarily by Hadley Wickham and the RStudio (Posit) team. These packages are designed around a shared approach to data analysis that emphasizes:\n\nClear and readable code\nConsistent function naming and behavior\nA unified data structure (tibble)\nA grammar-based approach to data manipulation and visualization\n\nRather than learning many unrelated functions, the tidyverse encourages learning a small number of core ideas that apply across packages.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to the Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-tidyverse.html#the-tidy-data-philosophy",
+    "href": "chapters/08-tidyverse.html#the-tidy-data-philosophy",
+    "title": "8  Introduction to the Tidyverse",
+    "section": "8.3 The Tidy Data Philosophy",
+    "text": "8.3 The Tidy Data Philosophy\nAt the heart of the tidyverse is the concept of tidy data. A dataset is considered tidy when:\n\nEach variable forms a column\nEach observation forms a row\nEach type of observational unit forms a table\n\nThis structure makes data easier to manipulate, visualize, and model.\nExample of untidy data:\ndata.frame(\n  Name = c(\"A\", \"B\"),\n  Math = c(80, 90),\n  Science = c(85, 88)\n)\nIn many analyses, data may need to be reshaped into a tidy format before further processing.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to the Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-tidyverse.html#core-packages-of-the-tidyverse",
+    "href": "chapters/08-tidyverse.html#core-packages-of-the-tidyverse",
+    "title": "8  Introduction to the Tidyverse",
+    "section": "8.4 Core Packages of the Tidyverse",
+    "text": "8.4 Core Packages of the Tidyverse\nThe tidyverse includes several core packages, each addressing a specific stage of the data analysis workflow:\n\nreadr – importing rectangular data (CSV, TXT)\ntibble – modern reimagining of data frames\ndplyr – data manipulation\ntidyr – reshaping and tidying data\nggplot2 – data visualization\npurrr – functional programming and iteration\nstringr – working with strings\nforcats – working with categorical (factor) data\n\nTogether, these packages support the entire lifecycle of a data analysis project.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to the Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-tidyverse.html#installing-and-loading-the-tidyverse",
+    "href": "chapters/08-tidyverse.html#installing-and-loading-the-tidyverse",
+    "title": "8  Introduction to the Tidyverse",
+    "section": "8.5 Installing and Loading the Tidyverse",
+    "text": "8.5 Installing and Loading the Tidyverse\nThe tidyverse can be installed as a single package.\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\nLoading tidyverse automatically loads its core packages and displays a message indicating which packages are attached.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to the Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-tidyverse.html#tibbles-modern-data-frames",
+    "href": "chapters/08-tidyverse.html#tibbles-modern-data-frames",
+    "title": "8  Introduction to the Tidyverse",
+    "section": "8.6 Tibbles: Modern Data Frames",
+    "text": "8.6 Tibbles: Modern Data Frames\nA tibble is a modern version of a data frame with improved behavior.\nlibrary(tibble)\n\ndf &lt;- tibble(\n  Name = c(\"A\", \"B\", \"C\"),\n  Score = c(78, 85, 92)\n)\nKey advantages of tibbles:\n\nBetter printing (only first rows and columns shown)\nDoes not automatically convert strings to factors\nStricter subsetting rules that reduce errors\n\nTibbles are the default data structure used by tidyverse functions.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to the Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-tidyverse.html#the-pipe-operator",
+    "href": "chapters/08-tidyverse.html#the-pipe-operator",
+    "title": "8  Introduction to the Tidyverse",
+    "section": "8.7 The Pipe Operator %>%",
+    "text": "8.7 The Pipe Operator %&gt;%\nOne of the most recognizable features of the tidyverse is the pipe operator %&gt;%. It allows code to be written as a sequence of transformations.\ndf %&gt;%\n  head()\nThe pipe passes the result of the left-hand expression as the first argument of the function on the right-hand side. This approach improves readability and mirrors logical thinking.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to the Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-tidyverse.html#a-typical-tidyverse-workflow",
+    "href": "chapters/08-tidyverse.html#a-typical-tidyverse-workflow",
+    "title": "8  Introduction to the Tidyverse",
+    "section": "8.8 A Typical Tidyverse Workflow",
+    "text": "8.8 A Typical Tidyverse Workflow\nA tidyverse-based analysis usually follows these steps:\n\nImport data using readr or readxl\nConvert data into a tidy structure\nManipulate and transform data using dplyr\nVisualize patterns using ggplot2\nSummarize and report results\n\nThis structured workflow reduces complexity and promotes reproducibility.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to the Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-tidyverse.html#base-r-vs-tidyverse-a-conceptual-comparison",
+    "href": "chapters/08-tidyverse.html#base-r-vs-tidyverse-a-conceptual-comparison",
+    "title": "8  Introduction to the Tidyverse",
+    "section": "8.9 Base R vs Tidyverse: A Conceptual Comparison",
+    "text": "8.9 Base R vs Tidyverse: A Conceptual Comparison\nBase R and the tidyverse can both perform the same tasks. However, tidyverse code is often:\n\nMore readable\nEasier to maintain\nCloser to natural language descriptions of analysis steps\n\nExample comparison:\n# Base R\nmean(df$Score)\n\n# Tidyverse\nsummarise(df, AverageScore = mean(Score))",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to the Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-tidyverse.html#when-to-use-the-tidyverse",
+    "href": "chapters/08-tidyverse.html#when-to-use-the-tidyverse",
+    "title": "8  Introduction to the Tidyverse",
+    "section": "8.10 When to Use the Tidyverse",
+    "text": "8.10 When to Use the Tidyverse\nThe tidyverse is especially useful when:\n\nWorking with rectangular datasets\nPerforming multi-step data transformations\nTeaching data analysis concepts\nWriting reproducible and readable code\n\nHowever, understanding base R remains important, as both approaches complement each other.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to the Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-tidyverse.html#best-practices-when-using-the-tidyverse",
+    "href": "chapters/08-tidyverse.html#best-practices-when-using-the-tidyverse",
+    "title": "8  Introduction to the Tidyverse",
+    "section": "8.11 Best Practices When Using the Tidyverse",
+    "text": "8.11 Best Practices When Using the Tidyverse\n\nLoad only the packages you need\nUse pipes for clarity, not complexity\nKeep data in tidy format as long as possible\nCombine tidyverse functions thoughtfully\nComment pipelines that involve complex logic",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to the Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08-tidyverse.html#summary",
+    "href": "chapters/08-tidyverse.html#summary",
+    "title": "8  Introduction to the Tidyverse",
+    "section": "8.12 Summary",
+    "text": "8.12 Summary\nThis chapter introduced the tidyverse as a unified framework for modern data analysis in R. You learned about:\n\nThe philosophy behind the tidyverse\nTidy data principles\nCore tidyverse packages\nTibbles and pipes\nTypical tidyverse workflows\n\nWith this foundation, you are now ready to explore data manipulation using dplyr, which builds directly on the concepts introduced here.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to the Tidyverse</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html",
+    "href": "chapters/10-tidyr.html",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "",
+    "text": "10.1 Introduction\nIn practical data analysis, datasets are often not in a form that is immediately suitable for analysis or visualization. Even after importing data and understanding tidyverse principles, analysts frequently encounter data that is spread across multiple columns, nested in complex structures, or stored in inconvenient formats.\nThe tidyr package is designed to address this problem. It provides a set of tools to reshape, reorganize, and tidy data, making it easier to analyze using dplyr, visualize using ggplot2, and model using statistical methods. This chapter focuses on the concept of tidy data and demonstrates how tidyr helps transform untidy datasets into a clean and consistent structure.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#understanding-tidy-data",
+    "href": "chapters/10-tidyr.html#understanding-tidy-data",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.2 Understanding Tidy Data",
+    "text": "10.2 Understanding Tidy Data\nThe idea of tidy data is central to modern data analysis in R. A dataset is considered tidy when:\n\nEach variable is stored in its own column\nEach observation is stored in its own row\nEach type of observational unit forms a separate table\n\nThese principles may appear simple, but many real-world datasets violate them in subtle ways. Untidy data makes analysis more error-prone and code more complex.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#common-causes-of-untidy-data",
+    "href": "chapters/10-tidyr.html#common-causes-of-untidy-data",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.3 Common Causes of Untidy Data",
+    "text": "10.3 Common Causes of Untidy Data\nData becomes untidy for several reasons:\n\nData is designed for human readability rather than analysis\nMultiple variables are encoded in column names\nValues are spread across multiple columns\nMissing values are represented implicitly\n\nRecognizing these patterns is the first step toward tidying data effectively.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#installing-and-loading-tidyr",
+    "href": "chapters/10-tidyr.html#installing-and-loading-tidyr",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.4 Installing and Loading tidyr",
+    "text": "10.4 Installing and Loading tidyr\ninstall.packages(\"tidyr\")\nlibrary(tidyr)\nThe tidyr package is part of the tidyverse and is often loaded automatically when library(tidyverse) is used.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#wide-and-long-data-formats",
+    "href": "chapters/10-tidyr.html#wide-and-long-data-formats",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.5 Wide and Long Data Formats",
+    "text": "10.5 Wide and Long Data Formats\nTwo common data layouts encountered in practice are wide format and long format.\n\nWide format: Values are spread across multiple columns\nLong format: Values are stacked in a single column, with another column indicating the variable\n\nLong format is generally preferred for analysis and visualization in R.\nExample of wide data:\nwide_data &lt;- data.frame(\n  ID = c(1, 2, 3),\n  Math = c(80, 75, 90),\n  Science = c(85, 70, 88)\n)",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#converting-wide-data-to-long-data-with-pivot_longer",
+    "href": "chapters/10-tidyr.html#converting-wide-data-to-long-data-with-pivot_longer",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.6 Converting Wide Data to Long Data with pivot_longer()",
+    "text": "10.6 Converting Wide Data to Long Data with pivot_longer()\nThe pivot_longer() function transforms data from wide to long format.\nlong_data &lt;- wide_data %&gt;%\n  pivot_longer(\n    cols = c(Math, Science),\n    names_to = \"Subject\",\n    values_to = \"Score\"\n  )\nIn this transformation:\n\nColumn names become values in a new variable\nObservations are stacked into a single column\n\nThis structure is ideal for grouped summaries and visualizations.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#converting-long-data-to-wide-data-with-pivot_wider",
+    "href": "chapters/10-tidyr.html#converting-long-data-to-wide-data-with-pivot_wider",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.7 Converting Long Data to Wide Data with pivot_wider()",
+    "text": "10.7 Converting Long Data to Wide Data with pivot_wider()\nThe pivot_wider() function performs the reverse operation.\nwide_again &lt;- long_data %&gt;%\n  pivot_wider(\n    names_from = Subject,\n    values_from = Score\n  )\nThis is useful when preparing summary tables or reports.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#handling-multiple-variables-in-column-names",
+    "href": "chapters/10-tidyr.html#handling-multiple-variables-in-column-names",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.8 Handling Multiple Variables in Column Names",
+    "text": "10.8 Handling Multiple Variables in Column Names\nSome datasets encode multiple variables in column names.\nmessy_data &lt;- data.frame(\n  ID = c(1, 2),\n  Height_cm = c(170, 165),\n  Weight_kg = c(65, 58)\n)\nSuch datasets can be reshaped by separating column names into meaningful components.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#separating-columns-with-separate",
+    "href": "chapters/10-tidyr.html#separating-columns-with-separate",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.9 Separating Columns with separate()",
+    "text": "10.9 Separating Columns with separate()\nseparated_data &lt;- messy_data %&gt;%\n  pivot_longer(-ID, names_to = \"Measure\", values_to = \"Value\") %&gt;%\n  separate(Measure, into = c(\"Variable\", \"Unit\"), sep = \"_\")\nThis creates distinct variables for the measurement type and unit.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#combining-columns-with-unite",
+    "href": "chapters/10-tidyr.html#combining-columns-with-unite",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.10 Combining Columns with unite()",
+    "text": "10.10 Combining Columns with unite()\nThe unite() function merges multiple columns into one.\ncombined_data &lt;- separated_data %&gt;%\n  unite(\"Measurement\", Variable, Unit, sep = \"_\")\nThis is useful when preparing labels or compact identifiers.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#dealing-with-missing-values",
+    "href": "chapters/10-tidyr.html#dealing-with-missing-values",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.11 Dealing with Missing Values",
+    "text": "10.11 Dealing with Missing Values\nIn tidy data, missing values should be explicitly represented as NA.\ndata_with_na &lt;- data.frame(\n  ID = c(1, 2, 3),\n  Score = c(80, NA, 90)\n)\n\n10.11.1 Dropping Missing Values\ndata_with_na %&gt;%\n  drop_na()\n\n\n10.11.2 Filling Missing Values\ndata_with_na %&gt;%\n  fill(Score, .direction = \"down\")",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#expanding-and-completing-data",
+    "href": "chapters/10-tidyr.html#expanding-and-completing-data",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.12 Expanding and Completing Data",
+    "text": "10.12 Expanding and Completing Data\nSometimes combinations of variables are missing entirely.\nincomplete_data &lt;- data.frame(\n  ID = c(1, 1, 2),\n  Year = c(2022, 2023, 2022),\n  Score = c(80, 85, 78)\n)\ncomplete_data &lt;- incomplete_data %&gt;%\n  complete(ID, Year)\nThe complete() function ensures that all combinations are represented.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#nesting-and-unnesting-data",
+    "href": "chapters/10-tidyr.html#nesting-and-unnesting-data",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.13 Nesting and Unnesting Data",
+    "text": "10.13 Nesting and Unnesting Data\nTidyr also supports working with nested data structures.\nnested_data &lt;- long_data %&gt;%\n  group_by(Subject) %&gt;%\n  nest()\nunnested_data &lt;- nested_data %&gt;%\n  unnest(cols = data)\nNesting is particularly useful for advanced analysis and modeling workflows.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#tidyr-in-the-data-analysis-workflow",
+    "href": "chapters/10-tidyr.html#tidyr-in-the-data-analysis-workflow",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.14 Tidyr in the Data Analysis Workflow",
+    "text": "10.14 Tidyr in the Data Analysis Workflow\ntidyr is typically used before dplyr summarization and ggplot2 visualization. A common workflow is:\n\nImport data\nTidy and reshape using tidyr\nManipulate and summarize using dplyr\nVisualize using ggplot2\n\nKeeping data tidy simplifies every subsequent step.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#best-practices-for-tidying-data",
+    "href": "chapters/10-tidyr.html#best-practices-for-tidying-data",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.15 Best Practices for Tidying Data",
+    "text": "10.15 Best Practices for Tidying Data\n\nAlways inspect raw data before reshaping\nMake missing values explicit\nKeep variable names meaningful\nAvoid unnecessary reshaping\nTidy data once, then reuse it",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10-tidyr.html#summary",
+    "href": "chapters/10-tidyr.html#summary",
+    "title": "10  Tidyr and Tidy Data",
+    "section": "10.16 Summary",
+    "text": "10.16 Summary\nThis chapter introduced the principles of tidy data and the tools provided by the tidyr package. You learned how to:\n\nRecognize untidy data structures\nConvert between wide and long formats\nSeparate and unite variables\nHandle missing and incomplete data\nWork with nested data\n\nMastering tidyr ensures that your data is in a clean, consistent form, making analysis, visualization, and modeling both easier and more reliable.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Tidyr and Tidy Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html",
+    "href": "chapters/11a-basicplots.html",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "",
+    "text": "11.1 Introduction\nBefore the development of advanced visualization systems such as ggplot2, R provided a powerful built-in plotting system known as base graphics. Even today, base R plots remain widely used due to their simplicity, speed, and flexibility, especially for quick exploratory analysis and teaching fundamental graphical concepts.\nThis chapter introduces the basic plotting functions in R, explains how they work, and demonstrates how to customize plots using base graphics. Understanding base plots is important for building strong visualization fundamentals and for interpreting legacy R code commonly found in academic and research settings.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#the-base-graphics-system-in-r",
+    "href": "chapters/11a-basicplots.html#the-base-graphics-system-in-r",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.2 The Base Graphics System in R",
+    "text": "11.2 The Base Graphics System in R\nBase graphics in R follow a pen-and-paper model:\n\nA plot is created first\nAdditional elements are added layer by layer\n\nOnce a plot is drawn, it cannot be easily modified; instead, it must be redrawn. This contrasts with ggplot2, which builds plots declaratively.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#the-plot-function",
+    "href": "chapters/11a-basicplots.html#the-plot-function",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.3 The plot() Function",
+    "text": "11.3 The plot() Function\nThe plot() function is the most fundamental plotting function in R. Its behavior depends on the type of data provided.\n\n11.3.1 Scatter Plot\nx &lt;- c(1, 2, 3, 4, 5)\ny &lt;- c(2, 4, 6, 8, 10)\nplot(x, y)\nThis produces a scatter plot showing the relationship between x and y.\n\n\n11.3.2 Plotting a Single Vector\nplot(y)\nWhen a single vector is provided, R plots the values against their index.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#customizing-plots",
+    "href": "chapters/11a-basicplots.html#customizing-plots",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.4 Customizing Plots",
+    "text": "11.4 Customizing Plots\nBase R plots can be customized using graphical parameters.\nplot(x, y,\n     main = \"Simple Scatter Plot\",\n     xlab = \"X values\",\n     ylab = \"Y values\",\n     col = \"blue\",\n     pch = 19)\nCommon parameters include:\n\nmain – title of the plot\nxlab, ylab – axis labels\ncol – color\npch – plotting symbol",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#line-plots",
+    "href": "chapters/11a-basicplots.html#line-plots",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.5 Line Plots",
+    "text": "11.5 Line Plots\nLine plots are useful for showing trends and time-based data.\nplot(x, y, type = \"l\")\nTo add both points and lines:\nplot(x, y, type = \"b\")",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#adding-elements-to-an-existing-plot",
+    "href": "chapters/11a-basicplots.html#adding-elements-to-an-existing-plot",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.6 Adding Elements to an Existing Plot",
+    "text": "11.6 Adding Elements to an Existing Plot\nAdditional elements can be added using separate functions.\n\n11.6.1 Adding Points\nplot(x, y, type = \"l\")\npoints(x, y, pch = 16)\n\n\n11.6.2 Adding Lines\nplot(x, y)\nlines(x, y, col = \"red\")\n\n\n11.6.3 Adding Text\ntext(x, y, labels = y)",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#histograms",
+    "href": "chapters/11a-basicplots.html#histograms",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.7 Histograms",
+    "text": "11.7 Histograms\nHistograms display the distribution of a numeric variable.\nhist(mtcars$mpg)\nCustomized histogram:\nhist(mtcars$mpg,\n     breaks = 10,\n     col = \"lightgray\",\n     main = \"Histogram of MPG\",\n     xlab = \"Miles per Gallon\")",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#boxplots",
+    "href": "chapters/11a-basicplots.html#boxplots",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.8 Boxplots",
+    "text": "11.8 Boxplots\nBoxplots summarize the distribution of data using quartiles.\nboxplot(mtcars$mpg)\nGrouped boxplot:\nboxplot(mpg ~ cyl, data = mtcars,\n        main = \"MPG by Number of Cylinders\",\n        xlab = \"Cylinders\",\n        ylab = \"Miles per Gallon\")",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#bar-plots",
+    "href": "chapters/11a-basicplots.html#bar-plots",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.9 Bar Plots",
+    "text": "11.9 Bar Plots\nBar plots are used for categorical data or summarized values.\ncounts &lt;- table(mtcars$cyl)\nbarplot(counts)\nCustomized bar plot:\nbarplot(counts,\n        col = \"steelblue\",\n        main = \"Car Counts by Cylinders\",\n        xlab = \"Cylinders\",\n        ylab = \"Frequency\")",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#pie-charts",
+    "href": "chapters/11a-basicplots.html#pie-charts",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.10 Pie Charts",
+    "text": "11.10 Pie Charts\nPie charts show proportions of categories.\npie(counts)\nAlthough easy to create, pie charts are generally discouraged in statistical analysis due to difficulty in comparing values accurately.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#multiple-plots-in-one-window",
+    "href": "chapters/11a-basicplots.html#multiple-plots-in-one-window",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.11 Multiple Plots in One Window",
+    "text": "11.11 Multiple Plots in One Window\nThe par() function allows multiple plots to be displayed together.\npar(mfrow = c(2, 2))\nplot(mtcars$mpg)\nhist(mtcars$mpg)\nboxplot(mtcars$mpg)\nbarplot(counts)\nReset layout after plotting:\npar(mfrow = c(1, 1))",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#saving-plots-to-files",
+    "href": "chapters/11a-basicplots.html#saving-plots-to-files",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.12 Saving Plots to Files",
+    "text": "11.12 Saving Plots to Files\nPlots can be saved using graphical devices.\npng(\"scatter_plot.png\")\nplot(x, y)\ndev.off()\nCommon devices include png(), pdf(), and jpeg().",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#when-to-use-base-r-plots",
+    "href": "chapters/11a-basicplots.html#when-to-use-base-r-plots",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.13 When to Use Base R Plots",
+    "text": "11.13 When to Use Base R Plots\nBase plots are especially useful for:\n\nQuick exploratory analysis\nTeaching fundamental plotting concepts\nSimple visualizations without heavy customization\nWorking with legacy R scripts\n\nFor complex, publication-quality graphics, ggplot2 is generally preferred.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11a-basicplots.html#summary",
+    "href": "chapters/11a-basicplots.html#summary",
+    "title": "11  Basic Plots in R (Base Graphics)",
+    "section": "11.14 Summary",
+    "text": "11.14 Summary\nThis chapter introduced basic plotting in R using base graphics. You learned how to:\n\nCreate scatter, line, histogram, box, bar, and pie plots\nCustomize plot appearance\nAdd elements to existing plots\nArrange multiple plots\nSave plots to external files\n\nUnderstanding base R graphics provides a strong foundation for advanced visualization techniques and helps in interpreting a wide range of existing R code.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Basic Plots in R (Base Graphics)</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html",
+    "href": "chapters/11b-ggplot2.html",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "",
+    "text": "12.1 Introduction\nData visualization is a fundamental component of data analysis. Well-designed graphics help us explore patterns, identify relationships, detect anomalies, and communicate results effectively. In statistical analysis, visualizations often reveal insights that numerical summaries alone cannot capture.\nThe ggplot2 package is the most widely used visualization system in R. It is part of the tidyverse and is based on the Grammar of Graphics, a systematic approach to describing and building plots. This chapter introduces ggplot2 conceptually and practically, focusing on clear explanations and progressively richer examples.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#why-ggplot2",
+    "href": "chapters/11b-ggplot2.html#why-ggplot2",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.2 Why ggplot2?",
+    "text": "12.2 Why ggplot2?\nUnlike traditional plotting systems that focus on individual plot types, ggplot2 focuses on building plots layer by layer. This approach offers several advantages:\n\nConsistent syntax across different plot types\nHigh-quality, publication-ready graphics\nSeamless integration with tidy data and dplyr\nEasy customization and extension\n\nThe guiding idea is simple:\n\nA plot is constructed by mapping data to visual properties and adding geometric layers.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#installing-and-loading-ggplot2",
+    "href": "chapters/11b-ggplot2.html#installing-and-loading-ggplot2",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.3 Installing and Loading ggplot2",
+    "text": "12.3 Installing and Loading ggplot2\ninstall.packages(\"ggplot2\")\nlibrary(ggplot2)\nWhen the tidyverse is loaded, ggplot2 is loaded automatically.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#the-grammar-of-graphics-core-concepts",
+    "href": "chapters/11b-ggplot2.html#the-grammar-of-graphics-core-concepts",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.4 The Grammar of Graphics: Core Concepts",
+    "text": "12.4 The Grammar of Graphics: Core Concepts\nEvery ggplot2 visualization is built from the same core components:\n\nData – the dataset being visualized\nAesthetic mappings (aes) – how variables are mapped to visual properties\nGeometric objects (geoms) – the type of plot\nStatistical transformations – summaries applied to the data\nScales – control how data values map to aesthetics\nCoordinates – the coordinate system used\nFacets – small multiples for subplots\n\nUnderstanding these ideas allows you to create almost any statistical graphic.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#creating-your-first-ggplot",
+    "href": "chapters/11b-ggplot2.html#creating-your-first-ggplot",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.5 Creating Your First ggplot",
+    "text": "12.5 Creating Your First ggplot\nA ggplot2 plot begins with the ggplot() function.\nggplot(data = mtcars, aes(x = wt, y = mpg))\nAt this stage, nothing is displayed because no geometric layer has been added.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#scatter-plots-with-geom_point",
+    "href": "chapters/11b-ggplot2.html#scatter-plots-with-geom_point",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.6 Scatter Plots with geom_point()",
+    "text": "12.6 Scatter Plots with geom_point()\nScatter plots are useful for examining relationships between two numeric variables.\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point()\n\n12.6.1 Adding Aesthetics\nggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +\n  geom_point(size = 3)\nHere, the number of cylinders is mapped to color, revealing group-wise patterns.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#line-plots-with-geom_line",
+    "href": "chapters/11b-ggplot2.html#line-plots-with-geom_line",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.7 Line Plots with geom_line()",
+    "text": "12.7 Line Plots with geom_line()\nLine plots are commonly used for time series or ordered data.\nggplot(economics, aes(x = date, y = unemploy)) +\n  geom_line()",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#bar-charts-with-geom_bar-and-geom_col",
+    "href": "chapters/11b-ggplot2.html#bar-charts-with-geom_bar-and-geom_col",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.8 Bar Charts with geom_bar() and geom_col()",
+    "text": "12.8 Bar Charts with geom_bar() and geom_col()\n\n12.8.1 Bar Chart for Counts\nggplot(mtcars, aes(x = factor(cyl))) +\n  geom_bar()\n\n\n12.8.2 Bar Chart for Precomputed Values\navg_mpg &lt;- mtcars %&gt;%\n  group_by(cyl) %&gt;%\n  summarise(avg_mpg = mean(mpg))\n\nggplot(avg_mpg, aes(x = factor(cyl), y = avg_mpg)) +\n  geom_col()",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#histograms-and-density-plots",
+    "href": "chapters/11b-ggplot2.html#histograms-and-density-plots",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.9 Histograms and Density Plots",
+    "text": "12.9 Histograms and Density Plots\n\n12.9.1 Histogram\nggplot(mtcars, aes(x = mpg)) +\n  geom_histogram(bins = 10)\n\n\n12.9.2 Density Plot\nggplot(mtcars, aes(x = mpg)) +\n  geom_density()\nThese plots help understand the distribution of a variable.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#boxplots-and-violin-plots",
+    "href": "chapters/11b-ggplot2.html#boxplots-and-violin-plots",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.10 Boxplots and Violin Plots",
+    "text": "12.10 Boxplots and Violin Plots\nBoxplots summarize distributions across groups.\nggplot(mtcars, aes(x = factor(cyl), y = mpg)) +\n  geom_boxplot()\nViolin plots display the full distribution shape.\nggplot(mtcars, aes(x = factor(cyl), y = mpg)) +\n  geom_violin()",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#faceting-small-multiples",
+    "href": "chapters/11b-ggplot2.html#faceting-small-multiples",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.11 Faceting: Small Multiples",
+    "text": "12.11 Faceting: Small Multiples\nFaceting allows the same plot to be repeated for different subsets of data.\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  facet_wrap(~ cyl)\nThis technique is powerful for comparative analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#labels-and-titles",
+    "href": "chapters/11b-ggplot2.html#labels-and-titles",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.12 Labels and Titles",
+    "text": "12.12 Labels and Titles\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  labs(\n    title = \"Fuel Efficiency vs Weight\",\n    x = \"Weight\",\n    y = \"Miles per Gallon\",\n    color = \"Cylinders\"\n  )\nClear labeling is essential for effective communication.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#themes-and-appearance",
+    "href": "chapters/11b-ggplot2.html#themes-and-appearance",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.13 Themes and Appearance",
+    "text": "12.13 Themes and Appearance\nThemes control the non-data components of a plot.\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  theme_minimal()\nCommon themes include theme_bw(), theme_classic(), and theme_minimal().",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#customizing-scales",
+    "href": "chapters/11b-ggplot2.html#customizing-scales",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.14 Customizing Scales",
+    "text": "12.14 Customizing Scales\nggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +\n  geom_point() +\n  scale_color_brewer(palette = \"Set1\")\nScales allow fine control over colors, axes, and legends.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#combining-ggplot2-with-dplyr",
+    "href": "chapters/11b-ggplot2.html#combining-ggplot2-with-dplyr",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.15 Combining ggplot2 with dplyr",
+    "text": "12.15 Combining ggplot2 with dplyr\nA typical workflow combines data manipulation and visualization.\nmtcars %&gt;%\n  group_by(cyl) %&gt;%\n  summarise(avg_mpg = mean(mpg)) %&gt;%\n  ggplot(aes(x = factor(cyl), y = avg_mpg)) +\n  geom_col()\nThis integration is one of the major strengths of the tidyverse.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#best-practices-for-statistical-graphics",
+    "href": "chapters/11b-ggplot2.html#best-practices-for-statistical-graphics",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.16 Best Practices for Statistical Graphics",
+    "text": "12.16 Best Practices for Statistical Graphics\n\nStart with simple plots and add complexity gradually\nAlways label axes and legends clearly\nAvoid unnecessary visual clutter\nChoose appropriate plot types for the data\nEnsure plots are reproducible and interpretable",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11b-ggplot2.html#summary",
+    "href": "chapters/11b-ggplot2.html#summary",
+    "title": "12  Data Visualization with ggplot2",
+    "section": "12.17 Summary",
+    "text": "12.17 Summary\nThis chapter introduced data visualization using ggplot2. You learned:\n\nThe philosophy of the Grammar of Graphics\nHow to build plots layer by layer\nCommon plot types and their use cases\nFaceting, themes, and customization\nIntegration with tidyverse workflows\n\nEffective visualization is essential for statistical analysis and communication. In the next chapter, we will focus on Exploratory Data Analysis (EDA), where numerical summaries and visualizations are combined to understand data comprehensively.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Data Visualization with ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html",
+    "href": "chapters/12-stringr.html",
+    "title": "13  String Manipulation with stringr",
+    "section": "",
+    "text": "13.1 Introduction\nText data is an integral part of modern data analysis. Variables such as names, addresses, categories, survey responses, clinical codes, and identifiers are all stored as character strings. Cleaning, transforming, and extracting information from such text data is a common and often challenging task.\nThe stringr package provides a consistent and user-friendly set of functions for string manipulation in R. It is part of the tidyverse and is built on top of R’s powerful string processing capabilities. This chapter introduces the principles of string manipulation and demonstrates how stringr simplifies working with character data.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#why-use-stringr",
+    "href": "chapters/12-stringr.html#why-use-stringr",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.2 Why Use stringr?",
+    "text": "13.2 Why Use stringr?\nBase R includes many functions for working with strings, but they can be difficult to remember due to inconsistent naming conventions. stringr improves this by:\n\nUsing a consistent function naming scheme (str_*)\nHandling missing values (NA) safely\nProviding clear and readable syntax\nIntegrating seamlessly with tidyverse workflows\n\nThe guiding idea is:\n\nEvery string function begins with str_ and performs one clear task.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#installing-and-loading-stringr",
+    "href": "chapters/12-stringr.html#installing-and-loading-stringr",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.3 Installing and Loading stringr",
+    "text": "13.3 Installing and Loading stringr\ninstall.packages(\"stringr\")\nlibrary(stringr)\nWhen the tidyverse is loaded using library(tidyverse), stringr is loaded automatically.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#creating-and-inspecting-strings",
+    "href": "chapters/12-stringr.html#creating-and-inspecting-strings",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.4 Creating and Inspecting Strings",
+    "text": "13.4 Creating and Inspecting Strings\ntext &lt;- c(\"Statistics\", \"Data Science\", \"R Programming\")\ntext\nTo determine the length of each string:\nstr_length(text)\nUnlike base R’s nchar(), str_length() handles missing values consistently.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#combining-strings",
+    "href": "chapters/12-stringr.html#combining-strings",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.5 Combining Strings",
+    "text": "13.5 Combining Strings\n\n13.5.1 Concatenation with str_c()\nfirst_name &lt;- c(\"Anita\", \"Rahul\")\nlast_name &lt;- c(\"K\", \"S\")\n\nfull_name &lt;- str_c(first_name, last_name, sep = \" \")\nfull_name\nTo collapse multiple strings into a single string:\nstr_c(text, collapse = \", \")",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#subsetting-and-extracting-strings",
+    "href": "chapters/12-stringr.html#subsetting-and-extracting-strings",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.6 Subsetting and Extracting Strings",
+    "text": "13.6 Subsetting and Extracting Strings\n\n13.6.1 Substrings with str_sub()\ncode &lt;- \"STAT2024\"\nstr_sub(code, 1, 4)\nNegative indices count from the end of the string:\nstr_sub(code, -4, -1)",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#detecting-patterns-in-strings",
+    "href": "chapters/12-stringr.html#detecting-patterns-in-strings",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.7 Detecting Patterns in Strings",
+    "text": "13.7 Detecting Patterns in Strings\n\n13.7.1 Pattern Detection with str_detect()\nemails &lt;- c(\"abc@gmail.com\", \"test@yahoo.com\", \"user@college.edu\")\nstr_detect(emails, \"gmail\")\nThis function returns a logical vector indicating the presence of a pattern.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#counting-and-locating-patterns",
+    "href": "chapters/12-stringr.html#counting-and-locating-patterns",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.8 Counting and Locating Patterns",
+    "text": "13.8 Counting and Locating Patterns\n\n13.8.1 Counting Matches\nsentences &lt;- c(\"R is powerful\", \"R is very very powerful\")\nstr_count(sentences, \"very\")\n\n\n13.8.2 Locating Matches\nstr_locate(sentences, \"powerful\")",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#replacing-text",
+    "href": "chapters/12-stringr.html#replacing-text",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.9 Replacing Text",
+    "text": "13.9 Replacing Text\n\n13.9.1 Replacing First Match\ntext2 &lt;- c(\"STAT101\", \"STAT102\")\nstr_replace(text2, \"STAT\", \"DS\")\n\n\n13.9.2 Replacing All Matches\nstr_replace_all(\"2024-01-01\", \"-\", \"/\")",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#removing-whitespace",
+    "href": "chapters/12-stringr.html#removing-whitespace",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.10 Removing Whitespace",
+    "text": "13.10 Removing Whitespace\nWhitespace is a common issue in imported text data.\nraw_text &lt;- c(\"  Data \", \" Science \", \" R \")\nstr_trim(raw_text)\nTo remove whitespace only from the left or right:\nstr_trim(raw_text, side = \"left\")\nstr_trim(raw_text, side = \"right\")",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#changing-case-of-strings",
+    "href": "chapters/12-stringr.html#changing-case-of-strings",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.11 Changing Case of Strings",
+    "text": "13.11 Changing Case of Strings\ntext3 &lt;- c(\"statistics\", \"DATA SCIENCE\", \"R\")\n\nstr_to_upper(text3)\nstr_to_lower(text3)\nstr_to_title(text3)\nCase normalization is often required before comparisons or grouping.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#splitting-strings",
+    "href": "chapters/12-stringr.html#splitting-strings",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.12 Splitting Strings",
+    "text": "13.12 Splitting Strings\n\n13.12.1 Splitting into Components\ncourse_codes &lt;- c(\"STAT-101\", \"STAT-202\", \"STAT-303\")\nstr_split(course_codes, \"-\")\nTo simplify the output:\nstr_split_fixed(course_codes, \"-\", 2)",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#working-with-regular-expressions-introductory",
+    "href": "chapters/12-stringr.html#working-with-regular-expressions-introductory",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.13 Working with Regular Expressions (Introductory)",
+    "text": "13.13 Working with Regular Expressions (Introductory)\nstringr uses regular expressions (regex) to describe patterns.\nstr_detect(\"abc123\", \"[0-9]\")\nCommon regex elements:\n\n[0-9] – digits\n[A-Za-z] – letters\n^ – start of string\n$ – end of string",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#handling-missing-values-in-strings",
+    "href": "chapters/12-stringr.html#handling-missing-values-in-strings",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.14 Handling Missing Values in Strings",
+    "text": "13.14 Handling Missing Values in Strings\ntext_with_na &lt;- c(\"A\", NA, \"B\")\nstr_length(text_with_na)\nstringr functions return NA for missing values instead of errors.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#stringr-in-data-cleaning-workflows",
+    "href": "chapters/12-stringr.html#stringr-in-data-cleaning-workflows",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.15 stringr in Data Cleaning Workflows",
+    "text": "13.15 stringr in Data Cleaning Workflows\nstringr is commonly used together with dplyr.\ndata %&gt;%\n  mutate(\n    Name = str_to_title(Name),\n    Code = str_replace_all(Code, \" \", \"\")\n  )\nThis combination is especially useful for preparing data for analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#best-practices-for-string-manipulation",
+    "href": "chapters/12-stringr.html#best-practices-for-string-manipulation",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.16 Best Practices for String Manipulation",
+    "text": "13.16 Best Practices for String Manipulation\n\nAlways inspect raw text before cleaning\nBe explicit about patterns you want to match\nNormalize case early in the workflow\nTrim whitespace after importing data\nUse simple regex patterns when possible",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12-stringr.html#summary",
+    "href": "chapters/12-stringr.html#summary",
+    "title": "13  String Manipulation with stringr",
+    "section": "13.17 Summary",
+    "text": "13.17 Summary\nThis chapter introduced string manipulation using the stringr package. You learned how to:\n\nMeasure and combine strings\nExtract and replace text\nDetect and count patterns\nHandle whitespace and case\nSplit strings into components\nApply string operations within tidyverse workflows\n\nMastering string manipulation is essential for cleaning real-world datasets and preparing text variables for statistical analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>String Manipulation with stringr</span>"
+    ]
+  }
+]

@@ -1,0 +1,190 @@
+# Data Import in R (CSV, Excel, SPSS, SAS)
+
+## Introduction
+
+In real-world data analysis, data rarely originates inside R. Instead, datasets are typically stored in external files such as spreadsheets, text files, or statistical software formats. This chapter introduces the most common methods for **importing data into R**, with a focus on formats widely used in statistics, research, and industry: **CSV, Excel, SPSS, and SAS**.
+
+The ability to correctly import data is a critical skill, as errors at this stage can propagate throughout the analysis.
+
+------------------------------------------------------------------------
+
+## Working Directory and File Paths
+
+Before importing data, it is important to understand where R looks for files.
+
+``` r
+getwd()
+```
+
+The working directory is the default location from which R reads files and saves outputs. Using **RStudio Projects** is strongly recommended to manage file paths consistently.
+
+Files can be referenced using:
+
+-   **Relative paths** (recommended)
+-   **Absolute paths** (system-specific, less portable)
+
+------------------------------------------------------------------------
+
+## Importing CSV Files
+
+Comma-Separated Values (CSV) files are one of the most common data formats.
+
+### Using Base R
+
+``` r
+data_csv <- read.csv("data/sample.csv")
+head(data_csv)
+```
+
+Important arguments:
+
+-   `header = TRUE` – first row contains column names
+-   `stringsAsFactors = FALSE` – prevents automatic factor conversion
+
+``` r
+data_csv <- read.csv("data/sample.csv", stringsAsFactors = FALSE)
+```
+
+### Using `readr` Package (Recommended)
+
+``` r
+library(readr)
+data_csv <- read_csv("data/sample.csv")
+```
+
+Advantages of `readr`:
+
+-   Faster for large datasets
+-   Better handling of column types
+-   Clearer warnings and messages
+
+------------------------------------------------------------------------
+
+## Importing Excel Files
+
+Excel files are widely used in academic and administrative settings.
+
+### Using `readxl`
+
+``` r
+library(readxl)
+data_excel <- read_excel("data/sample.xlsx")
+```
+
+To read a specific sheet:
+
+``` r
+data_excel <- read_excel("data/sample.xlsx", sheet = "Sheet1")
+```
+
+To view available sheets:
+
+``` r
+excel_sheets("data/sample.xlsx")
+```
+
+Excel files do not require external dependencies, making `readxl` suitable for most systems.
+
+------------------------------------------------------------------------
+
+## Importing SPSS Files
+
+SPSS files (`.sav`) are commonly used in social sciences and health research.
+
+### Using `haven`
+
+``` r
+library(haven)
+data_spss <- read_sav("data/sample.sav")
+```
+
+SPSS value labels are preserved and imported as labelled variables.
+
+``` r
+str(data_spss)
+```
+
+To convert labelled variables to factors:
+
+``` r
+data_spss[] <- lapply(data_spss, as_factor)
+```
+
+------------------------------------------------------------------------
+
+## Importing SAS Files
+
+SAS datasets are widely used in clinical research and regulatory environments.
+
+### Using `haven`
+
+``` r
+data_sas <- read_sas("data/sample.sas7bdat")
+```
+
+SAS transport files (`.xpt`) can also be imported:
+
+``` r
+data_sas_xpt <- read_xpt("data/sample.xpt")
+```
+
+Metadata such as variable labels and formats are preserved during import.
+
+------------------------------------------------------------------------
+
+## Checking Imported Data
+
+After importing data, it is essential to inspect its structure and content.
+
+``` r
+str(data_csv)
+summary(data_csv)
+head(data_csv)
+```
+
+Key checks include:
+
+-   Correct variable types
+-   Missing values
+-   Unexpected factor levels
+-   Column names and labels
+
+------------------------------------------------------------------------
+
+## Common Data Import Issues
+
+Some common problems encountered during data import include:
+
+-   Incorrect file paths
+-   Encoding issues
+-   Automatic type conversion
+-   Missing or malformed values
+
+Careful inspection and cleaning immediately after import is considered best practice.
+
+------------------------------------------------------------------------
+
+## Saving Imported Data in R Format
+
+Once data is imported and cleaned, it can be saved in R’s native formats.
+
+``` r
+save(data_csv, file = "data/sample.RData")
+saveRDS(data_csv, "data/sample.rds")
+```
+
+R-specific formats load faster and preserve object structure.
+
+------------------------------------------------------------------------
+
+## Summary
+
+In this chapter, you learned how to:
+
+-   Set and manage file paths
+-   Import CSV and Excel files
+-   Read SPSS and SAS datasets using `haven`
+-   Inspect and validate imported data
+-   Save datasets in R-native formats
+
+Accurate data import is the foundation of reliable analysis. The next chapter will focus on **data cleaning and transformation**, preparing imported datasets for statistical analysis.

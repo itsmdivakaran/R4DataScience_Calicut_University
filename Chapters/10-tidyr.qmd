@@ -1,0 +1,247 @@
+# Tidyr and Tidy Data
+
+## Introduction
+
+In practical data analysis, datasets are often **not in a form that is immediately suitable for analysis or visualization**. Even after importing data and understanding tidyverse principles, analysts frequently encounter data that is spread across multiple columns, nested in complex structures, or stored in inconvenient formats.
+
+The **`tidyr`** package is designed to address this problem. It provides a set of tools to **reshape, reorganize, and tidy data**, making it easier to analyze using `dplyr`, visualize using `ggplot2`, and model using statistical methods. This chapter focuses on the concept of tidy data and demonstrates how `tidyr` helps transform untidy datasets into a clean and consistent structure.
+
+------------------------------------------------------------------------
+
+## Understanding Tidy Data
+
+The idea of tidy data is central to modern data analysis in R. A dataset is considered tidy when:
+
+-   Each variable is stored in its own column
+-   Each observation is stored in its own row
+-   Each type of observational unit forms a separate table
+
+These principles may appear simple, but many real-world datasets violate them in subtle ways. Untidy data makes analysis more error-prone and code more complex.
+
+------------------------------------------------------------------------
+
+## Common Causes of Untidy Data
+
+Data becomes untidy for several reasons:
+
+-   Data is designed for human readability rather than analysis
+-   Multiple variables are encoded in column names
+-   Values are spread across multiple columns
+-   Missing values are represented implicitly
+
+Recognizing these patterns is the first step toward tidying data effectively.
+
+------------------------------------------------------------------------
+
+## Installing and Loading tidyr
+
+``` r
+install.packages("tidyr")
+library(tidyr)
+```
+
+The `tidyr` package is part of the tidyverse and is often loaded automatically when `library(tidyverse)` is used.
+
+------------------------------------------------------------------------
+
+## Wide and Long Data Formats
+
+Two common data layouts encountered in practice are **wide format** and **long format**.
+
+-   **Wide format**: Values are spread across multiple columns
+-   **Long format**: Values are stacked in a single column, with another column indicating the variable
+
+Long format is generally preferred for analysis and visualization in R.
+
+Example of wide data:
+
+``` r
+wide_data <- data.frame(
+  ID = c(1, 2, 3),
+  Math = c(80, 75, 90),
+  Science = c(85, 70, 88)
+)
+```
+
+------------------------------------------------------------------------
+
+## Converting Wide Data to Long Data with `pivot_longer()`
+
+The `pivot_longer()` function transforms data from wide to long format.
+
+``` r
+long_data <- wide_data %>%
+  pivot_longer(
+    cols = c(Math, Science),
+    names_to = "Subject",
+    values_to = "Score"
+  )
+```
+
+In this transformation:
+
+-   Column names become values in a new variable
+-   Observations are stacked into a single column
+
+This structure is ideal for grouped summaries and visualizations.
+
+------------------------------------------------------------------------
+
+## Converting Long Data to Wide Data with `pivot_wider()`
+
+The `pivot_wider()` function performs the reverse operation.
+
+``` r
+wide_again <- long_data %>%
+  pivot_wider(
+    names_from = Subject,
+    values_from = Score
+  )
+```
+
+This is useful when preparing summary tables or reports.
+
+------------------------------------------------------------------------
+
+## Handling Multiple Variables in Column Names
+
+Some datasets encode multiple variables in column names.
+
+``` r
+messy_data <- data.frame(
+  ID = c(1, 2),
+  Height_cm = c(170, 165),
+  Weight_kg = c(65, 58)
+)
+```
+
+Such datasets can be reshaped by separating column names into meaningful components.
+
+------------------------------------------------------------------------
+
+## Separating Columns with `separate()`
+
+``` r
+separated_data <- messy_data %>%
+  pivot_longer(-ID, names_to = "Measure", values_to = "Value") %>%
+  separate(Measure, into = c("Variable", "Unit"), sep = "_")
+```
+
+This creates distinct variables for the measurement type and unit.
+
+------------------------------------------------------------------------
+
+## Combining Columns with `unite()`
+
+The `unite()` function merges multiple columns into one.
+
+``` r
+combined_data <- separated_data %>%
+  unite("Measurement", Variable, Unit, sep = "_")
+```
+
+This is useful when preparing labels or compact identifiers.
+
+------------------------------------------------------------------------
+
+## Dealing with Missing Values
+
+In tidy data, missing values should be **explicitly represented as NA**.
+
+``` r
+data_with_na <- data.frame(
+  ID = c(1, 2, 3),
+  Score = c(80, NA, 90)
+)
+```
+
+### Dropping Missing Values
+
+``` r
+data_with_na %>%
+  drop_na()
+```
+
+### Filling Missing Values
+
+``` r
+data_with_na %>%
+  fill(Score, .direction = "down")
+```
+
+------------------------------------------------------------------------
+
+## Expanding and Completing Data
+
+Sometimes combinations of variables are missing entirely.
+
+``` r
+incomplete_data <- data.frame(
+  ID = c(1, 1, 2),
+  Year = c(2022, 2023, 2022),
+  Score = c(80, 85, 78)
+)
+```
+
+``` r
+complete_data <- incomplete_data %>%
+  complete(ID, Year)
+```
+
+The `complete()` function ensures that all combinations are represented.
+
+------------------------------------------------------------------------
+
+## Nesting and Unnesting Data
+
+Tidyr also supports working with nested data structures.
+
+``` r
+nested_data <- long_data %>%
+  group_by(Subject) %>%
+  nest()
+```
+
+``` r
+unnested_data <- nested_data %>%
+  unnest(cols = data)
+```
+
+Nesting is particularly useful for advanced analysis and modeling workflows.
+
+------------------------------------------------------------------------
+
+## Tidyr in the Data Analysis Workflow
+
+`tidyr` is typically used **before `dplyr` summarization and `ggplot2` visualization**. A common workflow is:
+
+1.  Import data
+2.  Tidy and reshape using `tidyr`
+3.  Manipulate and summarize using `dplyr`
+4.  Visualize using `ggplot2`
+
+Keeping data tidy simplifies every subsequent step.
+
+------------------------------------------------------------------------
+
+## Best Practices for Tidying Data
+
+-   Always inspect raw data before reshaping
+-   Make missing values explicit
+-   Keep variable names meaningful
+-   Avoid unnecessary reshaping
+-   Tidy data once, then reuse it
+
+------------------------------------------------------------------------
+
+## Summary
+
+This chapter introduced the principles of tidy data and the tools provided by the `tidyr` package. You learned how to:
+
+-   Recognize untidy data structures
+-   Convert between wide and long formats
+-   Separate and unite variables
+-   Handle missing and incomplete data
+-   Work with nested data
+
+Mastering `tidyr` ensures that your data is in a clean, consistent form, making analysis, visualization, and modeling both easier and more reliable.

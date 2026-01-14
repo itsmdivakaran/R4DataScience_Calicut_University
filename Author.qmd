@@ -1,0 +1,95 @@
+# About
+
+## About the Author
+
+**Mahesh Divakaran** is a Data Scientist, Statistical Programmer, Trainer, and Public Speaker with over **eight years of professional experience** in statistics, data science, and clinical research. He is the author of this course material *R for Data Analysis: From Fundamentals to Advanced Applications*, offered by the **Department of Statistics, University of Calicut**.
+
+He specializes in **clinical data analysis using R**, supported by a strong foundation in statistical theory and applied analytics. He is currently pursuing a **Ph.D. in Statistics at Amity University**, with a research focus on advanced data analysis techniques.
+
+Mahesh has worked extensively in the clinical research and healthcare analytics domain. He is currently a **Senior Statistical Programmer at IQVIA**, where he leads the development and validation of R packages for clinical studies. Previously, he served as **Associate Lead – Clinical Data Analytics at Genpro Research**, contributing to the development of R Shiny dashboards and automated reporting systems for clinical trials.
+
+His technical expertise includes **R, Python, SAS, R Shiny, Tableau, and Power BI**, with particular strength in ADaM dataset creation, statistical reporting, and data visualization. Alongside industry work, he is deeply committed to teaching and capacity building in **Statistics, Data Science, and Clinical Data Analytics**, and has delivered invited talks and presentations at national and international conferences.
+
+------------------------------------------------------------------------
+
+## About the Department of Statistics, University of Calicut
+
+The **Department of Statistics, University of Calicut**, was established in **1988** with the objective of developing into a **centre of excellence** in statistics and its applications in the region. The department was founded under the leadership of **Dr. K. Kumaranakutty**, the founder professor, and is rooted in a philosophy that emphasizes the close relationship between the University and the community, promoting a scientifically motivated society.
+
+Since its inception, the department has been actively involved in **teaching, training, and research**, with a strong emphasis on modeling real-life problems using rigorous statistical methods. The faculty members engage in collaborative research with scientists and institutions within India and abroad. Several faculty members have been recipients of **Commonwealth Scholarships and Fellowships** tenable in the United Kingdom.
+
+The department also plays a vital service role within the University by advising and assisting faculty members and research scholars from other departments in the **statistical analysis of research data**.
+
+As of 2010, **27 research scholars** from the department have been awarded the **Ph.D. degree**. Research output from the department is nationally and internationally recognized, as reflected in peer-reviewed publications, funded projects, and invited lectures at academic conferences.
+
+### Thrust Areas
+
+The major thrust areas of the department include:
+
+-   Stochastic Processes and Applications
+
+-   Reliability and Survival Analysis
+
+-   Extreme Value Theory
+
+-   Time Series Analysis and Modelling
+
+-   Applied Probability
+
+-   Distribution Theory
+
+-   Sampling Theory
+
+-   Novelty Detection and Neural Networks
+
+### Courses Offered
+
+The department offers the following academic programmes:
+
+1.  **M.Sc. Statistics** – 4 Semesters (Choice Based Credit Semester System – CCSS)
+
+2.  **M.Phil.** – 2 Semesters
+
+3.  **Ph.D. Programme**
+
+#### M.Sc. Statistics Programme
+
+The M.Sc. Statistics programme is designed to provide **intensive training** covering the core and applied areas of statistics. The curriculum equips students with technical and analytical skills required for immediate employment as statisticians, while also preparing them for advanced research.
+
+-   **Current Specialization Module**: Advanced Statistical Analysis
+
+-   **Total Intake**: 25 students
+
+-   **Admission Criteria**: Candidates with a B.Sc. degree securing at least 50% marks, with either (i) Statistics as the main subject, or (ii) Mathematics as the main subject with Statistics as a subsidiary. Admission is based on performance in the common university entrance examination.
+
+Graduates of the programme find employment opportunities in **research organizations, government agencies, industry, healthcare, analytics, and education**.
+
+### Faculty
+
+-   **Dr. K. Jayakumar** – Senior Professor
+
+-   **Dr. Krishnarani S. D.** – Associate Professor & Head
+
+-   **Dr. Dileepkumar M.** – Assistant Professor
+
+**Former Faculty Members**:
+
+-   Dr. C. Chandran
+
+-   Dr. M. Manoharan
+
+-   Dr. N. Raju
+
+-   Dr. K. Kumaranakutty
+
+### Infrastructure and Facilities
+
+The department is well-equipped with academic and research infrastructure. It has its own **departmental library**, housing over **2,100 books** and several volumes of classical statistical journals. The **computer laboratory** is equipped with more than **twenty personal computers** and statistical software such as **SPSS and SYSTAT**, along with teaching aids including OHP and LCD projectors. The department also maintains an active **Alumni Association**.
+
+### Research and Collaborations
+
+Research in the department is held in high regard at national and international levels. Faculty members have received prestigious fellowships, including Commonwealth Scholarships and research fellowships in Canada. The department maintains active research collaborations with academic institutions, industry partners, and government organizations.
+
+Major research interests include **Stochastic Processes, Reliability and Survival Analysis, Distribution Theory, Time Series Modelling, Applied Probability, Extreme Value Theory, Novelty Detection, and Neural Networks**.
+
+Further details about the department and its academic programmes are available at [**http://www.cuonline.ac.in/**](http://www.cuonline.ac.in/).

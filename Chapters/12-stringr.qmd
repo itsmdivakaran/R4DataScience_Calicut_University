@@ -1,0 +1,252 @@
+# String Manipulation with stringr
+
+## Introduction
+
+Text data is an integral part of modern data analysis. Variables such as names, addresses, categories, survey responses, clinical codes, and identifiers are all stored as **character strings**. Cleaning, transforming, and extracting information from such text data is a common and often challenging task.
+
+The **`stringr`** package provides a consistent and user-friendly set of functions for string manipulation in R. It is part of the tidyverse and is built on top of R’s powerful string processing capabilities. This chapter introduces the principles of string manipulation and demonstrates how `stringr` simplifies working with character data.
+
+------------------------------------------------------------------------
+
+## Why Use stringr?
+
+Base R includes many functions for working with strings, but they can be difficult to remember due to inconsistent naming conventions. `stringr` improves this by:
+
+-   Using a **consistent function naming scheme** (`str_*`)
+-   Handling missing values (`NA`) safely
+-   Providing clear and readable syntax
+-   Integrating seamlessly with tidyverse workflows
+
+The guiding idea is:
+
+> *Every string function begins with `str_` and performs one clear task.*
+
+------------------------------------------------------------------------
+
+## Installing and Loading stringr
+
+``` r
+install.packages("stringr")
+library(stringr)
+```
+
+When the tidyverse is loaded using `library(tidyverse)`, `stringr` is loaded automatically.
+
+------------------------------------------------------------------------
+
+## Creating and Inspecting Strings
+
+``` r
+text <- c("Statistics", "Data Science", "R Programming")
+text
+```
+
+To determine the length of each string:
+
+``` r
+str_length(text)
+```
+
+Unlike base R’s `nchar()`, `str_length()` handles missing values consistently.
+
+------------------------------------------------------------------------
+
+## Combining Strings
+
+### Concatenation with `str_c()`
+
+``` r
+first_name <- c("Anita", "Rahul")
+last_name <- c("K", "S")
+
+full_name <- str_c(first_name, last_name, sep = " ")
+full_name
+```
+
+To collapse multiple strings into a single string:
+
+``` r
+str_c(text, collapse = ", ")
+```
+
+------------------------------------------------------------------------
+
+## Subsetting and Extracting Strings
+
+### Substrings with `str_sub()`
+
+``` r
+code <- "STAT2024"
+str_sub(code, 1, 4)
+```
+
+Negative indices count from the end of the string:
+
+``` r
+str_sub(code, -4, -1)
+```
+
+------------------------------------------------------------------------
+
+## Detecting Patterns in Strings
+
+### Pattern Detection with `str_detect()`
+
+``` r
+emails <- c("abc@gmail.com", "test@yahoo.com", "user@college.edu")
+str_detect(emails, "gmail")
+```
+
+This function returns a logical vector indicating the presence of a pattern.
+
+------------------------------------------------------------------------
+
+## Counting and Locating Patterns
+
+### Counting Matches
+
+``` r
+sentences <- c("R is powerful", "R is very very powerful")
+str_count(sentences, "very")
+```
+
+### Locating Matches
+
+``` r
+str_locate(sentences, "powerful")
+```
+
+------------------------------------------------------------------------
+
+## Replacing Text
+
+### Replacing First Match
+
+``` r
+text2 <- c("STAT101", "STAT102")
+str_replace(text2, "STAT", "DS")
+```
+
+### Replacing All Matches
+
+``` r
+str_replace_all("2024-01-01", "-", "/")
+```
+
+------------------------------------------------------------------------
+
+## Removing Whitespace
+
+Whitespace is a common issue in imported text data.
+
+``` r
+raw_text <- c("  Data ", " Science ", " R ")
+str_trim(raw_text)
+```
+
+To remove whitespace only from the left or right:
+
+``` r
+str_trim(raw_text, side = "left")
+str_trim(raw_text, side = "right")
+```
+
+------------------------------------------------------------------------
+
+## Changing Case of Strings
+
+``` r
+text3 <- c("statistics", "DATA SCIENCE", "R")
+
+str_to_upper(text3)
+str_to_lower(text3)
+str_to_title(text3)
+```
+
+Case normalization is often required before comparisons or grouping.
+
+------------------------------------------------------------------------
+
+## Splitting Strings
+
+### Splitting into Components
+
+``` r
+course_codes <- c("STAT-101", "STAT-202", "STAT-303")
+str_split(course_codes, "-")
+```
+
+To simplify the output:
+
+``` r
+str_split_fixed(course_codes, "-", 2)
+```
+
+------------------------------------------------------------------------
+
+## Working with Regular Expressions (Introductory)
+
+`stringr` uses **regular expressions (regex)** to describe patterns.
+
+``` r
+str_detect("abc123", "[0-9]")
+```
+
+Common regex elements:
+
+-   `[0-9]` – digits
+-   `[A-Za-z]` – letters
+-   `^` – start of string
+-   `$` – end of string
+
+------------------------------------------------------------------------
+
+## Handling Missing Values in Strings
+
+``` r
+text_with_na <- c("A", NA, "B")
+str_length(text_with_na)
+```
+
+`stringr` functions return `NA` for missing values instead of errors.
+
+------------------------------------------------------------------------
+
+## stringr in Data Cleaning Workflows
+
+`stringr` is commonly used together with `dplyr`.
+
+``` r
+data %>%
+  mutate(
+    Name = str_to_title(Name),
+    Code = str_replace_all(Code, " ", "")
+  )
+```
+
+This combination is especially useful for preparing data for analysis.
+
+------------------------------------------------------------------------
+
+## Best Practices for String Manipulation
+
+-   Always inspect raw text before cleaning
+-   Be explicit about patterns you want to match
+-   Normalize case early in the workflow
+-   Trim whitespace after importing data
+-   Use simple regex patterns when possible
+
+------------------------------------------------------------------------
+
+## Summary
+
+This chapter introduced **string manipulation using the `stringr` package**. You learned how to:
+
+-   Measure and combine strings
+-   Extract and replace text
+-   Detect and count patterns
+-   Handle whitespace and case
+-   Split strings into components
+-   Apply string operations within tidyverse workflows
+
+Mastering string manipulation is essential for cleaning real-world datasets and preparing text variables for statistical analysis.

@@ -1,0 +1,200 @@
+# Data Types, Type Conversion, and Basic Functions
+
+## Introduction
+
+Understanding data types is fundamental to effective data analysis in R. This chapter introduces the core data types supported by R, explains how R stores and interprets data, and demonstrates type conversion and commonly used built-in functions.
+
+------------------------------------------------------------------------
+
+## Numeric and Integer Data Types
+
+### Numeric
+
+``` r
+num_var <- 42.5
+class(num_var)
+typeof(num_var)
+```
+
+By default, numeric values in R are stored as **double-precision numbers**.
+
+### Integer
+
+``` r
+int_var <- 42L
+class(int_var)
+typeof(int_var)
+```
+
+Appending `L` explicitly creates an integer. Although integers and numerics behave similarly, they differ in memory representation.
+
+------------------------------------------------------------------------
+
+## Character Data Type
+
+``` r
+char_var <- "Hello, R!"
+class(char_var)
+typeof(char_var)
+```
+
+R supports both single and double quotes for character strings. Escape characters allow quotes to be included within strings.
+
+------------------------------------------------------------------------
+
+## Logical Data Type
+
+``` r
+log_var <- TRUE
+log_var2 <- FALSE
+```
+
+Logical values are essential for conditional operations and filtering data. Shorthand forms `T` and `F` exist but are not recommended in professional code.
+
+------------------------------------------------------------------------
+
+## Complex and Raw Data Types
+
+### Complex
+
+``` r
+comp_var <- 3 + 4i
+class(comp_var)
+typeof(comp_var)
+```
+
+Complex numbers include an imaginary component and are mainly used in specialized mathematical computations.
+
+### Raw
+
+``` r
+raw_var <- charToRaw("Hello")
+rawToChar(raw_var)
+```
+
+Raw data represents bytes and is rarely used in routine data analysis.
+
+------------------------------------------------------------------------
+
+## Type Conversion in R
+
+R provides explicit functions for converting between data types.
+
+``` r
+as.character(123.45)
+as.numeric("678.90")
+as.integer(99.99)
+as.logical(1)
+```
+
+Type conversion is common when importing data from external sources.
+
+------------------------------------------------------------------------
+
+## Date, Factor, and NULL
+
+### Date
+
+``` r
+date_var <- as.Date("2024-01-01")
+class(date_var)
+```
+
+Dates are crucial for time-based analysis.
+
+### Factor
+
+``` r
+factor_var <- factor(c("Red", "Blue", "Green"))
+levels(factor_var)
+```
+
+Factors are used to represent categorical variables and play an important role in statistical modeling.
+
+### NULL
+
+``` r
+null_var <- NULL
+is.null(null_var)
+```
+
+`NULL` represents the absence of a value and is commonly used in programming logic.
+
+------------------------------------------------------------------------
+
+## Special Numeric Values
+
+``` r
+Inf
+-Inf
+NaN
+```
+
+These values represent infinity and undefined numerical results. Functions such as `is.nan()` and `is.infinite()` help identify them.
+
+------------------------------------------------------------------------
+
+## Basic Functions in R
+
+Frequently used built-in functions include:
+
+``` r
+length(vec)
+class(vec)
+summary(vec)
+str(vec)
+mean(vec)
+sum(vec)
+sd(vec)
+```
+
+These functions are essential for exploratory data analysis.
+
+------------------------------------------------------------------------
+
+## Sequences and Repetition
+
+``` r
+seq(1, 10, by = 2)
+rep(1:3, times = 2)
+```
+
+Sequences and repetition are commonly used for simulations and indexing.
+
+------------------------------------------------------------------------
+
+## Accessing Help and Documentation
+
+``` r
+?mean
+help.search("regression")
+vignette()
+```
+
+R provides extensive documentation that should be consulted regularly.
+
+------------------------------------------------------------------------
+
+## Working Directory Management
+
+``` r
+getwd()
+list.files()
+```
+
+Managing the working directory ensures that data files and outputs are correctly located.
+
+------------------------------------------------------------------------
+
+## Summary
+
+In this chapter, you learned about:
+
+-   Core data types in R
+-   Differences between `class()` and `typeof()`
+-   Explicit type conversion
+-   Special numeric values
+-   Essential built-in functions
+-   Help and file management utilities
+
+These concepts are critical for data handling and analysis. The next chapter will focus on **data structures such as vectors, lists, and data frames**, which build upon the data types introduced here.

@@ -1,0 +1,48 @@
+project:
+  type: book
+
+book:
+  title: "R4DataScience"
+  subtitle: "A Course offered by Department of Statistics, University of Calicut"
+  author: "Mahesh Divakaran"
+  date: "1/14/2026"
+  chapters:
+    - index.qmd
+    - Author.qmd
+    - chapters/03-introduction.qmd
+    - chapters/04-environment.qmd
+    - chapters/05-datatypes.qmd
+    - chapters/06-datastructures.qmd
+    - chapters/07-data-import.qmd
+    - chapters/08-tidyverse.qmd
+    - chapters/09-dplyr.qmd
+    - chapters/10-tidyr.qmd
+    - chapters/11a-basicplots.qmd
+    - chapters/11b-ggplot2.qmd
+    - chapters/12-stringr.qmd
+    - chapters/13-data-transformation.qmd
+    - chapters/14-dates-times.qmd
+    - chapters/15-functional-programming.qmd
+    
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - flatly
+      - brand
+  pdf:
+    pdf:
+    documentclass: scrbook
+    fontsize: 11pt
+    geometry: margin=1in
+toc: true
+toc-depth: 3
+number-sections: true
+code-copy: true
+code-overflow: wrap
+  
+
+editor: visual
+

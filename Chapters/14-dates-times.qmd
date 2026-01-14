@@ -1,0 +1,289 @@
+# Working with Dates and Times in R
+
+## Introduction
+
+Date and time variables play a crucial role in many areas of statistics and data science, including **time series analysis, clinical studies, event history analysis, surveys, and operational analytics**. Unlike numeric variables, dates and times carry inherent structure, such as ordering, intervals, and time zones, which must be handled carefully.
+
+R provides built-in support for dates and times, and the **`lubridate`** package (part of the tidyverse) greatly simplifies working with them. This chapter introduces how dates and times are represented in R, common operations performed on them, and best practices for handling temporal data.
+
+------------------------------------------------------------------------
+
+## Date and Time Classes in R
+
+R represents temporal data using specific classes:
+
+-   **Date** – calendar dates without time (e.g., 2024-01-15)
+-   **POSIXct** – date-time stored as seconds since the Unix epoch
+-   **POSIXlt** – date-time stored as a list of components
+
+Understanding these classes is essential for correct analysis.
+
+------------------------------------------------------------------------
+
+## Creating Date Objects
+
+Dates in R typically follow the ISO 8601 format: `YYYY-MM-DD`.
+
+``` r
+date1 <- as.Date("2024-01-01")
+date2 <- as.Date("2024-12-31")
+
+date1
+date2
+```
+
+Different formats can be specified explicitly:
+
+``` r
+as.Date("01-12-2024", format = "%d-%m-%Y")
+```
+
+------------------------------------------------------------------------
+
+## Date Arithmetic
+
+Once dates are created, arithmetic operations can be performed.
+
+``` r
+date2 - date1
+```
+
+This returns the number of days between two dates.
+
+Adding or subtracting days:
+
+``` r
+date1 + 30
+date2 - 15
+```
+
+------------------------------------------------------------------------
+
+## Creating Date-Time Objects
+
+Date-time objects include both date and time components.
+
+``` r
+dt1 <- as.POSIXct("2024-01-01 10:30:00")
+dt2 <- as.POSIXct("2024-01-01 18:45:00")
+```
+
+The default time zone is taken from the system unless specified.
+
+------------------------------------------------------------------------
+
+## Understanding POSIXct and POSIXlt
+
+``` r
+class(dt1)
+unclass(dt1)
+```
+
+-   **POSIXct** is efficient and preferred for storage
+-   **POSIXlt** is useful for extracting components
+
+``` r
+as.POSIXlt(dt1)
+```
+
+------------------------------------------------------------------------
+
+## Extracting Components from Dates
+
+Base R provides functions to extract components:
+
+``` r
+format(date1, "%Y")   # Year
+format(date1, "%m")   # Month
+format(date1, "%d")   # Day
+```
+
+However, these return character values, which may require conversion.
+
+------------------------------------------------------------------------
+
+## Introduction to lubridate
+
+The **`lubridate`** package simplifies working with dates and times by providing intuitive functions.
+
+``` r
+install.packages("lubridate")
+library(lubridate)
+```
+
+------------------------------------------------------------------------
+
+## Parsing Dates with lubridate
+
+Lubridate automatically recognizes common date formats.
+
+``` r
+d1 <- ymd("2024-01-15")
+d2 <- dmy("15-01-2024")
+d3 <- mdy("01/15/2024")
+```
+
+These functions return Date objects without requiring format strings.
+
+------------------------------------------------------------------------
+
+## Parsing Date-Time Values
+
+``` r
+dt <- ymd_hms("2024-01-01 10:30:00")
+```
+
+Lubridate functions include `ymd_hm()`, `dmy_hms()`, and others.
+
+------------------------------------------------------------------------
+
+## Extracting Date Components with lubridate
+
+``` r
+year(d1)
+month(d1)
+day(d1)
+```
+
+Additional components:
+
+``` r
+wday(d1)
+week(d1)
+quarter(d1)
+```
+
+Lubridate returns numeric values by default, which are easy to use in analysis.
+
+------------------------------------------------------------------------
+
+## Working with Time Zones
+
+Time zones are critical in global and clinical data.
+
+``` r
+dt_tz <- ymd_hms("2024-01-01 10:30:00", tz = "UTC")
+```
+
+Converting time zones:
+
+``` r
+with_tz(dt_tz, "Asia/Kolkata")
+```
+
+------------------------------------------------------------------------
+
+## Time Differences and Durations
+
+Lubridate distinguishes between durations, periods, and intervals.
+
+### Durations
+
+``` r
+duration <- dhours(5)
+```
+
+### Periods
+
+``` r
+period <- days(10)
+```
+
+### Intervals
+
+``` r
+interval <- interval(date1, date2)
+```
+
+Each serves a different analytical purpose.
+
+------------------------------------------------------------------------
+
+## Adding and Subtracting Time Periods
+
+``` r
+date1 + days(7)
+date1 + months(1)
+date1 - years(2)
+```
+
+Lubridate handles calendar irregularities automatically.
+
+------------------------------------------------------------------------
+
+## Rounding and Flooring Dates
+
+``` r
+floor_date(dt, unit = "hour")
+ceiling_date(dt, unit = "day")
+round_date(dt, unit = "month")
+```
+
+These operations are useful for aggregation and reporting.
+
+------------------------------------------------------------------------
+
+## Dates and Times in Data Frames
+
+Dates often appear as character variables when imported.
+
+``` r
+data <- data.frame(
+  ID = 1:3,
+  VisitDate = c("2024-01-01", "2024-02-15", "2024-03-10")
+)
+
+data$VisitDate <- ymd(data$VisitDate)
+```
+
+Converting early in the workflow is considered best practice.
+
+------------------------------------------------------------------------
+
+## Dates in Analysis and Visualization
+
+Dates are commonly used in grouping and plotting.
+
+``` r
+data %>%
+  mutate(Month = month(VisitDate)) %>%
+  group_by(Month) %>%
+  summarise(Count = n())
+```
+
+Temporal aggregation is a key step in time-based analysis.
+
+------------------------------------------------------------------------
+
+## Common Issues with Dates and Times
+
+-   Incorrect date formats
+-   Implicit time zone conversions
+-   Treating dates as characters
+-   Ignoring daylight saving time
+
+Careful inspection and explicit conversion help avoid these issues.
+
+------------------------------------------------------------------------
+
+## Best Practices for Working with Dates and Times
+
+-   Convert date variables immediately after import
+-   Use ISO formats whenever possible
+-   Prefer `lubridate` for clarity and safety
+-   Always be explicit about time zones
+-   Validate transformations using summaries and plots
+
+------------------------------------------------------------------------
+
+## Summary
+
+This chapter introduced how to **work with dates and times in R**. You learned:
+
+-   Date and time classes in R
+-   Creating and manipulating Date and POSIX objects
+-   Using `lubridate` for parsing and extraction
+-   Handling time zones and intervals
+-   Applying date-time operations in data analysis
+
+Correct handling of dates and times is essential for reliable statistical analysis, particularly in longitudinal and time-based studies.

@@ -1,0 +1,223 @@
+# Data Transformation in R
+
+## Introduction
+
+Data transformation is the process of **modifying data to make it suitable for analysis, modeling, and interpretation**. After importing, tidying, and manipulating data, analysts often need to transform variables to improve interpretability, meet statistical assumptions, or derive new insights.
+
+In statistics and data science, data transformation is not merely a technical step—it is an **analytical decision**. This chapter introduces the most common data transformation techniques in R, with an emphasis on understanding *why* transformations are applied, not just *how* they are implemented.
+
+---
+
+## Why Data Transformation Is Necessary
+
+Real-world data frequently exhibits issues such as:
+
+* Skewed distributions
+* Outliers
+* Inconsistent scales
+* Categorical variables encoded numerically
+* Variables measured in inconvenient units
+
+Data transformation helps to:
+
+* Improve model performance
+* Satisfy statistical assumptions
+* Enhance interpretability
+* Enable meaningful comparisons
+* Prepare data for visualization and reporting
+
+---
+
+## Creating New Variables
+
+One of the most common transformations is the creation of new variables from existing ones.
+
+```r
+data <- data.frame(
+  Salary = c(25000, 40000, 60000),
+  Experience = c(2, 5, 10)
+)
+
+data$AnnualSalary <- data$Salary * 12
+data
+```
+
+Derived variables often carry more analytical meaning than raw measurements.
+
+---
+
+## Mathematical Transformations
+
+### Log Transformation
+
+Logarithmic transformations are used to reduce skewness and stabilize variance.
+
+```r
+data$LogSalary <- log(data$Salary)
+```
+
+Log transformations are common in income, clinical, and biological data.
+
+### Square Root Transformation
+
+```r
+data$SqrtSalary <- sqrt(data$Salary)
+```
+
+Square root transformations are useful for count data and moderately skewed variables.
+
+---
+
+## Standardization and Scaling
+
+Variables measured on different scales often need to be standardized.
+
+### Standardization (Z-score)
+
+```r
+data$Salary_z <- scale(data$Salary)
+```
+
+Standardized variables have mean 0 and standard deviation 1.
+
+### Min–Max Scaling
+
+```r
+min_max <- function(x) {
+  (x - min(x)) / (max(x) - min(x))
+}
+
+data$Salary_scaled <- min_max(data$Salary)
+```
+
+Scaling is essential in machine learning and distance-based methods.
+
+---
+
+## Recoding Variables
+
+Recoding replaces existing values with more meaningful or simplified categories.
+
+```r
+data$Level <- ifelse(data$Experience < 3, "Junior",
+                     ifelse(data$Experience < 8, "Mid", "Senior"))
+```
+
+Recoding is especially common in survey and categorical data.
+
+---
+
+## Transforming Categorical Variables
+
+Categorical variables often require transformation before analysis.
+
+```r
+data$Level <- factor(data$Level,
+                     levels = c("Junior", "Mid", "Senior"))
+```
+
+Proper ordering of factor levels is important for modeling and visualization.
+
+---
+
+## Handling Outliers Through Transformation
+
+Transformations can reduce the influence of extreme values.
+
+```r
+boxplot(data$Salary)
+```
+
+Applying a log transformation:
+
+```r
+boxplot(log(data$Salary))
+```
+
+This often results in a more symmetric distribution.
+
+---
+
+## Conditional Transformations
+
+Conditional logic allows transformations based on rules.
+
+```r
+data$Bonus <- ifelse(data$Salary > 50000,
+                     data$Salary * 0.10,
+                     data$Salary * 0.05)
+```
+
+Such transformations are common in policy-based or business-rule-driven analyses.
+
+---
+
+## Transformations Using dplyr
+
+Most transformations are performed using `mutate()` in tidyverse workflows.
+
+```r
+library(dplyr)
+
+data <- data %>%
+  mutate(
+    AnnualSalary = Salary * 12,
+    LogSalary = log(Salary),
+    Level = case_when(
+      Experience < 3 ~ "Junior",
+      Experience < 8 ~ "Mid",
+      TRUE ~ "Senior"
+    )
+  )
+```
+
+This approach improves readability and reproducibility.
+
+---
+
+## Transformations for Visualization
+
+Transforming data before plotting can reveal hidden patterns.
+
+```r
+hist(data$Salary)
+hist(log(data$Salary))
+```
+
+Choosing appropriate transformations is a key part of exploratory data analysis.
+
+---
+
+## Common Mistakes in Data Transformation
+
+* Applying transformations without justification
+* Forgetting to handle zero or negative values in log transforms
+* Overwriting original variables
+* Ignoring interpretability after transformation
+
+Maintaining both original and transformed variables is often best practice.
+
+---
+
+## Best Practices for Data Transformation
+
+* Understand the purpose of each transformation
+* Keep transformations simple and interpretable
+* Document transformations clearly
+* Apply transformations consistently
+* Validate results visually and numerically
+
+---
+
+## Summary
+
+This chapter introduced the concept and practice of **data transformation in R**. You learned how to:
+
+* Create derived variables
+* Apply mathematical transformations
+* Standardize and scale data
+* Recode and transform categorical variables
+* Handle outliers through transformation
+* Perform transformations using tidyverse workflows
+
+Data transformation is a critical step that connects raw data to meaningful statistical analysis and modeling.

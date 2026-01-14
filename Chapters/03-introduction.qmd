@@ -1,0 +1,311 @@
+# Introduction to R and RStudio
+
+## What is R?
+
+R is a**programming language and software environment**designed primarily for**statistical computing, data analysis, and visualization**. It is widely used in academia, research institutions, government organizations, and industry for tasks ranging from simple data summaries to advanced machine learning and reproducible research.
+
+Key characteristics of R include:
+
+-   **Open-source and free**: Anyone can use, modify, and distribute R.
+
+-   **Strong statistical foundation**: Built by statisticians for statistical work.
+
+-   **Extensive package ecosystem**: Thousands of user-contributed packages extend R’s capabilities.
+
+-   **Excellent graphics**: R is known for high-quality, publication-ready visualizations.
+
+-   **Reproducibility**: Scripts and documents ensure analyses can be repeated and verified.
+
+In this workshop, R will be used as a**tool for thinking with data**, not just a calculator. You will learn how to write clear, reusable code that performs data analysis systematically.
+
+------------------------------------------------------------------------
+
+## Why Use R for Data Analysis?
+
+R is especially well-suited for data analysis because it combines**data manipulation, statistical modeling, and visualization**in one environment.
+
+### Advantages of R
+
+-   Handles**small to very large datasets**efficiently
+
+-   Supports**classical statistics, modern data science, and machine learning**
+
+-   Encourages**script-based analysis**, reducing manual errors
+
+-   Integrates well with reports (PDF, Word, HTML) through**Quarto and R Markdown**
+
+-   Strong community support and documentation
+
+### Typical Use Cases
+
+-   Exploratory Data Analysis (EDA)
+
+-   Statistical inference and hypothesis testing
+
+-   Regression and multivariate analysis
+
+-   Time series and forecasting
+
+-   Data visualization and dashboards
+
+-   Academic research and thesis work
+
+------------------------------------------------------------------------
+
+## Installing R
+
+R itself is the**core engine**that performs computations.
+
+### Steps to Install R
+
+1.  Visit the official Comprehensive R Archive Network (CRAN):[https://cran.r-project.org](https://cran.r-project.org/)
+
+2.  Choose your operating system (Windows / macOS / Linux)
+
+3.  Download and install the latest stable version
+
+After installation, R can be run from the system console. However, working directly in the R console is not ideal for beginners or large projects. This is where**RStudio**becomes essential.
+
+------------------------------------------------------------------------
+
+## What is RStudio?
+
+RStudio is an**Integrated Development Environment (IDE)**for R. It makes working with R easier, faster, and more organized.
+
+RStudio does**not replace R**. Instead:
+
+> R does the computation, and RStudio provides a user-friendly interface to work with R.
+
+### Why Use RStudio?
+
+-   Code editor with syntax highlighting
+
+-   Easy file and project management
+
+-   Built-in help and documentation
+
+-   Integrated plotting and visualization
+
+-   Seamless support for Quarto documents
+
+------------------------------------------------------------------------
+
+## Understanding the RStudio Interface
+
+When you open RStudio, you typically see**four panes**:
+
+### 1. Script Editor (Top-Left)
+
+-   Where you write and save R code
+
+-   Supports`.R`scripts and`.qmd`Quarto files
+
+-   Code is written once and executed many times
+
+### 2. Console (Bottom-Left)
+
+-   Where R executes commands
+
+-   Displays output, messages, and errors
+
+-   Useful for quick calculations and testing code
+
+### 3. Environment / History (Top-Right)
+
+-   Shows objects currently in memory
+
+-   Displays datasets, variables, and functions
+
+-   Helps track what data is loaded
+
+### 4. Files / Plots / Help / Viewer (Bottom-Right)
+
+-   File browser for project files
+
+-   Plot display window
+
+-   Help documentation for functions
+
+-   Viewer for Quarto and HTML outputs
+
+Understanding these panes is crucial for efficient workflow in R.
+
+------------------------------------------------------------------------
+
+## Your First Interaction with R
+
+Let us start with very simple commands.
+
+### Using R as a Calculator
+
+```{r}
+2 + 3
+10 / 2
+5^2
+```
+
+R immediately evaluates expressions and returns results.
+
+### Assigning Values to Objects
+
+```{r}
+x <- 10
+y <- 5
+x + y
+```
+
+Here:
+
+-   `<-`is the**assignment operator**
+
+-   `x`and`y`are objects stored in memory
+
+Object-based thinking is fundamental in R.
+
+------------------------------------------------------------------------
+
+## Basic Data Types in R
+
+R works with different types of data. The most common ones are:
+
+-   **Numeric**: Numbers (e.g., 10, 3.5)
+
+-   **Character**: Text (e.g., "Statistics")
+
+-   **Logical**: TRUE or FALSE
+
+Examples:
+
+```{r}
+age <- 21
+name <- "Anita"
+passed <- TRUE
+```
+
+You can check the type of an object using:
+
+```{r}
+class(age)
+class(name)
+class(passed)
+```
+
+------------------------------------------------------------------------
+
+## Vectors: The Core Data Structure
+
+A vector is a**collection of values of the same type**.
+
+```{r}
+marks <- c(78, 85, 90, 88)
+names <- c("A", "B", "C")
+```
+
+Key points:
+
+-   `c()`stands for*combine*
+
+-   All elements in a vector must be of the same type
+
+-   Vectors are the building blocks of most R data structures
+
+------------------------------------------------------------------------
+
+## Working Directory and Projects
+
+The**working directory**is the default location where R reads and saves files.
+
+``` r
+getwd()
+setwd("path/to/your/folder")
+```
+
+However, changing directories manually is discouraged.
+
+### RStudio Projects (Recommended)
+
+-   Create a project for each workshop, assignment, or research work
+
+-   Keeps scripts, data, and outputs organized
+
+-   Ensures reproducibility across systems
+
+------------------------------------------------------------------------
+
+## Introduction to Quarto
+
+Quarto is a**next-generation scientific and technical publishing system**that allows you to combine:
+
+-   R code
+
+-   Text explanation
+
+-   Tables and figures
+
+into a**single, reproducible document**.
+
+### Why Quarto for This Workshop?
+
+-   Generates**PDF, HTML, and Word**outputs
+
+-   Ideal for teaching, reports, and books
+
+-   Supports executable R code chunks
+
+Example of an R code chunk in Quarto:
+
+summary(c(10, 20, 30, 40))
+
+------------------------------------------------------------------------
+
+## How This Book Is Structured
+
+This Quarto book is designed for**beginners**and progresses gradually:
+
+1.  Basics of R and RStudio
+
+2.  Data structures and data import
+
+3.  Data manipulation and visualization
+
+4.  Statistical analysis
+
+5.  Reproducible reporting with Quarto
+
+Each chapter includes:
+
+-   Clear explanations
+
+-   Annotated examples
+
+-   Practice exercises
+
+------------------------------------------------------------------------
+
+## Best Practices for Learning R
+
+-   Type the code yourself instead of copy–paste
+
+-   Read error messages carefully
+
+-   Experiment with small examples
+
+-   Save scripts regularly
+
+-   Ask*why*a result occurs, not just*what*it is
+
+Learning R is not about memorizing commands, but about developing**data analysis thinking**.
+
+------------------------------------------------------------------------
+
+## Getting Help
+
+R has extensive built-in help and a supportive community. Here are some ways to get help: - **Help files**: Use `?function_name` or `help(function_name)` to access documentation for any function. For example:
+
+```{r}
+?mean
+```
+
+-   **RStudio Help Pane**: Use the Help pane in RStudio to search for functions and topics.
+-   **Online Resources**: Websites like Stack Overflow, R-bloggers, and the RStudio Community are great places to ask questions and find solutions.
+-   **Books and Tutorials**: There are many free and paid resources available for learning R. Remember, seeking help is a normal part of learning programming!

@@ -1,0 +1,249 @@
+# Data Visualization with ggplot2
+
+## Introduction
+
+Data visualization is a fundamental component of data analysis. Well-designed graphics help us **explore patterns**, **identify relationships**, **detect anomalies**, and **communicate results effectively**. In statistical analysis, visualizations often reveal insights that numerical summaries alone cannot capture.
+
+The **`ggplot2`** package is the most widely used visualization system in R. It is part of the tidyverse and is based on the **Grammar of Graphics**, a systematic approach to describing and building plots. This chapter introduces `ggplot2` conceptually and practically, focusing on clear explanations and progressively richer examples.
+
+---
+
+## Why ggplot2?
+
+Unlike traditional plotting systems that focus on individual plot types, `ggplot2` focuses on **building plots layer by layer**. This approach offers several advantages:
+
+* Consistent syntax across different plot types
+* High-quality, publication-ready graphics
+* Seamless integration with tidy data and `dplyr`
+* Easy customization and extension
+
+The guiding idea is simple:
+
+> *A plot is constructed by mapping data to visual properties and adding geometric layers.*
+
+---
+
+## Installing and Loading ggplot2
+
+```r
+install.packages("ggplot2")
+library(ggplot2)
+```
+
+When the tidyverse is loaded, `ggplot2` is loaded automatically.
+
+---
+
+## The Grammar of Graphics: Core Concepts
+
+Every `ggplot2` visualization is built from the same core components:
+
+* **Data** – the dataset being visualized
+* **Aesthetic mappings (`aes`)** – how variables are mapped to visual properties
+* **Geometric objects (`geoms`)** – the type of plot
+* **Statistical transformations** – summaries applied to the data
+* **Scales** – control how data values map to aesthetics
+* **Coordinates** – the coordinate system used
+* **Facets** – small multiples for subplots
+
+Understanding these ideas allows you to create almost any statistical graphic.
+
+---
+
+## Creating Your First ggplot
+
+A `ggplot2` plot begins with the `ggplot()` function.
+
+```r
+ggplot(data = mtcars, aes(x = wt, y = mpg))
+```
+
+At this stage, nothing is displayed because no geometric layer has been added.
+
+---
+
+## Scatter Plots with `geom_point()`
+
+Scatter plots are useful for examining relationships between two numeric variables.
+
+```r
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point()
+```
+
+### Adding Aesthetics
+
+```r
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3)
+```
+
+Here, the number of cylinders is mapped to color, revealing group-wise patterns.
+
+---
+
+## Line Plots with `geom_line()`
+
+Line plots are commonly used for time series or ordered data.
+
+```r
+ggplot(economics, aes(x = date, y = unemploy)) +
+  geom_line()
+```
+
+---
+
+## Bar Charts with `geom_bar()` and `geom_col()`
+
+### Bar Chart for Counts
+
+```r
+ggplot(mtcars, aes(x = factor(cyl))) +
+  geom_bar()
+```
+
+### Bar Chart for Precomputed Values
+
+```r
+avg_mpg <- mtcars %>%
+  group_by(cyl) %>%
+  summarise(avg_mpg = mean(mpg))
+
+ggplot(avg_mpg, aes(x = factor(cyl), y = avg_mpg)) +
+  geom_col()
+```
+
+---
+
+## Histograms and Density Plots
+
+### Histogram
+
+```r
+ggplot(mtcars, aes(x = mpg)) +
+  geom_histogram(bins = 10)
+```
+
+### Density Plot
+
+```r
+ggplot(mtcars, aes(x = mpg)) +
+  geom_density()
+```
+
+These plots help understand the distribution of a variable.
+
+---
+
+## Boxplots and Violin Plots
+
+Boxplots summarize distributions across groups.
+
+```r
+ggplot(mtcars, aes(x = factor(cyl), y = mpg)) +
+  geom_boxplot()
+```
+
+Violin plots display the full distribution shape.
+
+```r
+ggplot(mtcars, aes(x = factor(cyl), y = mpg)) +
+  geom_violin()
+```
+
+---
+
+## Faceting: Small Multiples
+
+Faceting allows the same plot to be repeated for different subsets of data.
+
+```r
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  facet_wrap(~ cyl)
+```
+
+This technique is powerful for comparative analysis.
+
+---
+
+## Labels and Titles
+
+```r
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  labs(
+    title = "Fuel Efficiency vs Weight",
+    x = "Weight",
+    y = "Miles per Gallon",
+    color = "Cylinders"
+  )
+```
+
+Clear labeling is essential for effective communication.
+
+---
+
+## Themes and Appearance
+
+Themes control the non-data components of a plot.
+
+```r
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  theme_minimal()
+```
+
+Common themes include `theme_bw()`, `theme_classic()`, and `theme_minimal()`.
+
+---
+
+## Customizing Scales
+
+```r
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point() +
+  scale_color_brewer(palette = "Set1")
+```
+
+Scales allow fine control over colors, axes, and legends.
+
+---
+
+## Combining ggplot2 with dplyr
+
+A typical workflow combines data manipulation and visualization.
+
+```r
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(avg_mpg = mean(mpg)) %>%
+  ggplot(aes(x = factor(cyl), y = avg_mpg)) +
+  geom_col()
+```
+
+This integration is one of the major strengths of the tidyverse.
+
+---
+
+## Best Practices for Statistical Graphics
+
+* Start with simple plots and add complexity gradually
+* Always label axes and legends clearly
+* Avoid unnecessary visual clutter
+* Choose appropriate plot types for the data
+* Ensure plots are reproducible and interpretable
+
+---
+
+## Summary
+
+This chapter introduced **data visualization using `ggplot2`**. You learned:
+
+* The philosophy of the Grammar of Graphics
+* How to build plots layer by layer
+* Common plot types and their use cases
+* Faceting, themes, and customization
+* Integration with tidyverse workflows
+
+Effective visualization is essential for statistical analysis and communication. In the next chapter, we will focus on **Exploratory Data Analysis (EDA)**, where numerical summaries and visualizations are combined to understand data comprehensively.

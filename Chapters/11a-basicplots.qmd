@@ -1,0 +1,239 @@
+# Basic Plots in R (Base Graphics)
+
+## Introduction
+
+Before the development of advanced visualization systems such as `ggplot2`, R provided a powerful built-in plotting system known as **base graphics**. Even today, base R plots remain widely used due to their **simplicity, speed, and flexibility**, especially for quick exploratory analysis and teaching fundamental graphical concepts.
+
+This chapter introduces the **basic plotting functions in R**, explains how they work, and demonstrates how to customize plots using base graphics. Understanding base plots is important for building strong visualization fundamentals and for interpreting legacy R code commonly found in academic and research settings.
+
+------------------------------------------------------------------------
+
+## The Base Graphics System in R
+
+Base graphics in R follow a **pen-and-paper model**:
+
+-   A plot is created first
+-   Additional elements are added layer by layer
+
+Once a plot is drawn, it cannot be easily modified; instead, it must be redrawn. This contrasts with `ggplot2`, which builds plots declaratively.
+
+------------------------------------------------------------------------
+
+## The `plot()` Function
+
+The `plot()` function is the most fundamental plotting function in R. Its behavior depends on the type of data provided.
+
+### Scatter Plot
+
+``` r
+x <- c(1, 2, 3, 4, 5)
+y <- c(2, 4, 6, 8, 10)
+plot(x, y)
+```
+
+This produces a scatter plot showing the relationship between `x` and `y`.
+
+### Plotting a Single Vector
+
+``` r
+plot(y)
+```
+
+When a single vector is provided, R plots the values against their index.
+
+------------------------------------------------------------------------
+
+## Customizing Plots
+
+Base R plots can be customized using graphical parameters.
+
+``` r
+plot(x, y,
+     main = "Simple Scatter Plot",
+     xlab = "X values",
+     ylab = "Y values",
+     col = "blue",
+     pch = 19)
+```
+
+Common parameters include:
+
+-   `main` – title of the plot
+-   `xlab`, `ylab` – axis labels
+-   `col` – color
+-   `pch` – plotting symbol
+
+------------------------------------------------------------------------
+
+## Line Plots
+
+Line plots are useful for showing trends and time-based data.
+
+``` r
+plot(x, y, type = "l")
+```
+
+To add both points and lines:
+
+``` r
+plot(x, y, type = "b")
+```
+
+------------------------------------------------------------------------
+
+## Adding Elements to an Existing Plot
+
+Additional elements can be added using separate functions.
+
+### Adding Points
+
+``` r
+plot(x, y, type = "l")
+points(x, y, pch = 16)
+```
+
+### Adding Lines
+
+``` r
+plot(x, y)
+lines(x, y, col = "red")
+```
+
+### Adding Text
+
+``` r
+text(x, y, labels = y)
+```
+
+------------------------------------------------------------------------
+
+## Histograms
+
+Histograms display the distribution of a numeric variable.
+
+``` r
+hist(mtcars$mpg)
+```
+
+Customized histogram:
+
+``` r
+hist(mtcars$mpg,
+     breaks = 10,
+     col = "lightgray",
+     main = "Histogram of MPG",
+     xlab = "Miles per Gallon")
+```
+
+------------------------------------------------------------------------
+
+## Boxplots
+
+Boxplots summarize the distribution of data using quartiles.
+
+``` r
+boxplot(mtcars$mpg)
+```
+
+Grouped boxplot:
+
+``` r
+boxplot(mpg ~ cyl, data = mtcars,
+        main = "MPG by Number of Cylinders",
+        xlab = "Cylinders",
+        ylab = "Miles per Gallon")
+```
+
+------------------------------------------------------------------------
+
+## Bar Plots
+
+Bar plots are used for categorical data or summarized values.
+
+``` r
+counts <- table(mtcars$cyl)
+barplot(counts)
+```
+
+Customized bar plot:
+
+``` r
+barplot(counts,
+        col = "steelblue",
+        main = "Car Counts by Cylinders",
+        xlab = "Cylinders",
+        ylab = "Frequency")
+```
+
+------------------------------------------------------------------------
+
+## Pie Charts
+
+Pie charts show proportions of categories.
+
+``` r
+pie(counts)
+```
+
+Although easy to create, pie charts are generally discouraged in statistical analysis due to difficulty in comparing values accurately.
+
+------------------------------------------------------------------------
+
+## Multiple Plots in One Window
+
+The `par()` function allows multiple plots to be displayed together.
+
+``` r
+par(mfrow = c(2, 2))
+plot(mtcars$mpg)
+hist(mtcars$mpg)
+boxplot(mtcars$mpg)
+barplot(counts)
+```
+
+Reset layout after plotting:
+
+``` r
+par(mfrow = c(1, 1))
+```
+
+------------------------------------------------------------------------
+
+## Saving Plots to Files
+
+Plots can be saved using graphical devices.
+
+``` r
+png("scatter_plot.png")
+plot(x, y)
+dev.off()
+```
+
+Common devices include `png()`, `pdf()`, and `jpeg()`.
+
+------------------------------------------------------------------------
+
+## When to Use Base R Plots
+
+Base plots are especially useful for:
+
+-   Quick exploratory analysis
+-   Teaching fundamental plotting concepts
+-   Simple visualizations without heavy customization
+-   Working with legacy R scripts
+
+For complex, publication-quality graphics, `ggplot2` is generally preferred.
+
+------------------------------------------------------------------------
+
+## Summary
+
+This chapter introduced **basic plotting in R using base graphics**. You learned how to:
+
+-   Create scatter, line, histogram, box, bar, and pie plots
+-   Customize plot appearance
+-   Add elements to existing plots
+-   Arrange multiple plots
+-   Save plots to external files
+
+Understanding base R graphics provides a strong foundation for advanced visualization techniques and helps in interpreting a wide range of existing R code.

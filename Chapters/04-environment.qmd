@@ -1,0 +1,147 @@
+# R Environment, Syntax, and Operators
+
+## Introduction
+
+Before performing any data analysis, it is essential to ensure that the R environment is correctly installed and functioning. This chapter introduces the basic diagnostics for the R environment, followed by a detailed discussion of R syntax, assignment operators, variable naming conventions, and arithmetic operations. These concepts form the foundation for writing clear and correct R programs.
+
+------------------------------------------------------------------------
+
+## R Environment Diagnostic Checks
+
+A properly configured R environment ensures smooth execution of scripts and reproducible results.
+
+### Checking the R Version
+
+```{r}
+R.version.string
+```
+
+This command displays the installed R version. Using an up-to-date version of R is recommended for compatibility with modern packages.
+
+### Testing Package Installation
+
+```{r}
+install.packages("ggplot2")
+```
+
+Successful installation confirms that R can access CRAN repositories and install external packages.
+
+### Verifying Basic Computation
+
+```{r}
+(50 + 50) / 2
+```
+
+This simple arithmetic check confirms that the R interpreter is functioning correctly.
+
+### Checking TinyTeX Installation
+
+```{r}
+tinytex::is_tinytex()
+```
+
+TinyTeX is required for generating PDF outputs from Quarto documents. This command verifies its availability.
+
+------------------------------------------------------------------------
+
+## Assignment Operators in R
+
+R provides multiple ways to assign values to objects.
+
+```{r}
+x <- 5
+y = 10
+11 -> z
+```
+
+-   `<-`is the**recommended assignment operator**in R
+
+-   `=`is commonly used but should be avoided in complex expressions
+
+-   `->`assigns values from right to left
+
+### Global Assignment Operator
+
+```{r}
+z <<- 15
+```
+
+The`<<-`operator assigns a value to a variable in the global environment. Its use should be limited, as it can make code harder to debug.
+
+------------------------------------------------------------------------
+
+## Variable Naming Conventions
+
+Valid variable names in R:
+
+```{r}
+var1 <- 10
+var_2 <- 20
+var.3 <- 30
+Var4 <- 40
+varFive <- 50
+```
+
+Key rules:
+
+-   Variable names are**case-sensitive**
+
+-   They may contain letters, numbers, dots (`.`), and underscores (`_`)
+
+-   They must not begin with a number
+
+Invalid variable names contain spaces or special characters and will produce errors.
+
+------------------------------------------------------------------------
+
+## Fundamental R Syntax
+
+R syntax is flexible and generally ignores whitespace.
+
+```{r}
+x <- 10
+y <- 20
+z <- x + y
+
+a = 5; b = 15; c = a * b
+d=x-y
+e = x * y; f = x / y
+```
+
+Although whitespace is optional,**consistent formatting**improves readability and maintainability.
+
+------------------------------------------------------------------------
+
+## Basic Arithmetic Operations
+
+R supports all standard arithmetic operations.
+
+```{r}
+5 + 3      # Addition
+10 - 4     # Subtraction
+6 * 7      # Multiplication
+20 / 5     # Division
+2 ^ 3      # Exponentiation
+10 %% 3    # Modulus
+10 %/% 3   # Integer division
+```
+
+These operations are frequently used in data transformation and statistical computation.
+
+------------------------------------------------------------------------
+
+## Summary
+
+In this chapter, you learned how to:
+
+-   Verify and diagnose the R environment
+
+-   Use different assignment operators
+
+-   Apply valid variable naming conventions
+
+-   Understand fundamental R syntax
+
+-   Perform arithmetic operations in R
+
+These basics are essential for writing correct and efficient R programs. The next chapter explores**data types and type conversion**, which are crucial for understanding how R stores and processes data.

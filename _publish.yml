@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: f6d58688-5394-4771-b4c7-60b03ca2838c
+      url: https://mdivakaran.quarto.pub/r4datascience

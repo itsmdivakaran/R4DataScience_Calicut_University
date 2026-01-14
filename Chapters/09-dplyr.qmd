@@ -1,0 +1,294 @@
+# Data Manipulation with dplyr
+
+## Introduction
+
+Once data has been imported into R, the next crucial step is **data manipulation**. Real-world datasets are rarely analysis-ready. They often contain unnecessary variables, missing values, inconsistent coding, or require transformation before statistical analysis can be performed.
+
+The **`dplyr`** package provides a powerful, consistent, and readable set of tools for data manipulation. It is part of the **tidyverse**, a collection of R packages designed to make data science tasks intuitive and efficient. This chapter focuses on understanding the philosophy of `dplyr`, its core verbs, and their practical application through extensive examples.
+
+---
+
+## Why Use dplyr?
+
+Traditional base R functions are powerful but can become complex and difficult to read when performing multiple operations. `dplyr` improves clarity by:
+
+* Using **simple, consistent verbs**
+* Allowing operations to be expressed as a sequence of steps
+* Producing readable and maintainable code
+* Integrating seamlessly with data frames and tibbles
+
+The guiding idea behind `dplyr` is:
+
+> *Each function performs one clear data manipulation task.*
+
+---
+
+## Installing and Loading dplyr
+
+```r
+install.packages("dplyr")
+library(dplyr)
+```
+
+Most modern R installations already include `dplyr` as part of the tidyverse.
+
+---
+
+## The Pipe Operator `%>%`
+
+One of the defining features of `dplyr` is the **pipe operator** `%>%`. It allows the output of one function to be passed directly as the input to the next.
+
+### Without Pipe
+
+```r
+summary(head(data))
+```
+
+### With Pipe
+
+```r
+data %>%
+  head() %>%
+  summary()
+```
+
+The pipe makes code easier to read by expressing operations **from left to right**, similar to how we describe analysis steps in words.
+
+---
+
+## Selecting Variables with `select()`
+
+The `select()` function is used to choose specific columns from a data frame.
+
+```r
+data %>%
+  select(Name, Age, Salary)
+```
+
+### Selecting by Position
+
+```r
+data %>%
+  select(1:3)
+```
+
+### Excluding Variables
+
+```r
+data %>%
+  select(-Salary)
+```
+
+### Helper Functions
+
+```r
+data %>%
+  select(starts_with("Age"))
+```
+
+Common helpers include `starts_with()`, `ends_with()`, `contains()`, and `matches()`.
+
+---
+
+## Filtering Observations with `filter()`
+
+The `filter()` function extracts rows that satisfy logical conditions.
+
+```r
+data %>%
+  filter(Age > 30)
+```
+
+### Multiple Conditions
+
+```r
+data %>%
+  filter(Age > 30 & Gender == "Male")
+```
+
+### Using Logical OR
+
+```r
+data %>%
+  filter(Department == "HR" | Department == "Finance")
+```
+
+### Handling Missing Values
+
+```r
+data %>%
+  filter(!is.na(Salary))
+```
+
+---
+
+## Creating and Transforming Variables with `mutate()`
+
+The `mutate()` function creates new variables or modifies existing ones.
+
+```r
+data %>%
+  mutate(Bonus = Salary * 0.10)
+```
+
+### Multiple Transformations
+
+```r
+data %>%
+  mutate(
+    Bonus = Salary * 0.10,
+    AnnualSalary = Salary * 12
+  )
+```
+
+### Conditional Variables with `ifelse()`
+
+```r
+data %>%
+  mutate(Performance = ifelse(Salary > 50000, "High", "Average"))
+```
+
+---
+
+## Arranging Rows with `arrange()`
+
+The `arrange()` function sorts data.
+
+```r
+data %>%
+  arrange(Salary)
+```
+
+### Descending Order
+
+```r
+data %>%
+  arrange(desc(Salary))
+```
+
+---
+
+## Summarising Data with `summarise()`
+
+The `summarise()` function reduces multiple values into summary statistics.
+
+```r
+data %>%
+  summarise(
+    AverageSalary = mean(Salary, na.rm = TRUE),
+    MaxSalary = max(Salary, na.rm = TRUE)
+  )
+```
+
+---
+
+## Grouped Operations with `group_by()`
+
+The true power of `dplyr` lies in grouped analysis.
+
+```r
+data %>%
+  group_by(Department) %>%
+  summarise(
+    AvgSalary = mean(Salary, na.rm = TRUE),
+    Count = n()
+  )
+```
+
+Grouped operations are fundamental in statistical reporting and exploratory analysis.
+
+---
+
+## Counting Observations
+
+```r
+data %>%
+  count(Gender)
+```
+
+Equivalent to grouping and counting in one step.
+
+---
+
+## Renaming Variables with `rename()`
+
+```r
+data %>%
+  rename(
+    MonthlySalary = Salary,
+    EmployeeAge = Age
+  )
+```
+
+---
+
+## Removing Duplicate Rows with `distinct()`
+
+```r
+data %>%
+  distinct(EmployeeID, .keep_all = TRUE)
+```
+
+---
+
+## Combining Multiple dplyr Verbs
+
+A typical real-world workflow:
+
+```r
+data %>%
+  filter(!is.na(Salary)) %>%
+  mutate(AnnualSalary = Salary * 12) %>%
+  group_by(Department) %>%
+  summarise(
+    AvgAnnualSalary = mean(AnnualSalary),
+    Employees = n()
+  ) %>%
+  arrange(desc(AvgAnnualSalary))
+```
+
+This example demonstrates how complex analysis can be expressed in a clear, step-by-step pipeline.
+
+---
+
+## Working with Missing Values
+
+```r
+data %>%
+  summarise(MissingSalary = sum(is.na(Salary)))
+```
+
+Handling missing data explicitly is a critical step before any statistical modeling.
+
+---
+
+## Converting to Tibble
+
+```r
+data_tbl <- as_tibble(data)
+```
+
+Tibbles provide improved printing and stricter behavior compared to base data frames.
+
+---
+
+## Best Practices for Data Manipulation
+
+* Always inspect data before and after manipulation
+* Avoid overwriting original datasets
+* Use clear variable names
+* Break complex pipelines into readable steps
+* Comment your code when logic is not obvious
+
+---
+
+## Summary
+
+This chapter introduced the principles and practical usage of `dplyr` for data manipulation. You learned how to:
+
+* Select and filter data
+* Create and transform variables
+* Summarise and group data
+* Combine multiple operations using pipes
+
+Mastering `dplyr` is essential for efficient data analysis in R. The next chapter will focus on **data visualization using `ggplot2`**, where manipulated data is transformed into meaningful graphical representations.

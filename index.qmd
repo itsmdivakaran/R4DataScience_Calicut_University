@@ -1,0 +1,159 @@
+# Introduction
+
+## R for Data Analysis: From Fundamentals to Advanced Applications
+
+**A Course Offered by the Department of Statistics, University of Calicut**
+
+------------------------------------------------------------------------
+
+## About This Book
+
+This book, *R for Data Analysis: From Fundamentals to Advanced Applications*, has been developed by Mahesh Divakaran as part of an certificate course offered by the **Department of Statistics, University of Calicut**. It is designed to serve as a **comprehensive learning resource** for students who wish to build strong practical and theoretical skills in data analysis using the R programming language.
+
+The material is written in the form of a **Quarto book**, enabling seamless integration of explanations, executable R code, figures, and outputs in a single reproducible document. This approach reflects modern statistical practice, where analysis, interpretation, and reporting are inseparable.
+
+------------------------------------------------------------------------
+
+## Motivation for the Course
+
+In today’s data-driven world, statistics is no longer confined to theory alone. Statisticians are expected to:
+
+-   Handle real-world datasets
+
+-   Perform exploratory and confirmatory data analysis
+
+-   Apply appropriate statistical models
+
+-   Communicate results clearly and reproducibly
+
+R has emerged as one of the most powerful and widely used tools to meet these demands. This course is motivated by the need to **bridge the gap between statistical theory and practical data analysis**, enabling students to translate classroom concepts into real analytical workflows.
+
+------------------------------------------------------------------------
+
+## Why R for Data Analysis?
+
+R is a language developed by statisticians, for statisticians. Its design philosophy aligns closely with statistical thinking and data-centric problem solving.
+
+Key reasons for choosing R as the primary tool in this course include:
+
+-   A rich ecosystem for statistical methods and modeling
+
+-   Strong support for data visualization and exploratory analysis
+
+-   Open-source nature and global community support
+
+-   Integration of computation, graphics, and reporting
+
+-   Wide acceptance in academia, research, and industry
+
+By learning R, students gain a **transferable skill** that is relevant across disciplines such as economics, health sciences, social sciences, environmental studies, and machine learning.
+
+------------------------------------------------------------------------
+
+## Course Philosophy and Learning Approach
+
+This course adopts a **hands-on, example-driven learning approach**. Rather than treating R as a collection of commands to memorize, the emphasis is on:
+
+-   Understanding data structures and workflows
+
+-   Writing clear, readable, and reusable code
+
+-   Interpreting results in a statistical context
+
+-   Developing reproducible analysis habits
+
+Each concept is introduced with intuition, followed by practical examples and gradually extended to more complex applications. Errors, warnings, and unexpected outputs are treated as learning opportunities rather than obstacles.
+
+------------------------------------------------------------------------
+
+## Intended Audience
+
+This book is primarily intended for:
+
+-   Undergraduate and postgraduate students of Statistics
+
+-   Students from allied disciplines with a quantitative background
+
+-   Beginners with little or no prior programming experience
+
+A basic understanding of statistics will be helpful, but **no prior knowledge of R or programming is assumed**. The material progresses from fundamental concepts to advanced analytical techniques in a structured manner.
+
+------------------------------------------------------------------------
+
+## Course Structure and Progression
+
+The book is organized to support **progressive learning**, moving from foundational concepts to advanced applications.
+
+Broadly, the course covers:
+
+1.  Introduction to R, RStudio, and the computing environment
+
+2.  Core data structures and data handling in R
+
+3.  Data import, cleaning, and transformation
+
+4.  Exploratory data analysis and visualization
+
+5.  Statistical modeling and inference
+
+6.  Advanced topics and applied case studies
+
+7.  Reproducible reporting using Quarto
+
+Each chapter builds on previous knowledge, ensuring continuity and conceptual clarity.
+
+------------------------------------------------------------------------
+
+## Reproducible Data Analysis with Quarto
+
+A defining feature of this course is the emphasis on **reproducible research**. All analyses in this book are written using Quarto, allowing:
+
+-   Code and results to coexist in one document
+
+-   Automatic generation of tables and figures
+
+-   Easy export to PDF, HTML, and Word formats
+
+This practice encourages transparency, accuracy, and professional documentation—skills essential for academic research and industry projects alike.
+
+------------------------------------------------------------------------
+
+## Learning Outcomes
+
+By the end of this course, students will be able to:
+
+-   Use R confidently for data analysis tasks
+
+-   Understand and manipulate different data structures
+
+-   Perform exploratory and inferential statistical analysis
+
+-   Visualize data effectively
+
+-   Write reproducible and well-documented analysis reports
+
+-   Apply R to real-world datasets and research problems
+
+------------------------------------------------------------------------
+
+## How to Use This Book
+
+To get the most out of this book:
+
+-   Read the explanations carefully and run the code yourself
+
+-   Modify examples and observe how results change
+
+-   Practice regularly using the exercises provided
+
+-   Focus on understanding workflows rather than isolated commands
+
+Active engagement is essential for mastering data analysis with R.
+
+------------------------------------------------------------------------
+
+## Concluding Remarks
+
+*R for Data Analysis: From Fundamentals to Advanced Applications* is more than a programming guide—it is an introduction to **modern statistical practice**. Through this course, students will develop the skills needed to analyze data rigorously, think statistically, and communicate findings effectively using R.
+
+The chapters that follow begin with the basics of R and RStudio, laying the foundation for advanced analytical techniques explored later in the book.
