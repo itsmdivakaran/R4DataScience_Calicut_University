@@ -36,9 +36,8 @@ To render this book or run the code locally, you should have the following insta
 * **Quarto CLI**
 * **Required R Packages:** `tidyverse`, `rmarkdown`, `knitr`
 
-🏛 Affiliation
-Department of Statistics University of Calicut
+## 🏛 Affiliation
 
-Kerala, India
+* Department of Statistics University of Calicut, Kerala, India
 
-Maintained by Mahesh Divakaran.
+#### Maintained by Mahesh Divakaran.
